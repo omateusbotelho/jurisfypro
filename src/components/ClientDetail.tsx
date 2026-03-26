@@ -185,6 +185,7 @@ interface ClientDetailProps {
 }
 
 export function ClientDetail({ client }: ClientDetailProps) {
+  const [showFicha, setShowFicha] = useState(false);
   const status = statusConfig[client.status];
   const StatusIcon = status.icon;
 
@@ -252,12 +253,15 @@ export function ClientDetail({ client }: ClientDetailProps) {
             </div>
             <div className="space-y-2">
               {files.map((file) => (
-                <FileCard key={file.id} file={file} />
+                <FileCard key={file.id} file={file} onDocClick={() => setShowFicha(true)} />
               ))}
             </div>
           </div>
         );
       })}
+
+      {/* Ficha Modal */}
+      {showFicha && <FichaModal client={client} onClose={() => setShowFicha(false)} />}
     </div>
   );
 }
