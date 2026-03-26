@@ -49,14 +49,21 @@ const baseFiles = (id: number, date: string): ClientFile[] => [
 
 export const mockClients: ClientFolder[] = [
   {
-    id: "1", clientName: "Maria da Silva Santos", cpf: "123.456.789-00",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-12",
-    phone: "(11) 98765-4321", email: "maria.silva@email.com", address: "Rua das Flores, 123 - São Paulo/SP",
+    id: "1", clientName: "Rainis Lejins", cpf: "040.529.648-70",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-10",
+    phone: "(81) 99872-3415 / (81) 99634-7821", email: "rainis.lejins@email.com", address: "Limoeiro - PE",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(1, "2026-03-19"), { id: "f1h", name: "CTPS.jpg", type: "photo", size: "1.3 MB", date: "2026-03-02", description: "Carteira de trabalho" }],
+    files: [
+      { id: "f1a", name: "Contrato de Honorários.pdf", type: "pdf", size: "312 KB", date: "2026-03-10", description: "Contrato de prestação de serviços advocatícios" },
+      { id: "f1b", name: "Procuração.pdf", type: "pdf", size: "245 KB", date: "2026-03-10", description: "Procuração ad judicia" },
+      { id: "f1c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date: "2026-03-12", description: "Áudio da reunião inicial" },
+      { id: "f1d", name: "RG - Frente.jpg", type: "photo", size: "1.4 MB", date: "2026-03-10", description: "Documento de identidade - frente" },
+      { id: "f1e", name: "RG - Verso.jpg", type: "photo", size: "1.1 MB", date: "2026-03-10", description: "Documento de identidade - verso" },
+      { id: "f1f", name: "Fachada Residência.png", type: "photo", size: "980 KB", date: "2026-03-11", description: "Foto da fachada da residência" },
+    ],
     sdrNotes: [
-      { sdrName: "Lucas Martins", date: "2026-03-12", channel: "WhatsApp", clientMood: "ansioso", summary: "Dona Maria entrou em contato pelo WhatsApp dizendo que uma vizinha indicou o escritório. Está preocupada porque completou 62 anos e não sabe se tem tempo suficiente de contribuição.", notes: ["Cliente trabalhou como doméstica por muitos anos sem registro", "Tem algumas guias de INSS pagas por conta própria", "Ficou emocionada ao falar sobre a dificuldade financeira atual", "Mora sozinha e depende de ajuda dos filhos"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
-      { sdrName: "Lucas Martins", date: "2026-03-25", channel: "Presencial", clientMood: "emotivo", summary: "Dona Maria veio ao escritório acompanhada da filha. Trouxe documentos em uma sacola plástica, bem organizados. Chorou ao contar que trabalha desde os 14 anos e nunca conseguiu se aposentar.", notes: ["Apresentou CTPS com 3 registros antigos (1985-1992)", "Tem guias de contribuição individual de 2005 a 2012", "Filha relatou que a mãe tem problemas de saúde nos joelhos", "Contrato assinado na hora, cliente saiu aliviada e esperançosa"], nextSteps: "Solicitar CNIS detalhado e verificar possibilidade de averbação do tempo rural" },
+      { sdrName: "Lucas Martins", date: "2026-03-10", channel: "WhatsApp", clientMood: "ansioso", summary: "Seu Rainis entrou em contato pelo WhatsApp após indicação de um conhecido. Tem 63 anos e está preocupado com o tempo de contribuição. Trabalhou muitos anos na área rural em Pernambuco.", notes: ["Cliente trabalhou na agricultura durante boa parte da vida", "Possui CNH e documentos pessoais em dia", "Reside em Limoeiro - PE", "Parentes forneceram contatos para acompanhamento"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
+      { sdrName: "Lucas Martins", date: "2026-03-15", channel: "Presencial", clientMood: "decidido", summary: "Seu Rainis compareceu ao escritório com todos os documentos organizados. Contrato e procuração assinados no mesmo dia. Cliente demonstrou confiança no processo.", notes: ["Apresentou RG/CNH e documentos complementares", "Contrato de honorários e procuração assinados", "Cliente bastante colaborativo e organizado", "Foto da fachada da residência registrada para comprovação"], nextSteps: "Solicitar CNIS detalhado e dar entrada no requerimento administrativo" },
     ],
   },
   {
