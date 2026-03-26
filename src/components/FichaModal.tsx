@@ -104,10 +104,6 @@ function SdrNoteCard({ note, index, total }: { note: SdrNote; index: number; tot
             </span>
           </div>
         </div>
-        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${mood.className}`}>
-          <MoodIcon className="w-3 h-3" />
-          {mood.emoji} {mood.label}
-        </div>
       </div>
 
       {/* Summary */}
