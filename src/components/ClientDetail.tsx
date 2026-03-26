@@ -257,7 +257,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
           <InfoItem icon={Phone} label="Telefone" value={client.phone} />
           <InfoItem icon={Mail} label="E-mail" value={client.email} />
           <InfoItem icon={MapPin} label="Endereço" value={client.address} />
-          <InfoItem icon={Scale} label="Nº Processo" value={client.processNumber} />
+          
           <InfoItem icon={Calendar} label="Data Contrato" value={new Date(client.createdAt).toLocaleDateString("pt-BR")} />
         </div>
       </div>

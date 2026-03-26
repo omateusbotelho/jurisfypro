@@ -29,7 +29,6 @@ export interface ClientFolder {
   email: string;
   address: string;
   benefitType: string;
-  processNumber: string;
   files: ClientFile[];
   sdrNotes: SdrNote[];
 }
