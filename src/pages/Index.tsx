@@ -1,16 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Sidebar } from "@/components/Sidebar";
+import { ClientDetail } from "@/components/ClientDetail";
+import { type ClientFolder } from "@/data/mockClients";
+import { FolderOpen } from "lucide-react";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [selectedClient, setSelectedClient] = useState<ClientFolder | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="flex min-h-screen">
+      <Sidebar
+        selectedClient={selectedClient}
+        onSelectClient={setSelectedClient}
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
+
+      <main className="flex-1 p-8 overflow-y-auto">
+        {selectedClient ? (
+          <ClientDetail client={selectedClient} />
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full text-center animate-fade-in">
+            <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+              <FolderOpen className="w-10 h-10 text-primary" />
+            </div>
+            <h2 className="text-2xl font-display font-bold text-foreground mb-2">
+              Sistema de Contratos
+            </h2>
+            <p className="text-muted-foreground max-w-md">
+              Selecione um cliente na barra lateral para visualizar seus documentos, contratos e arquivos do processo previdenciário.
+            </p>
+          </div>
+        )}
+      </main>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
