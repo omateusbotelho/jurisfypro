@@ -2,6 +2,7 @@ import { useState } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
 import { FichaModal } from "./FichaModal";
 import { UploadModal } from "./UploadModal";
+import { FilePreviewModal } from "./FilePreviewModal";
 import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
@@ -97,19 +98,26 @@ function AudioPlayer({ file, onDelete }: { file: ClientFile; onDelete?: () => vo
   );
 }
 
-function FileCard({ file, onDocClick, onDelete }: { file: ClientFile; onDocClick?: () => void; onDelete?: () => void }) {
+function FileCard({ file, onDocClick, onDelete, onPreview }: { file: ClientFile; onDocClick?: () => void; onDelete?: () => void; onPreview?: () => void }) {
   if (file.type === "audio") return <AudioPlayer file={file} onDelete={onDelete} />;
   const Icon = fileIcons[file.type] || FileText;
   const colorClass = fileColors[file.type] || "bg-muted text-muted-foreground";
   const isDoc = file.type === "doc";
+  const hasPreview = !!file.fileSrc && (file.type === "photo" || file.type === "pdf" || file.type === "contract");
+
+  const handleClick = () => {
+    if (isDoc && onDocClick) onDocClick();
+    else if (hasPreview && onPreview) onPreview();
+  };
 
   return (
-    <div className={`group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in ${isDoc ? "cursor-pointer" : ""}`} onClick={isDoc ? onDocClick : undefined}>
+    <div className={`group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in ${(isDoc || hasPreview) ? "cursor-pointer" : ""}`} onClick={handleClick}>
       <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass}`}><Icon className="w-5 h-5" /></div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground truncate">
           {file.name}
           {isDoc && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
+          {hasPreview && !isDoc && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
         </p>
         <p className="text-xs text-muted-foreground truncate">{file.description}</p>
         <div className="flex items-center gap-3 mt-1">
@@ -119,8 +127,12 @@ function FileCard({ file, onDocClick, onDelete }: { file: ClientFile; onDocClick
         </div>
       </div>
       <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Visualizar"><Eye className="w-4 h-4 text-muted-foreground" /></button>
-        <button className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Download"><Download className="w-4 h-4 text-muted-foreground" /></button>
+        {hasPreview && (
+          <button onClick={(e) => { e.stopPropagation(); onPreview?.(); }} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Visualizar"><Eye className="w-4 h-4 text-muted-foreground" /></button>
+        )}
+        {file.fileSrc && (
+          <a href={file.fileSrc} download={file.name} onClick={(e) => e.stopPropagation()} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Download"><Download className="w-4 h-4 text-muted-foreground" /></a>
+        )}
         {onDelete && (
           <button onClick={(e) => { e.stopPropagation(); onDelete(); }} className="p-1.5 rounded-md hover:bg-destructive/10 transition-colors" title="Excluir">
             <Trash2 className="w-4 h-4 text-destructive" />
@@ -173,6 +185,7 @@ interface ClientDetailProps {
 export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterChange }: ClientDetailProps) {
   const [showFicha, setShowFicha] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
+  const [previewFile, setPreviewFile] = useState<ClientFile | null>(null);
   const { files: uploadedFiles, uploading, uploadFile, deleteFile } = useClientFiles(client.id);
   const status = statusConfig[client.status];
   const StatusIcon = status.icon;
@@ -337,6 +350,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
                   file={file}
                   onDocClick={() => setShowFicha(true)}
                   onDelete={() => handleDeleteMockFile(file.id)}
+                  onPreview={() => setPreviewFile(file)}
                 />
               ))}
             </div>
@@ -347,6 +361,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
       {/* Modals */}
       {showFicha && <FichaModal client={client} onClose={() => setShowFicha(false)} />}
       {showUpload && <UploadModal onUpload={uploadFile} onClose={() => setShowUpload(false)} uploading={uploading} />}
+      {previewFile && <FilePreviewModal file={previewFile} onClose={() => setPreviewFile(null)} />}
     </div>
   );
 }
