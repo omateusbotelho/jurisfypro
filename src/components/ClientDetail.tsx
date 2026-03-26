@@ -140,19 +140,26 @@ function AudioPlayer({ file }: { file: ClientFile }) {
   );
 }
 
-function FileCard({ file }: { file: ClientFile }) {
+function FileCard({ file, onDocClick }: { file: ClientFile; onDocClick?: () => void }) {
   if (file.type === "audio") return <AudioPlayer file={file} />;
 
   const Icon = fileIcons[file.type] || FileText;
   const colorClass = fileColors[file.type] || "bg-muted text-muted-foreground";
+  const isDoc = file.type === "doc";
 
   return (
-    <div className="group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in">
+    <div
+      className={`group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in ${isDoc ? "cursor-pointer" : ""}`}
+      onClick={isDoc ? onDocClick : undefined}
+    >
       <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass}`}>
         <Icon className="w-5 h-5" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
+        <p className="text-sm font-medium text-foreground truncate">
+          {file.name}
+          {isDoc && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
+        </p>
         <p className="text-xs text-muted-foreground truncate">{file.description}</p>
         <div className="flex items-center gap-3 mt-1">
           <span className="text-xs text-muted-foreground">{file.size}</span>
