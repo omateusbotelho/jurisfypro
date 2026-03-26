@@ -35,14 +35,31 @@ const statusConfig: Record<string, { label: string; className: string; icon: typ
   aguardando: { label: "Aguardando", className: "bg-warning/10 text-warning", icon: AlertCircle },
 };
 
+function formatTime(seconds: number) {
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
 function AudioPlayer({ file }: { file: ClientFile }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const src = file.audioSrc || "/audio/silent.wav";
+
   const [audioRef] = useState(() => {
-    const audio = new Audio("/audio/silent.wav");
-    audio.addEventListener("ended", () => { setIsPlaying(false); setProgress(0); });
+    const audio = new Audio(src);
+    audio.addEventListener("ended", () => { setIsPlaying(false); setProgress(0); setCurrentTime(0); });
     audio.addEventListener("timeupdate", () => {
-      if (audio.duration) setProgress((audio.currentTime / audio.duration) * 100);
+      if (audio.duration) {
+        setProgress((audio.currentTime / audio.duration) * 100);
+        setCurrentTime(audio.currentTime);
+      }
+    });
+    audio.addEventListener("loadedmetadata", () => {
+      setDuration(audio.duration);
     });
     return audio;
   });
@@ -54,6 +71,14 @@ function AudioPlayer({ file }: { file: ClientFile }) {
     } else {
       audioRef.play();
       setIsPlaying(true);
+    }
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    if (audioRef.duration) {
+      audioRef.currentTime = pct * audioRef.duration;
     }
   };
 
@@ -74,24 +99,30 @@ function AudioPlayer({ file }: { file: ClientFile }) {
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
         {isPlaying ? (
-          <div className="flex items-center gap-2 mt-1.5">
-            <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-info rounded-full transition-all duration-200"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="flex gap-[2px] items-end h-4">
-              {[1, 2, 3, 4, 5].map((i) => (
+          <div className="space-y-1 mt-1">
+            <div className="flex items-center gap-2">
+              <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden cursor-pointer" onClick={handleSeek}>
                 <div
-                  key={i}
-                  className="w-[3px] bg-info rounded-full"
-                  style={{
-                    animation: `audioBar 0.8s ease-in-out ${i * 0.1}s infinite alternate`,
-                    height: '40%',
-                  }}
+                  className="h-full bg-info rounded-full transition-all duration-200"
+                  style={{ width: `${progress}%` }}
                 />
-              ))}
+              </div>
+              <div className="flex gap-[2px] items-end h-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    key={i}
+                    className="w-[3px] bg-info rounded-full"
+                    style={{
+                      animation: `audioBar 0.8s ease-in-out ${i * 0.1}s infinite alternate`,
+                      height: '40%',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-between text-[10px] text-muted-foreground">
+              <span>{formatTime(currentTime)}</span>
+              <span>{duration > 0 ? formatTime(duration) : "--:--"}</span>
             </div>
           </div>
         ) : (
