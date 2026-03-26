@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
 import {
-  FileText, Music, Image, File, FileSignature, Download, Eye, Calendar,
+  FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
   Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle
 } from "lucide-react";
 
