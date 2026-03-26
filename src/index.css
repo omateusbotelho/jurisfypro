@@ -32,13 +32,13 @@
 
     --border: 220 15% 90%;
     --input: 220 15% 90%;
-    --ring: 262 83% 55%;
+    --ring: 270 60% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-bg: 262 30% 12%;
-    --sidebar-fg: 260 15% 85%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-bg: 270 20% 14%;
+    --sidebar-fg: 270 10% 85%;
+    --sidebar-primary: 270 60% 55%;
     --sidebar-muted: 230 20% 22%;
     --sidebar-border: 230 20% 18%;
 
