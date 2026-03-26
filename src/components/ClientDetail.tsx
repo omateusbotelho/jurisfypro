@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
 import { FichaModal } from "./FichaModal";
+import { UploadModal } from "./UploadModal";
+import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
-  Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle
+  Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle, Upload, Trash2, ExternalLink
 } from "lucide-react";
 
 const fileIcons: Record<string, typeof FileText> = {
@@ -40,6 +42,12 @@ function formatTime(seconds: number) {
   const m = Math.floor(seconds / 60);
   const s = Math.floor(seconds % 60);
   return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function formatFileSize(bytes: number) {
+  if (bytes < 1024) return bytes + " B";
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
 }
 
 function AudioPlayer({ file }: { file: ClientFile }) {
@@ -180,12 +188,49 @@ function FileCard({ file, onDocClick }: { file: ClientFile; onDocClick?: () => v
   );
 }
 
+function UploadedFileCard({ file, onDelete }: { file: UploadedFile; onDelete: () => void }) {
+  const Icon = fileIcons[file.file_type] || FileText;
+  const colorClass = fileColors[file.file_type] || "bg-muted text-muted-foreground";
+
+  return (
+    <div className="group flex items-center gap-3 p-3 rounded-lg border border-primary/20 bg-primary/5 hover:shadow-md transition-all animate-fade-in">
+      <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass}`}>
+        <Icon className="w-5 h-5" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-foreground truncate">
+          {file.file_name}
+          <span className="ml-2 text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">Enviado</span>
+        </p>
+        <p className="text-xs text-muted-foreground truncate">{file.description || "Sem descrição"}</p>
+        <div className="flex items-center gap-3 mt-1">
+          <span className="text-xs text-muted-foreground">{formatFileSize(file.file_size)}</span>
+          <span className="text-xs text-muted-foreground">{new Date(file.created_at).toLocaleDateString("pt-BR")}</span>
+          <span className={`text-xs px-1.5 py-0.5 rounded ${colorClass}`}>{fileTypeLabels[file.file_type] || file.file_type}</span>
+        </div>
+      </div>
+      <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+        {file.url && (
+          <a href={file.url} target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Abrir">
+            <ExternalLink className="w-4 h-4 text-muted-foreground" />
+          </a>
+        )}
+        <button onClick={onDelete} className="p-1.5 rounded-md hover:bg-destructive/10 transition-colors" title="Excluir">
+          <Trash2 className="w-4 h-4 text-destructive" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 interface ClientDetailProps {
   client: ClientFolder;
 }
 
 export function ClientDetail({ client }: ClientDetailProps) {
   const [showFicha, setShowFicha] = useState(false);
+  const [showUpload, setShowUpload] = useState(false);
+  const { files: uploadedFiles, uploading, uploadFile, deleteFile } = useClientFiles(client.id);
   const status = statusConfig[client.status];
   const StatusIcon = status.icon;
 
@@ -197,6 +242,15 @@ export function ClientDetail({ client }: ClientDetailProps) {
     audio: client.files.filter((f) => f.type === "audio"),
   };
 
+  // Group uploaded files by type
+  const groupedUploaded: Record<string, UploadedFile[]> = {};
+  uploadedFiles.forEach((f) => {
+    if (!groupedUploaded[f.file_type]) groupedUploaded[f.file_type] = [];
+    groupedUploaded[f.file_type].push(f);
+  });
+
+  const totalUploaded = uploadedFiles.length;
+
   return (
     <div className="animate-fade-in">
       {/* Header */}
@@ -206,9 +260,18 @@ export function ClientDetail({ client }: ClientDetailProps) {
             <h1 className="text-2xl font-display font-bold text-foreground">{client.clientName}</h1>
             <p className="text-muted-foreground mt-1">{client.contractType}</p>
           </div>
-          <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${status.className}`}>
-            <StatusIcon className="w-4 h-4" />
-            {status.label}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setShowUpload(true)}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+            >
+              <Upload className="w-4 h-4" />
+              Enviar Arquivo
+            </button>
+            <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${status.className}`}>
+              <StatusIcon className="w-4 h-4" />
+              {status.label}
+            </div>
           </div>
         </div>
 
@@ -227,19 +290,46 @@ export function ClientDetail({ client }: ClientDetailProps) {
         {Object.entries(groupedFiles).map(([type, files]) => {
           const Icon = fileIcons[type];
           const colorClass = fileColors[type];
+          const uploadedCount = groupedUploaded[type]?.length || 0;
           return (
             <div key={type} className="bg-card rounded-xl border border-border p-4 text-center">
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center mx-auto mb-2 ${colorClass}`}>
                 <Icon className="w-4 h-4" />
               </div>
-              <p className="text-lg font-bold text-foreground">{files.length}</p>
+              <p className="text-lg font-bold text-foreground">
+                {files.length + uploadedCount}
+              </p>
               <p className="text-xs text-muted-foreground">{fileTypeLabels[type]}</p>
+              {uploadedCount > 0 && (
+                <p className="text-[10px] text-primary mt-0.5">+{uploadedCount} enviados</p>
+              )}
             </div>
           );
         })}
       </div>
 
-      {/* Files */}
+      {/* Uploaded Files Section */}
+      {totalUploaded > 0 && (
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <Upload className="w-4 h-4 text-primary" />
+            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              Arquivos Enviados ({totalUploaded})
+            </h3>
+          </div>
+          <div className="space-y-2">
+            {uploadedFiles.map((file) => (
+              <UploadedFileCard
+                key={file.id}
+                file={file}
+                onDelete={() => deleteFile(file.id, file.file_path)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Mock Files */}
       {Object.entries(groupedFiles).map(([type, files]) => {
         if (files.length === 0) return null;
         const Icon = fileIcons[type];
@@ -260,8 +350,15 @@ export function ClientDetail({ client }: ClientDetailProps) {
         );
       })}
 
-      {/* Ficha Modal */}
+      {/* Modals */}
       {showFicha && <FichaModal client={client} onClose={() => setShowFicha(false)} />}
+      {showUpload && (
+        <UploadModal
+          onUpload={uploadFile}
+          onClose={() => setShowUpload(false)}
+          uploading={uploading}
+        />
+      )}
     </div>
   );
 }
