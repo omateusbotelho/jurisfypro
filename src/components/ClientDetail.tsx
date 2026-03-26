@@ -185,6 +185,7 @@ interface ClientDetailProps {
 export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterChange }: ClientDetailProps) {
   const [showFicha, setShowFicha] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
+  const [previewFile, setPreviewFile] = useState<ClientFile | null>(null);
   const { files: uploadedFiles, uploading, uploadFile, deleteFile } = useClientFiles(client.id);
   const status = statusConfig[client.status];
   const StatusIcon = status.icon;
