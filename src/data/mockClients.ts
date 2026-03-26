@@ -115,9 +115,9 @@ export const mockClients: ClientFolder[] = [
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-25",
     phone: "(11) 94444-5555", email: "lucia.rodrigues@email.com", address: "Rua Oscar Freire, 890 - São Paulo/SP",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(7, "2023-11-05"), { id: "f7h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2023-11-06", description: "Cadastro Nacional de Informações Sociais" }],
+    files: [...baseFiles(7, "2026-11-05"), { id: "f7h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-11-06", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
-      { sdrName: "Lucas Martins", date: "2023-11-04", channel: "Indicação", clientMood: "tranquilo", summary: "Dona Lúcia foi indicada pela cliente Maria Santos. Chegou tranquila e organizada com todos os documentos em uma pasta. Tem 63 anos e contribuiu certinho a vida toda como professora da rede municipal.", notes: ["30 anos como professora municipal", "Documentação toda em dia e organizada", "Quer se aposentar para cuidar dos netos", "Muito simpática, trouxe bolo para o escritório"], nextSteps: "Análise rápida do CNIS e protocolar requerimento - caso simples e bem documentado" },
+      { sdrName: "Lucas Martins", date: "2026-11-04", channel: "Indicação", clientMood: "tranquilo", summary: "Dona Lúcia foi indicada pela cliente Maria Santos. Chegou tranquila e organizada com todos os documentos em uma pasta. Tem 63 anos e contribuiu certinho a vida toda como professora da rede municipal.", notes: ["30 anos como professora municipal", "Documentação toda em dia e organizada", "Quer se aposentar para cuidar dos netos", "Muito simpática, trouxe bolo para o escritório"], nextSteps: "Análise rápida do CNIS e protocolar requerimento - caso simples e bem documentado" },
     ],
   },
   {
@@ -195,9 +195,9 @@ export const mockClients: ClientFolder[] = [
     contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-03-26",
     phone: "(11) 94321-8765", email: "teresa.moura@email.com", address: "Rua Maria Antônia, 300 - São Paulo/SP",
     benefitType: "Benefício de Prestação Continuada",
-    files: [...baseFiles(15, "2023-10-18"), { id: "f15h", name: "Decisão INSS.pdf", type: "pdf", size: "780 KB", date: "2026-01-15", description: "Decisão administrativa - Deferido" }],
+    files: [...baseFiles(15, "2026-10-18"), { id: "f15h", name: "Decisão INSS.pdf", type: "pdf", size: "780 KB", date: "2026-01-15", description: "Decisão administrativa - Deferido" }],
     sdrNotes: [
-      { sdrName: "Beatriz Lima", date: "2023-10-16", channel: "Presencial", clientMood: "emotivo", summary: "Dona Teresa veio ao escritório sem agendar, caminhando com dificuldade por causa da artrose nos joelhos. Tem 67 anos, nunca contribuiu e vive com a aposentadoria mínima do marido que mal dá pra pagar as contas. Ouviu no rádio que idoso de baixa renda tem direito.", notes: ["Artrose severa nos dois joelhos, usa bengala", "Marido recebe um salário mínimo de aposentadoria", "Moram em casa alugada no valor de R$600", "Nunca trabalhou formalmente", "Muito humilde e educada, pediu desculpa por vir sem agendar"], nextSteps: "Caso clássico de BPC idoso, montar processo com urgência dado a situação de vulnerabilidade" },
+      { sdrName: "Beatriz Lima", date: "2026-10-16", channel: "Presencial", clientMood: "emotivo", summary: "Dona Teresa veio ao escritório sem agendar, caminhando com dificuldade por causa da artrose nos joelhos. Tem 67 anos, nunca contribuiu e vive com a aposentadoria mínima do marido que mal dá pra pagar as contas. Ouviu no rádio que idoso de baixa renda tem direito.", notes: ["Artrose severa nos dois joelhos, usa bengala", "Marido recebe um salário mínimo de aposentadoria", "Moram em casa alugada no valor de R$600", "Nunca trabalhou formalmente", "Muito humilde e educada, pediu desculpa por vir sem agendar"], nextSteps: "Caso clássico de BPC idoso, montar processo com urgência dado a situação de vulnerabilidade" },
     ],
   },
   {
@@ -225,9 +225,9 @@ export const mockClients: ClientFolder[] = [
     contractType: "Aposentadoria Especial", status: "concluido", createdAt: "2026-03-26",
     phone: "(11) 95432-1098", email: "sebastiao.campos@email.com", address: "Rua Brigadeiro, 890 - São Bernardo/SP",
     benefitType: "Aposentadoria Especial",
-    files: [...baseFiles(18, "2023-09-01"), { id: "f18h", name: "LTCAT.pdf", type: "pdf", size: "560 KB", date: "2023-09-03", description: "Laudo Técnico de Condições Ambientais" }],
+    files: [...baseFiles(18, "2026-09-01"), { id: "f18h", name: "LTCAT.pdf", type: "pdf", size: "560 KB", date: "2026-09-03", description: "Laudo Técnico de Condições Ambientais" }],
     sdrNotes: [
-      { sdrName: "Beatriz Lima", date: "2023-08-30", channel: "Indicação", clientMood: "tranquilo", summary: "Seu Sebastião veio indicado pelo sindicato dos metalúrgicos. Trabalha há 25 anos como soldador e está exposto a ruído acima de 85dB e fumos metálicos. Sindicato já orientou que tem direito à especial.", notes: ["25 anos como soldador em indústria automobilística", "PPP e LTCAT da empresa comprovam insalubridade", "Exposição a ruído + agentes químicos", "Sindicato acompanha o caso", "Muito tranquilo e bem orientado pelo sindicato"], nextSteps: "Caso bem documentado, preparar requerimento com PPP, LTCAT e documentação do sindicato" },
+      { sdrName: "Beatriz Lima", date: "2026-08-30", channel: "Indicação", clientMood: "tranquilo", summary: "Seu Sebastião veio indicado pelo sindicato dos metalúrgicos. Trabalha há 25 anos como soldador e está exposto a ruído acima de 85dB e fumos metálicos. Sindicato já orientou que tem direito à especial.", notes: ["25 anos como soldador em indústria automobilística", "PPP e LTCAT da empresa comprovam insalubridade", "Exposição a ruído + agentes químicos", "Sindicato acompanha o caso", "Muito tranquilo e bem orientado pelo sindicato"], nextSteps: "Caso bem documentado, preparar requerimento com PPP, LTCAT e documentação do sindicato" },
     ],
   },
   {
