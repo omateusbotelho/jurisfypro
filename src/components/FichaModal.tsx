@@ -67,8 +67,8 @@ export function FichaModal({ client, onClose }: FichaModalProps) {
 
         {/* Content */}
         <div className="overflow-y-auto max-h-[calc(85vh-140px)] p-6 space-y-6">
-          {client.sdrNotes.map((note, idx) => (
-            <SdrNoteCard key={idx} note={note} index={idx} total={client.sdrNotes.length} />
+          {(client.sdrNotes || []).map((note, idx) => (
+            <SdrNoteCard key={idx} note={note} index={idx} total={(client.sdrNotes || []).length} />
           ))}
         </div>
       </div>
