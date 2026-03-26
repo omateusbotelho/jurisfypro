@@ -350,6 +350,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
                   file={file}
                   onDocClick={() => setShowFicha(true)}
                   onDelete={() => handleDeleteMockFile(file.id)}
+                  onPreview={() => setPreviewFile(file)}
                 />
               ))}
             </div>
@@ -360,6 +361,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
       {/* Modals */}
       {showFicha && <FichaModal client={client} onClose={() => setShowFicha(false)} />}
       {showUpload && <UploadModal onUpload={uploadFile} onClose={() => setShowUpload(false)} uploading={uploading} />}
+      {previewFile && <FilePreviewModal file={previewFile} onClose={() => setPreviewFile(null)} />}
     </div>
   );
 }
