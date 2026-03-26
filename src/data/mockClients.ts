@@ -5,6 +5,7 @@ export interface ClientFile {
   size: string;
   date: string;
   description: string;
+  audioSrc?: string;
 }
 
 export interface ClientFolder {
