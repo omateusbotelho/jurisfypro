@@ -37,9 +37,13 @@ const statusConfig: Record<string, { label: string; className: string; icon: typ
 
 function AudioPlayer({ file }: { file: ClientFile }) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [audioRef] = useState(() => {
     const audio = new Audio("/audio/silent.wav");
-    audio.addEventListener("ended", () => setIsPlaying(false));
+    audio.addEventListener("ended", () => { setIsPlaying(false); setProgress(0); });
+    audio.addEventListener("timeupdate", () => {
+      if (audio.duration) setProgress((audio.currentTime / audio.duration) * 100);
+    });
     return audio;
   });
 
@@ -54,23 +58,53 @@ function AudioPlayer({ file }: { file: ClientFile }) {
   };
 
   return (
-    <div className="group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in">
+    <div className={`group flex items-center gap-3 p-3 rounded-lg border bg-card transition-all animate-fade-in ${
+      isPlaying ? "border-info/40 shadow-md shadow-info/10" : "border-border hover:shadow-md hover:border-primary/20"
+    }`}>
       <button
         onClick={togglePlay}
-        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 bg-info/10 text-info hover:bg-info/20 transition-colors cursor-pointer"
+        className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 cursor-pointer ${
+          isPlaying
+            ? "bg-info text-info-foreground scale-110 shadow-lg shadow-info/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]"
+            : "bg-info/10 text-info hover:bg-info/20 hover:scale-105"
+        }`}
       >
-        {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+        {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
       </button>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
-        <p className="text-xs text-muted-foreground truncate">{file.description}</p>
-        <div className="flex items-center gap-3 mt-1">
-          <span className="text-xs text-muted-foreground">{file.size}</span>
-          <span className="text-xs text-muted-foreground">{new Date(file.date).toLocaleDateString("pt-BR")}</span>
-          <span className="text-xs px-1.5 py-0.5 rounded bg-info/10 text-info">{fileTypeLabels[file.type]}</span>
-        </div>
+        {isPlaying ? (
+          <div className="flex items-center gap-2 mt-1.5">
+            <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full bg-info rounded-full transition-all duration-200"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <div className="flex gap-[2px] items-end h-4">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div
+                  key={i}
+                  className="w-[3px] bg-info rounded-full"
+                  style={{
+                    animation: `audioBar 0.8s ease-in-out ${i * 0.1}s infinite alternate`,
+                    height: '40%',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className="text-xs text-muted-foreground truncate">{file.description}</p>
+            <div className="flex items-center gap-3 mt-1">
+              <span className="text-xs text-muted-foreground">{file.size}</span>
+              <span className="text-xs text-muted-foreground">{new Date(file.date).toLocaleDateString("pt-BR")}</span>
+              <span className="text-xs px-1.5 py-0.5 rounded bg-info/10 text-info">{fileTypeLabels[file.type]}</span>
+            </div>
+          </>
+        )}
       </div>
-      <audio src="/audio/silent.wav" />
     </div>
   );
 }
