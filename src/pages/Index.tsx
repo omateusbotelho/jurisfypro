@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { ClientDetail } from "@/components/ClientDetail";
+import { LoginPage } from "@/components/LoginPage";
+import { useAuth } from "@/hooks/useAuth";
 import { type ClientFolder } from "@/data/mockClients";
-import { FolderOpen } from "lucide-react";
+import { FolderOpen, Loader2 } from "lucide-react";
 
 const Index = () => {
+  const { session, loading, signOut } = useAuth();
   const [selectedClient, setSelectedClient] = useState<ClientFolder | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-sidebar-bg">
+        <Loader2 className="w-8 h-8 text-primary animate-spin" />
+      </div>
+    );
+  }
+
+  if (!session) {
+    return <LoginPage />;
+  }
 
   return (
     <div className="flex min-h-screen">
@@ -15,6 +30,8 @@ const Index = () => {
         onSelectClient={setSelectedClient}
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
+        onSignOut={signOut}
+        userEmail={session.user.email}
       />
 
       <main className="flex-1 p-8 overflow-y-auto">
