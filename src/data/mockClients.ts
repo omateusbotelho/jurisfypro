@@ -8,6 +8,16 @@ export interface ClientFile {
   audioSrc?: string;
 }
 
+export interface SdrNote {
+  sdrName: string;
+  date: string;
+  channel: string;
+  summary: string;
+  clientMood: 'ansioso' | 'tranquilo' | 'urgente' | 'emotivo' | 'decidido' | 'inseguro';
+  notes: string[];
+  nextSteps: string;
+}
+
 export interface ClientFolder {
   id: string;
   clientName: string;
@@ -21,6 +31,7 @@ export interface ClientFolder {
   benefitType: string;
   processNumber: string;
   files: ClientFile[];
+  sdrNotes: SdrNote[];
 }
 
 const baseFiles = (id: number, date: string): ClientFile[] => [
