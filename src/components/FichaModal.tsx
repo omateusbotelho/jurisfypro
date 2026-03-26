@@ -60,8 +60,6 @@ export function FichaModal({ client, onClose }: FichaModalProps) {
             <span>CPF: {client.cpf}</span>
             <span>•</span>
             <span>{client.contractType}</span>
-            <span>•</span>
-            <span>Processo: {client.processNumber}</span>
           </div>
         </div>
 
