@@ -42,8 +42,8 @@ const baseFiles = (id: number, date: string): ClientFile[] => [
   { id: `f${id}a`, name: "Contrato de Honorários.pdf", type: "pdf", size: pdfSizes[id % pdfSizes.length], date, description: "Contrato de prestação de serviços advocatícios" },
   { id: `f${id}b`, name: "Contrato Assinado.pdf", type: "contract", size: pdfSizes[(id + 3) % pdfSizes.length], date, description: "Contrato assinado digitalmente" },
   { id: `f${id}c`, name: "Gravação Atendimento.mp3", type: "audio", size: audioSizes[id % audioSizes.length], date, description: "Áudio da reunião inicial", audioSrc: `/audio/silent_${id}.wav` },
-  { id: `f${id}d`, name: "RG - Frente.jpg", type: "photo", size: photoSizes[id % photoSizes.length], date, description: "Documento de identidade - frente" },
-  { id: `f${id}e`, name: "RG - Verso.jpg", type: "photo", size: photoSizes[(id + 5) % photoSizes.length], date, description: "Documento de identidade - verso" },
+  { id: `f${id}d`, name: "Documento - Frente.jpg", type: "photo", size: photoSizes[id % photoSizes.length], date, description: "Documento de identidade - frente" },
+  { id: `f${id}e`, name: "Documento - Verso.jpg", type: "photo", size: photoSizes[(id + 5) % photoSizes.length], date, description: "Documento de identidade - verso" },
   { id: `f${id}f`, name: "Ficha do Cliente.docx", type: "doc", size: ["89 KB", "102 KB", "76 KB", "95 KB", "112 KB"][id % 5], date, description: "Informações cadastrais completas" },
   { id: `f${id}g`, name: "Procuração.pdf", type: "pdf", size: pdfSizes[(id + 7) % pdfSizes.length], date, description: "Procuração ad judicia" },
 ];
