@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
+import { FichaModal } from "./FichaModal";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
   Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle
@@ -140,19 +141,26 @@ function AudioPlayer({ file }: { file: ClientFile }) {
   );
 }
 
-function FileCard({ file }: { file: ClientFile }) {
+function FileCard({ file, onDocClick }: { file: ClientFile; onDocClick?: () => void }) {
   if (file.type === "audio") return <AudioPlayer file={file} />;
 
   const Icon = fileIcons[file.type] || FileText;
   const colorClass = fileColors[file.type] || "bg-muted text-muted-foreground";
+  const isDoc = file.type === "doc";
 
   return (
-    <div className="group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in">
+    <div
+      className={`group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in ${isDoc ? "cursor-pointer" : ""}`}
+      onClick={isDoc ? onDocClick : undefined}
+    >
       <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass}`}>
         <Icon className="w-5 h-5" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
+        <p className="text-sm font-medium text-foreground truncate">
+          {file.name}
+          {isDoc && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
+        </p>
         <p className="text-xs text-muted-foreground truncate">{file.description}</p>
         <div className="flex items-center gap-3 mt-1">
           <span className="text-xs text-muted-foreground">{file.size}</span>
@@ -177,6 +185,7 @@ interface ClientDetailProps {
 }
 
 export function ClientDetail({ client }: ClientDetailProps) {
+  const [showFicha, setShowFicha] = useState(false);
   const status = statusConfig[client.status];
   const StatusIcon = status.icon;
 
@@ -244,12 +253,15 @@ export function ClientDetail({ client }: ClientDetailProps) {
             </div>
             <div className="space-y-2">
               {files.map((file) => (
-                <FileCard key={file.id} file={file} />
+                <FileCard key={file.id} file={file} onDocClick={() => setShowFicha(true)} />
               ))}
             </div>
           </div>
         );
       })}
+
+      {/* Ficha Modal */}
+      {showFicha && <FichaModal client={client} onClose={() => setShowFicha(false)} />}
     </div>
   );
 }
