@@ -8,6 +8,8 @@ interface SidebarProps {
   onSelectClient: (client: ClientFolder) => void;
   searchTerm: string;
   onSearchChange: (term: string) => void;
+  onSignOut?: () => void;
+  userEmail?: string;
 }
 
 const statusLabels: Record<string, string> = {
