@@ -42,8 +42,8 @@ const baseFiles = (id: number, date: string): ClientFile[] => [
   { id: `f${id}a`, name: "Contrato de Honorários.pdf", type: "pdf", size: pdfSizes[id % pdfSizes.length], date, description: "Contrato de prestação de serviços advocatícios" },
   { id: `f${id}b`, name: "Contrato Assinado.pdf", type: "contract", size: pdfSizes[(id + 3) % pdfSizes.length], date, description: "Contrato assinado digitalmente" },
   { id: `f${id}c`, name: "Gravação Atendimento.mp3", type: "audio", size: audioSizes[id % audioSizes.length], date, description: "Áudio da reunião inicial", audioSrc: `/audio/silent_${id}.wav` },
-  { id: `f${id}d`, name: "RG - Frente.jpg", type: "photo", size: photoSizes[id % photoSizes.length], date, description: "Documento de identidade - frente" },
-  { id: `f${id}e`, name: "RG - Verso.jpg", type: "photo", size: photoSizes[(id + 5) % photoSizes.length], date, description: "Documento de identidade - verso" },
+  { id: `f${id}d`, name: "Documento - Frente.jpg", type: "photo", size: photoSizes[id % photoSizes.length], date, description: "Documento de identidade - frente" },
+  { id: `f${id}e`, name: "Documento - Verso.jpg", type: "photo", size: photoSizes[(id + 5) % photoSizes.length], date, description: "Documento de identidade - verso" },
   { id: `f${id}f`, name: "Ficha do Cliente.docx", type: "doc", size: ["89 KB", "102 KB", "76 KB", "95 KB", "112 KB"][id % 5], date, description: "Informações cadastrais completas" },
   { id: `f${id}g`, name: "Procuração.pdf", type: "pdf", size: pdfSizes[(id + 7) % pdfSizes.length], date, description: "Procuração ad judicia" },
 ];
@@ -58,9 +58,10 @@ export const mockClients: ClientFolder[] = [
       { id: "f1a", name: "Contrato de Honorários.pdf", type: "pdf", size: "312 KB", date: "2026-03-10", description: "Contrato de prestação de serviços advocatícios", fileSrc: "/clients/rainis/contrato_honorarios.pdf" },
       { id: "f1b", name: "Procuração.pdf", type: "pdf", size: "245 KB", date: "2026-03-10", description: "Procuração ad judicia", fileSrc: "/clients/rainis/procuracao.pdf" },
       { id: "f1c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date: "2026-03-12", description: "Áudio da reunião inicial" },
-      { id: "f1d", name: "RG - Frente.jpg", type: "photo", size: "1.4 MB", date: "2026-03-10", description: "Documento de identidade - frente", fileSrc: "/clients/rainis/rg_frente.jpg" },
-      { id: "f1e", name: "RG - Verso.jpg", type: "photo", size: "1.1 MB", date: "2026-03-10", description: "Documento de identidade - verso", fileSrc: "/clients/rainis/rg_verso.jpg" },
+      { id: "f1d", name: "Documento - Frente.jpg", type: "photo", size: "1.4 MB", date: "2026-03-10", description: "Documento de identidade - frente", fileSrc: "/clients/rainis/rg_frente.jpg" },
+      { id: "f1e", name: "Documento - Verso.jpg", type: "photo", size: "1.1 MB", date: "2026-03-10", description: "Documento de identidade - verso", fileSrc: "/clients/rainis/rg_verso.jpg" },
       { id: "f1f", name: "Fachada Residência.png", type: "photo", size: "980 KB", date: "2026-03-11", description: "Foto da fachada da residência", fileSrc: "/clients/rainis/fachada.png" },
+      { id: "f1g", name: "Comprovante de Endereço.png", type: "photo", size: "1.2 MB", date: "2026-03-11", description: "Comprovante de endereço", fileSrc: "/clients/rainis/fachada.png" },
     ],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-10", channel: "WhatsApp", clientMood: "ansioso", summary: "Seu Rainis entrou em contato pelo WhatsApp após indicação de um conhecido. Tem 63 anos e está preocupado com o tempo de contribuição. Trabalhou muitos anos na área rural em Pernambuco.", notes: ["Cliente trabalhou na agricultura durante boa parte da vida", "Possui CNH e documentos pessoais em dia", "Reside em Limoeiro - PE", "Parentes forneceram contatos para acompanhamento"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
