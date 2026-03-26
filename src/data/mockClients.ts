@@ -26,7 +26,7 @@ export interface ClientFolder {
 const baseFiles = (id: number, date: string): ClientFile[] => [
   { id: `f${id}a`, name: "Contrato de Honorários.pdf", type: "pdf", size: "245 KB", date, description: "Contrato de prestação de serviços advocatícios" },
   { id: `f${id}b`, name: "Contrato Assinado.pdf", type: "contract", size: "312 KB", date, description: "Contrato assinado digitalmente" },
-  { id: `f${id}c`, name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date, description: "Áudio da reunião inicial" },
+  { id: `f${id}c`, name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date, description: "Áudio da reunião inicial", audioSrc: `/audio/silent_${id}.wav` },
   { id: `f${id}d`, name: "RG - Frente.jpg", type: "photo", size: "1.1 MB", date, description: "Documento de identidade - frente" },
   { id: `f${id}e`, name: "RG - Verso.jpg", type: "photo", size: "980 KB", date, description: "Documento de identidade - verso" },
   { id: `f${id}f`, name: "Ficha do Cliente.docx", type: "doc", size: "89 KB", date, description: "Informações cadastrais completas" },
