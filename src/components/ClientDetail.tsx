@@ -2,6 +2,7 @@ import { useState } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
 import { FichaModal } from "./FichaModal";
 import { UploadModal } from "./UploadModal";
+import { FilePreviewModal } from "./FilePreviewModal";
 import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
