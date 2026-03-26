@@ -18,7 +18,7 @@ const statusLabels: Record<string, string> = {
   aguardando: "Aguardando",
 };
 
-export function Sidebar({ selectedClient, onSelectClient, searchTerm, onSearchChange }: SidebarProps) {
+export function Sidebar({ selectedClient, onSelectClient, searchTerm, onSearchChange, onSignOut, userEmail }: SidebarProps) {
   const filteredClients = mockClients.filter(
     (c) =>
       c.clientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -83,10 +83,24 @@ export function Sidebar({ selectedClient, onSelectClient, searchTerm, onSearchCh
       </div>
 
       {/* Footer */}
-      <div className="p-3 border-t border-sidebar-border">
-        <div className="flex items-center gap-2 px-3 py-2 text-sidebar-fg/50 text-xs">
-          <FileText className="w-3.5 h-3.5" />
-          Sistema Interno v1.0
+      <div className="p-3 border-t border-sidebar-border space-y-2">
+        {userEmail && (
+          <p className="px-3 text-sidebar-fg/40 text-[10px] truncate">{userEmail}</p>
+        )}
+        <div className="flex items-center justify-between px-3">
+          <span className="text-sidebar-fg/50 text-xs flex items-center gap-1.5">
+            <FileText className="w-3.5 h-3.5" />
+            Sistema v1.0
+          </span>
+          {onSignOut && (
+            <button
+              onClick={onSignOut}
+              className="flex items-center gap-1 text-xs text-sidebar-fg/50 hover:text-destructive transition-colors"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              Sair
+            </button>
+          )}
         </div>
       </div>
     </aside>
