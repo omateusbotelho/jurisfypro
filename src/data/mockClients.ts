@@ -34,14 +34,18 @@ export interface ClientFolder {
   sdrNotes: SdrNote[];
 }
 
+const audioSizes = ["2.8 MB", "3.5 MB", "4.2 MB", "5.1 MB", "6.3 MB", "3.9 MB", "7.0 MB", "4.7 MB", "5.6 MB", "2.4 MB", "3.1 MB", "6.8 MB", "4.0 MB", "5.3 MB", "3.7 MB", "7.5 MB", "2.9 MB", "4.5 MB", "6.1 MB", "3.3 MB"];
+const pdfSizes = ["210 KB", "245 KB", "278 KB", "312 KB", "189 KB", "334 KB", "256 KB", "298 KB", "225 KB", "267 KB"];
+const photoSizes = ["1.1 MB", "1.3 MB", "980 KB", "1.5 MB", "870 KB", "1.2 MB", "1.4 MB", "1.0 MB", "960 KB", "1.6 MB"];
+
 const baseFiles = (id: number, date: string): ClientFile[] => [
-  { id: `f${id}a`, name: "Contrato de Honorários.pdf", type: "pdf", size: "245 KB", date, description: "Contrato de prestação de serviços advocatícios" },
-  { id: `f${id}b`, name: "Contrato Assinado.pdf", type: "contract", size: "312 KB", date, description: "Contrato assinado digitalmente" },
-  { id: `f${id}c`, name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date, description: "Áudio da reunião inicial", audioSrc: `/audio/silent_${id}.wav` },
-  { id: `f${id}d`, name: "RG - Frente.jpg", type: "photo", size: "1.1 MB", date, description: "Documento de identidade - frente" },
-  { id: `f${id}e`, name: "RG - Verso.jpg", type: "photo", size: "980 KB", date, description: "Documento de identidade - verso" },
-  { id: `f${id}f`, name: "Ficha do Cliente.docx", type: "doc", size: "89 KB", date, description: "Informações cadastrais completas" },
-  { id: `f${id}g`, name: "Procuração.pdf", type: "pdf", size: "156 KB", date, description: "Procuração ad judicia" },
+  { id: `f${id}a`, name: "Contrato de Honorários.pdf", type: "pdf", size: pdfSizes[id % pdfSizes.length], date, description: "Contrato de prestação de serviços advocatícios" },
+  { id: `f${id}b`, name: "Contrato Assinado.pdf", type: "contract", size: pdfSizes[(id + 3) % pdfSizes.length], date, description: "Contrato assinado digitalmente" },
+  { id: `f${id}c`, name: "Gravação Atendimento.mp3", type: "audio", size: audioSizes[id % audioSizes.length], date, description: "Áudio da reunião inicial", audioSrc: `/audio/silent_${id}.wav` },
+  { id: `f${id}d`, name: "RG - Frente.jpg", type: "photo", size: photoSizes[id % photoSizes.length], date, description: "Documento de identidade - frente" },
+  { id: `f${id}e`, name: "RG - Verso.jpg", type: "photo", size: photoSizes[(id + 5) % photoSizes.length], date, description: "Documento de identidade - verso" },
+  { id: `f${id}f`, name: "Ficha do Cliente.docx", type: "doc", size: ["89 KB", "102 KB", "76 KB", "95 KB", "112 KB"][id % 5], date, description: "Informações cadastrais completas" },
+  { id: `f${id}g`, name: "Procuração.pdf", type: "pdf", size: pdfSizes[(id + 7) % pdfSizes.length], date, description: "Procuração ad judicia" },
 ];
 
 export const mockClients: ClientFolder[] = [
