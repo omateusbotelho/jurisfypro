@@ -126,13 +126,23 @@ export const mockClients: ClientFolder[] = [
     ],
   },
   {
-    id: "5", clientName: "Francisca Almeida Costa", cpf: "654.321.789-00",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-11",
-    phone: "(11) 97777-4567", email: "francisca.costa@email.com", address: "Rua Consolação, 555 - São Paulo/SP",
+    id: "5", clientName: "Maria do Rosário Pereira de Lima", cpf: "734.521.896-43",
+    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-03",
+    phone: "(35) 99823-4512 / (35) 99671-8903", email: "maria.rosario.lima@email.com", address: "Lavras - MG",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(5, "2026-03-12"), { id: "f5h", name: "Certidão de Óbito.pdf", type: "pdf", size: "520 KB", date: "2026-03-01", description: "Certidão de óbito do segurado" }],
+    files: [
+      { id: "f5a", name: "Contrato de Honorários.pdf", type: "contract", size: "405 KB", date: "2026-03-03", description: "Contrato de honorários advocatícios", fileSrc: "/clients/maria/contrato_honorarios.pdf" },
+      { id: "f5b", name: "Procuração.pdf", type: "contract", size: "345 KB", date: "2026-03-03", description: "Procuração ad judicia", fileSrc: "/clients/maria/procuracao.pdf" },
+      { id: "f5c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.9 MB", date: "2026-03-04", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_5.wav" },
+      { id: "f5d", name: "Documento - Frente.png", type: "photo", size: "1.3 MB", date: "2026-03-03", description: "Documento de identidade - frente", fileSrc: "/clients/maria/documento_frente.png" },
+      { id: "f5e", name: "Documento - Verso.png", type: "photo", size: "1.2 MB", date: "2026-03-03", description: "Documento de identidade - verso", fileSrc: "/clients/maria/documento_verso.png" },
+      { id: "f5f", name: "Selfie com Documento.png", type: "photo", size: "1.7 MB", date: "2026-03-03", description: "Selfie segurando o documento", fileSrc: "/clients/maria/selfie_documento.png" },
+      { id: "f5g", name: "Fachada Residência.png", type: "photo", size: "1.0 MB", date: "2026-03-04", description: "Foto da fachada da residência", fileSrc: "/clients/maria/fachada.png" },
+      { id: "f5h", name: "Ficha do Cliente.docx", type: "doc", size: "76 KB", date: "2026-03-03", description: "Informações cadastrais completas" },
+      { id: "f5i", name: "Comprovante de Endereço.pdf", type: "pdf", size: "260 KB", date: "2026-03-04", description: "Comprovante de endereço" },
+    ],
     sdrNotes: [
-      { sdrName: "Amanda Souza", date: "2026-03-13", channel: "Telefone", clientMood: "emotivo", summary: "Dona Francisca ligou chorando muito. O marido faleceu há 3 semanas e ela não sabe o que fazer. Uma amiga da igreja indicou o escritório. Ela nunca trabalhou fora e dependia totalmente do marido.", notes: ["Marido era aposentado por tempo de contribuição", "Casados há 38 anos com certidão", "Dona Francisca tem 64 anos e nunca contribuiu", "Está morando com a filha temporariamente", "Precisa de muito acolhimento emocional"], nextSteps: "Agendar reunião com calma, pedir que traga certidão de óbito, casamento e documentos do marido" },
+      { sdrName: "Beatriz Lima", date: "2026-03-03", channel: "WhatsApp", clientMood: "tranquilo", summary: "Dona Maria do Rosário entrou em contato pelo WhatsApp após indicação de uma vizinha. Natural de Lages - SC, mora em Lavras - MG há muitos anos. Tem 54 anos e quer saber se já pode dar entrada na aposentadoria por idade.", notes: ["Trabalhou como costureira e diarista", "Tem contribuições intermitentes no INSS", "Mora em Lavras com o marido", "Muito educada e organizada com os documentos", "Trouxe RG frente e verso e selfie conforme orientado"], nextSteps: "Analisar CNIS e verificar tempo de contribuição para aposentadoria por idade" },
     ],
   },
   {
