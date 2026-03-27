@@ -63,6 +63,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f1f", name: "Fachada Residência.png", type: "photo", size: "980 KB", date: "2026-03-23", description: "Foto da fachada da residência", fileSrc: "/clients/rainis/fachada.png" },
       { id: "f1g", name: "Ficha do Cliente.docx", type: "doc", size: "89 KB", date: "2026-03-23", description: "Informações cadastrais completas" },
       { id: "f1h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "320 KB", date: "2026-03-23", description: "Comprovante de endereço", fileSrc: "/clients/rainis/comprovante_endereco.pdf" },
+      { id: "f1i", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-03-23", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/rainis/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-23", channel: "WhatsApp", clientMood: "ansioso", summary: "Seu Rainis entrou em contato pelo WhatsApp após indicação de um conhecido. Tem 63 anos e está preocupado com o tempo de contribuição. Trabalhou muitos anos na área rural em Pernambuco.", notes: ["Cliente trabalhou na agricultura durante boa parte da vida", "Possui CNH e documentos pessoais em dia", "Reside em Limoeiro - PE", "Parentes forneceram contatos para acompanhamento"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
@@ -82,6 +83,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f2e", name: "Fachada Residência.png", type: "photo", size: "950 KB", date: "2026-03-22", description: "Foto da fachada da residência", fileSrc: "/clients/dijanira/fachada.png" },
       { id: "f2f", name: "Ficha do Cliente.docx", type: "doc", size: "95 KB", date: "2026-03-22", description: "Informações cadastrais completas" },
       { id: "f2g", name: "Comprovante de Endereço.pdf", type: "pdf", size: "290 KB", date: "2026-03-22", description: "Comprovante de endereço" },
+      { id: "f2h", name: "CNIS.pdf", type: "pdf", size: "335 KB", date: "2026-03-22", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/dijanira/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-22", channel: "WhatsApp", clientMood: "tranquilo", summary: "Dona Dijanira mandou mensagem pelo WhatsApp pedindo informações sobre aposentadoria. Tem 58 anos e trabalhou muitos anos como empregada doméstica. Quer saber se já tem tempo suficiente para se aposentar por idade.", notes: ["Trabalhou como empregada doméstica por mais de 20 anos", "Parte do tempo sem registro em carteira", "Mora em Campina Grande com a filha", "Muito simpática e educada", "Precisa verificar contribuições no CNIS"], nextSteps: "Solicitar CNIS e verificar períodos de contribuição para análise completa" },
@@ -101,6 +103,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f3h", name: "Fachada Residência.png", type: "photo", size: "1.1 MB", date: "2026-03-23", description: "Foto da fachada da residência", fileSrc: "/clients/joao/fachada.png" },
       { id: "f3e", name: "Ficha do Cliente.docx", type: "doc", size: "102 KB", date: "2026-03-23", description: "Informações cadastrais completas" },
       { id: "f3f", name: "Comprovante de Endereço.pdf", type: "pdf", size: "275 KB", date: "2026-03-23", description: "Comprovante de endereço" },
+      { id: "f3i", name: "CNIS.pdf", type: "pdf", size: "350 KB", date: "2026-03-23", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/joao/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-23", channel: "Telefone", clientMood: "tranquilo", summary: "Seu João ligou pedindo informações sobre aposentadoria por idade. Tem 66 anos e trabalhou a vida toda como motorista de caminhão. Quer saber se já pode se aposentar. Não usa e-mail, prefere contato por telefone.", notes: ["Motorista de caminhão há mais de 30 anos", "Contribuiu pelo INSS como autônomo em parte do período", "Mora em Anápolis com a esposa", "Muito tranquilo e objetivo na conversa", "Sem e-mail, contato apenas por telefone"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição para análise" },
@@ -120,6 +123,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f4f", name: "Fachada Residência.png", type: "photo", size: "1.0 MB", date: "2026-03-24", description: "Foto da fachada da residência", fileSrc: "/clients/izete/fachada.png" },
       { id: "f4g", name: "Ficha do Cliente.docx", type: "doc", size: "88 KB", date: "2026-03-24", description: "Informações cadastrais completas" },
       { id: "f4h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "310 KB", date: "2026-03-24", description: "Comprovante de endereço" },
+      { id: "f4i", name: "CNIS.pdf", type: "pdf", size: "330 KB", date: "2026-03-24", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/izete/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-24", channel: "Telefone", clientMood: "tranquilo", summary: "Dona Izete ligou pedindo informações sobre aposentadoria por idade. Tem 59 anos, nascida no Rio de Janeiro mas mora em Betim há muitos anos. Trabalhou como empregada doméstica e diarista. Não usa e-mail, prefere telefone.", notes: ["Trabalhou como doméstica e diarista por décadas", "Parte do período sem registro formal", "Mora em Betim com familiares", "Muito simpática e comunicativa", "Contato apenas por telefone"], nextSteps: "Solicitar CNIS e verificar períodos de contribuição para análise completa" },
@@ -140,6 +144,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f5g", name: "Fachada Residência.png", type: "photo", size: "1.0 MB", date: "2026-03-25", description: "Foto da fachada da residência", fileSrc: "/clients/maria/fachada.png" },
       { id: "f5h", name: "Ficha do Cliente.docx", type: "doc", size: "76 KB", date: "2026-03-25", description: "Informações cadastrais completas" },
       { id: "f5i", name: "Comprovante de Endereço.pdf", type: "pdf", size: "260 KB", date: "2026-03-25", description: "Comprovante de endereço" },
+      { id: "f5j", name: "CNIS.pdf", type: "pdf", size: "345 KB", date: "2026-03-25", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/maria/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-03-25", channel: "WhatsApp", clientMood: "tranquilo", summary: "Dona Maria do Rosário entrou em contato pelo WhatsApp após indicação de uma vizinha. Natural de Lages - SC, mora em Lavras - MG há muitos anos. Tem 54 anos e quer saber se já pode dar entrada na aposentadoria por idade.", notes: ["Trabalhou como costureira e diarista", "Tem contribuições intermitentes no INSS", "Mora em Lavras com o marido", "Muito educada e organizada com os documentos", "Trouxe RG frente e verso e selfie conforme orientado"], nextSteps: "Analisar CNIS e verificar tempo de contribuição para aposentadoria por idade" },
@@ -157,6 +162,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f6d", name: "Documento (RG Verso).pdf", type: "pdf", size: "380 KB", date: "2026-03-22", description: "Documento de identidade - verso", fileSrc: "/clients/jose/documento.pdf" },
       { id: "f6e", name: "Ficha do Cliente.docx", type: "doc", size: "95 KB", date: "2026-03-22", description: "Informações cadastrais completas" },
       { id: "f6f", name: "Comprovante de Endereço.pdf", type: "pdf", size: "260 KB", date: "2026-03-22", description: "Comprovante de endereço" },
+      { id: "f6g", name: "CNIS.pdf", type: "pdf", size: "355 KB", date: "2026-03-22", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/jose/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-22", channel: "Telefone", clientMood: "tranquilo", summary: "Seu José ligou pedindo informações sobre aposentadoria por idade. Tem 64 anos, trabalhou a vida toda como lavrador no interior da Bahia. Fala devagar e com sotaque forte, muito educado. Não usa e-mail nem WhatsApp, só atende telefone.", notes: ["Lavrador e trabalhador rural há mais de 40 anos", "Trabalhou em fazendas na região de Vitória da Conquista", "Parte do período sem registro formal", "Mora sozinho numa casa simples na zona rural", "Contato apenas por telefone fixo"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição rural para análise" },
