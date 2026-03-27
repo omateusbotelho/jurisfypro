@@ -61,7 +61,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f1d", name: "Documento - Frente.jpg", type: "photo", size: "1.4 MB", date: "2026-03-10", description: "Documento de identidade - frente", fileSrc: "/clients/rainis/rg_frente.jpg" },
       { id: "f1e", name: "Documento - Verso.jpg", type: "photo", size: "1.1 MB", date: "2026-03-10", description: "Documento de identidade - verso", fileSrc: "/clients/rainis/rg_verso.jpg" },
       { id: "f1f", name: "Fachada Residência.png", type: "photo", size: "980 KB", date: "2026-03-11", description: "Foto da fachada da residência", fileSrc: "/clients/rainis/fachada.png" },
-      { id: "f1g", name: "Comprovante de Endereço.png", type: "photo", size: "1.2 MB", date: "2026-03-11", description: "Comprovante de endereço", fileSrc: "/clients/rainis/fachada.png" },
+      { id: "f1g", name: "Comprovante de Endereço.pdf", type: "pdf", size: "320 KB", date: "2026-03-11", description: "Comprovante de endereço", fileSrc: "/clients/rainis/comprovante_endereco.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-10", channel: "WhatsApp", clientMood: "ansioso", summary: "Seu Rainis entrou em contato pelo WhatsApp após indicação de um conhecido. Tem 63 anos e está preocupado com o tempo de contribuição. Trabalhou muitos anos na área rural em Pernambuco.", notes: ["Cliente trabalhou na agricultura durante boa parte da vida", "Possui CNH e documentos pessoais em dia", "Reside em Limoeiro - PE", "Parentes forneceram contatos para acompanhamento"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
@@ -254,7 +254,7 @@ export const mockClients: ClientFolder[] = [
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-02",
     phone: "(11) 93210-5678", email: "jorge.teixeira@email.com", address: "Av. Rebouças, 1700 - São Paulo/SP",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(20, "2026-03-24"), { id: "f20h", name: "Comprovante Residência.jpg", type: "photo", size: "720 KB", date: "2026-03-04", description: "Comprovante de endereço atualizado" }],
+    files: [...baseFiles(20, "2026-03-24"), { id: "f20h", name: "Comprovante Residência.pdf", type: "pdf", size: "290 KB", date: "2026-03-04", description: "Comprovante de endereço atualizado" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-12", channel: "Presencial", clientMood: "tranquilo", summary: "Seu Jorge passou no escritório sem agendar, disse que mora ali perto e viu a placa. Tem 65 anos, trabalhou a vida toda como porteiro em condomínio. Quer se aposentar para voltar pro interior da Bahia e cuidar do sítio da família.", notes: ["Porteiro há 30 anos em condomínios da região", "Todos os registros em CTPS, bem documentado", "Quer voltar para Itabuna/BA onde tem família", "Muito simpático e bem-humorado", "Disse que vai mandar todos os porteiros do prédio virem aqui também"], nextSteps: "Caso simples com boa documentação, fazer análise do CNIS e protocolar requerimento" },
     ],
