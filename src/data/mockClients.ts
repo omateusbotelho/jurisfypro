@@ -146,13 +146,20 @@ export const mockClients: ClientFolder[] = [
     ],
   },
   {
-    id: "6", clientName: "Carlos Eduardo Pereira", cpf: "111.222.333-44",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-25",
-    phone: "(11) 92222-3333", email: "carlos.pereira@email.com", address: "Rua Vergueiro, 320 - São Paulo/SP",
+    id: "6", clientName: "José Araújo Silveira", cpf: "035.019.208-14",
+    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-12",
+    phone: "(77) 99834-5127", email: "", address: "Vitória da Conquista - BA",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(6, "2026-03-14"), { id: "f6h", name: "Perícia Médica.pdf", type: "pdf", size: "1.5 MB", date: "2026-03-09", description: "Resultado da perícia médica do INSS" }],
+    files: [
+      { id: "f6a", name: "Contrato de Honorários.pdf", type: "contract", size: "410 KB", date: "2026-03-12", description: "Contrato de honorários advocatícios", fileSrc: "/clients/jose/contrato_honorarios.pdf" },
+      { id: "f6b", name: "Procuração.pdf", type: "contract", size: "345 KB", date: "2026-03-12", description: "Procuração ad judicia", fileSrc: "/clients/jose/procuracao.pdf" },
+      { id: "f6c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.7 MB", date: "2026-03-13", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_6.wav" },
+      { id: "f6d", name: "Documento (RG Verso).pdf", type: "pdf", size: "380 KB", date: "2026-03-12", description: "Documento de identidade - verso", fileSrc: "/clients/jose/documento.pdf" },
+      { id: "f6e", name: "Ficha do Cliente.docx", type: "doc", size: "95 KB", date: "2026-03-12", description: "Informações cadastrais completas" },
+      { id: "f6f", name: "Comprovante de Endereço.pdf", type: "pdf", size: "260 KB", date: "2026-03-13", description: "Comprovante de endereço" },
+    ],
     sdrNotes: [
-      { sdrName: "Beatriz Lima", date: "2026-03-23", channel: "WhatsApp", clientMood: "ansioso", summary: "Carlos mandou áudio longo no WhatsApp. Está afastado há 1 ano com hérnia de disco severa e o auxílio-doença foi cessado na última perícia. Não consegue voltar a trabalhar e o médico disse que a lesão é permanente.", notes: ["Três cirurgias na coluna nos últimos 2 anos", "Era operador de empilhadeira em fábrica", "INSS cortou o benefício mesmo com laudos contrários", "Está tomando medicação forte para dor crônica", "Esposa passou a trabalhar como diarista para sustentar a casa"], nextSteps: "Solicitar todos os laudos e exames, preparar recurso administrativo ou ação judicial" },
+      { sdrName: "Amanda Souza", date: "2026-03-12", channel: "Telefone", clientMood: "tranquilo", summary: "Seu José ligou pedindo informações sobre aposentadoria por idade. Tem 64 anos, trabalhou a vida toda como lavrador no interior da Bahia. Fala devagar e com sotaque forte, muito educado. Não usa e-mail nem WhatsApp, só atende telefone.", notes: ["Lavrador e trabalhador rural há mais de 40 anos", "Trabalhou em fazendas na região de Vitória da Conquista", "Parte do período sem registro formal", "Mora sozinho numa casa simples na zona rural", "Contato apenas por telefone fixo"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição rural para análise" },
     ],
   },
   {
