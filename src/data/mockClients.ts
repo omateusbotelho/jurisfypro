@@ -107,13 +107,22 @@ export const mockClients: ClientFolder[] = [
     ],
   },
   {
-    id: "4", clientName: "Roberto Mendes Lima", cpf: "321.654.987-00",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-14",
-    phone: "(11) 93333-7890", email: "roberto.lima@email.com", address: "Rua Augusta, 1010 - São Paulo/SP",
+    id: "4", clientName: "Izete Angelica da Cruz", cpf: "950.897.567-91",
+    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-05",
+    phone: "(31) 99756-3214 / (31) 99482-1067", email: "", address: "Betim - MG",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(4, "2026-03-16"), { id: "f4h", name: "Atestado Médico.pdf", type: "pdf", size: "450 KB", date: "2026-03-06", description: "Atestado médico com CID" }],
+    files: [
+      { id: "f4a", name: "Contrato de Honorários.pdf", type: "contract", size: "425 KB", date: "2026-03-05", description: "Contrato de honorários advocatícios", fileSrc: "/clients/izete/contrato_honorarios.pdf" },
+      { id: "f4b", name: "Procuração.pdf", type: "contract", size: "370 KB", date: "2026-03-05", description: "Procuração ad judicia", fileSrc: "/clients/izete/procuracao.pdf" },
+      { id: "f4c", name: "Gravação Atendimento.mp3", type: "audio", size: "5.8 MB", date: "2026-03-06", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_4.wav" },
+      { id: "f4d", name: "Documento.png", type: "photo", size: "1.5 MB", date: "2026-03-05", description: "Documento de identidade - frente", fileSrc: "/clients/izete/documento.png" },
+      { id: "f4e", name: "Selfie com Documento.png", type: "photo", size: "1.9 MB", date: "2026-03-05", description: "Selfie segurando o documento", fileSrc: "/clients/izete/selfie_documento.png" },
+      { id: "f4f", name: "Fachada Residência.png", type: "photo", size: "1.0 MB", date: "2026-03-06", description: "Foto da fachada da residência", fileSrc: "/clients/izete/fachada.png" },
+      { id: "f4g", name: "Ficha do Cliente.docx", type: "doc", size: "88 KB", date: "2026-03-05", description: "Informações cadastrais completas" },
+      { id: "f4h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "310 KB", date: "2026-03-06", description: "Comprovante de endereço" },
+    ],
     sdrNotes: [
-      { sdrName: "Lucas Martins", date: "2026-03-23", channel: "WhatsApp", clientMood: "urgente", summary: "Roberto mandou mensagem desesperado. Sofreu uma queda no trabalho há 2 semanas e a empresa não emitiu a CAT. Está sem receber e com contas acumulando. Precisa de ajuda urgente.", notes: ["Fratura no punho direito com cirurgia agendada", "Motorista de caminhão, não consegue dirigir", "Empresa se recusou a emitir CAT", "Tem esposa e 2 filhos pequenos dependendo dele"], nextSteps: "Orientar sobre emissão de CAT pelo sindicato e agendar atendimento emergencial" },
+      { sdrName: "Amanda Souza", date: "2026-03-05", channel: "Telefone", clientMood: "tranquilo", summary: "Dona Izete ligou pedindo informações sobre aposentadoria por idade. Tem 59 anos, nascida no Rio de Janeiro mas mora em Betim há muitos anos. Trabalhou como empregada doméstica e diarista. Não usa e-mail, prefere telefone.", notes: ["Trabalhou como doméstica e diarista por décadas", "Parte do período sem registro formal", "Mora em Betim com familiares", "Muito simpática e comunicativa", "Contato apenas por telefone"], nextSteps: "Solicitar CNIS e verificar períodos de contribuição para análise completa" },
     ],
   },
   {
