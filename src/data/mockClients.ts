@@ -55,13 +55,14 @@ export const mockClients: ClientFolder[] = [
     phone: "(81) 99872-3415 / (81) 99634-7821", email: "rainis.lejins@email.com", address: "Limoeiro - PE",
     benefitType: "Aposentadoria por Idade",
     files: [
-      { id: "f1a", name: "Contrato de Honorários.pdf", type: "pdf", size: "312 KB", date: "2026-03-10", description: "Contrato de prestação de serviços advocatícios", fileSrc: "/clients/rainis/contrato_honorarios.pdf" },
-      { id: "f1b", name: "Procuração.pdf", type: "pdf", size: "245 KB", date: "2026-03-10", description: "Procuração ad judicia", fileSrc: "/clients/rainis/procuracao.pdf" },
+      { id: "f1a", name: "Contrato de Honorários.pdf", type: "contract", size: "312 KB", date: "2026-03-10", description: "Contrato de honorários advocatícios", fileSrc: "/clients/rainis/contrato_honorarios.pdf" },
+      { id: "f1b", name: "Procuração.pdf", type: "contract", size: "245 KB", date: "2026-03-10", description: "Procuração ad judicia", fileSrc: "/clients/rainis/procuracao.pdf" },
       { id: "f1c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date: "2026-03-12", description: "Áudio da reunião inicial" },
       { id: "f1d", name: "Documento - Frente.jpg", type: "photo", size: "1.4 MB", date: "2026-03-10", description: "Documento de identidade - frente", fileSrc: "/clients/rainis/rg_frente.jpg" },
       { id: "f1e", name: "Documento - Verso.jpg", type: "photo", size: "1.1 MB", date: "2026-03-10", description: "Documento de identidade - verso", fileSrc: "/clients/rainis/rg_verso.jpg" },
       { id: "f1f", name: "Fachada Residência.png", type: "photo", size: "980 KB", date: "2026-03-11", description: "Foto da fachada da residência", fileSrc: "/clients/rainis/fachada.png" },
-      { id: "f1g", name: "Comprovante de Endereço.pdf", type: "pdf", size: "320 KB", date: "2026-03-11", description: "Comprovante de endereço", fileSrc: "/clients/rainis/comprovante_endereco.pdf" },
+      { id: "f1g", name: "Ficha do Cliente.docx", type: "doc", size: "89 KB", date: "2026-03-10", description: "Informações cadastrais completas" },
+      { id: "f1h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "320 KB", date: "2026-03-11", description: "Comprovante de endereço", fileSrc: "/clients/rainis/comprovante_endereco.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-10", channel: "WhatsApp", clientMood: "ansioso", summary: "Seu Rainis entrou em contato pelo WhatsApp após indicação de um conhecido. Tem 63 anos e está preocupado com o tempo de contribuição. Trabalhou muitos anos na área rural em Pernambuco.", notes: ["Cliente trabalhou na agricultura durante boa parte da vida", "Possui CNH e documentos pessoais em dia", "Reside em Limoeiro - PE", "Parentes forneceram contatos para acompanhamento"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
