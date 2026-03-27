@@ -101,9 +101,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "5", clientName: "Francisca Almeida Costa", cpf: "654.321.789-00",
-    contractType: "Pensão por Morte", status: "concluido", createdAt: "2026-03-11",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-11",
     phone: "(11) 97777-4567", email: "francisca.costa@email.com", address: "Rua Consolação, 555 - São Paulo/SP",
-    benefitType: "Pensão por Morte",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(5, "2026-03-12"), { id: "f5h", name: "Certidão de Óbito.pdf", type: "pdf", size: "520 KB", date: "2026-03-01", description: "Certidão de óbito do segurado" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-13", channel: "Telefone", clientMood: "emotivo", summary: "Dona Francisca ligou chorando muito. O marido faleceu há 3 semanas e ela não sabe o que fazer. Uma amiga da igreja indicou o escritório. Ela nunca trabalhou fora e dependia totalmente do marido.", notes: ["Marido era aposentado por tempo de contribuição", "Casados há 38 anos com certidão", "Dona Francisca tem 64 anos e nunca contribuiu", "Está morando com a filha temporariamente", "Precisa de muito acolhimento emocional"], nextSteps: "Agendar reunião com calma, pedir que traga certidão de óbito, casamento e documentos do marido" },
@@ -161,9 +161,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "11", clientName: "Sandra Regina Martins", cpf: "666.777.888-99",
-    contractType: "Pensão por Morte", status: "concluido", createdAt: "2026-03-14",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-14",
     phone: "(11) 93456-7890", email: "sandra.martins@email.com", address: "Rua XV de Novembro, 430 - Santos/SP",
-    benefitType: "Pensão por Morte",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(11, "2026-03-14"), { id: "f11h", name: "Certidão de Casamento.jpg", type: "photo", size: "1.4 MB", date: "2026-03-07", description: "Certidão de casamento" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-16", channel: "Telefone", clientMood: "emotivo", summary: "Sandra ligou muito abalada. O marido faleceu inesperadamente de infarto há 10 dias. Ele era caminhoneiro autônomo e ela não sabe se ele estava em dia com o INSS. Tem dois filhos adolescentes.", notes: ["Marido era caminhoneiro autônomo há 15 anos", "Não sabe informar sobre contribuições recentes", "Dois filhos de 14 e 16 anos", "Está com dificuldade financeira imediata", "Chorou bastante durante a ligação, precisou de pausa"], nextSteps: "Consultar CNIS do falecido urgente e verificar qualidade de segurado" },
@@ -241,9 +241,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "19", clientName: "Ivone Beatriz Cardoso", cpf: "445.566.778-89",
-    contractType: "Pensão por Morte", status: "concluido", createdAt: "2026-03-03",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-03",
     phone: "(11) 97890-1234", email: "ivone.cardoso@email.com", address: "Rua Teodoro Sampaio, 245 - São Paulo/SP",
-    benefitType: "Pensão por Morte",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(19, "2026-03-08"), { id: "f19h", name: "Certidão de Óbito.pdf", type: "pdf", size: "510 KB", date: "2026-03-19", description: "Certidão de óbito do segurado" }],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-08", channel: "WhatsApp", clientMood: "emotivo", summary: "Ivone mandou mensagem dizendo que o companheiro faleceu de câncer após longa luta. Viviam em união estável há 12 anos mas nunca formalizaram. Ela está com medo de não ter direito à pensão por não ter papel.", notes: ["União estável de 12 anos sem registro em cartório", "Companheiro era funcionário público estadual", "Têm uma filha de 9 anos juntos", "Conta conjunta no banco e comprovantes de endereço conjunto", "Muito preocupada com o futuro da filha"], nextSteps: "Reunir provas de união estável (conta conjunta, fotos, declaração de vizinhos) e verificar regime previdenciário do companheiro" },
