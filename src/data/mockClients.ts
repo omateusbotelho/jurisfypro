@@ -183,7 +183,7 @@ export const mockClients: ClientFolder[] = [
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-23",
     phone: "(11) 96666-7777", email: "antonio.souza@email.com", address: "Av. Brasil, 1500 - Guarulhos/SP",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(8, "2026-03-09"), { id: "f8h", name: "Boletim de Ocorrência.pdf", type: "pdf", size: "670 KB", date: "2026-03-23", description: "BO do acidente de trabalho" }],
+    files: [...baseFiles(8, "2026-03-23"), { id: "f8h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-03-23", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-22", channel: "Telefone", clientMood: "urgente", summary: "Antônio ligou do hospital. Sofreu acidente na obra onde trabalha como pedreiro - caiu do andaime e fraturou a perna em dois lugares. Está preocupado porque é autônomo e não tem carteira assinada.", notes: ["Acidente em obra, sem equipamento de segurança", "Contribui como autônomo há 5 anos", "Fratura exposta na tíbia e fíbula", "Vai precisar de fisioterapia por meses", "Não tem reserva financeira nenhuma"], nextSteps: "Verificar qualidade de segurado e agendar visita ao hospital para colher assinatura" },
     ],
@@ -193,7 +193,7 @@ export const mockClients: ClientFolder[] = [
     contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-03-23",
     phone: "(11) 98888-9999", email: "patricia.gomes@email.com", address: "Rua Ipiranga, 200 - São Paulo/SP",
     benefitType: "Benefício de Prestação Continuada",
-    files: [...baseFiles(9, "2026-03-24"), { id: "f9h", name: "Declaração de Renda.pdf", type: "pdf", size: "180 KB", date: "2026-03-23", description: "Declaração de composição de renda familiar" }],
+    files: [...baseFiles(9, "2026-03-24"), { id: "f9h", name: "CNIS.pdf", type: "pdf", size: "330 KB", date: "2026-03-24", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-03-22", channel: "Instagram", clientMood: "inseguro", summary: "Patrícia viu um vídeo nosso no Instagram sobre BPC para idosos e mandou mensagem. Tem 66 anos, nunca contribuiu e vive com a renda do marido que faz bicos. Perguntou se 'gente como ela' tem direito.", notes: ["Nunca trabalhou com carteira assinada", "Marido faz trabalhos esporádicos como eletricista", "Moram em casa própria simples na periferia", "Filhos moram longe e ajudam pouco", "Se sentiu acolhida quando explicamos que sim, ela tem direito"], nextSteps: "Agendar atendimento presencial para montar o processo com toda documentação de renda" },
     ],
@@ -203,7 +203,7 @@ export const mockClients: ClientFolder[] = [
     contractType: "Aposentadoria Especial", status: "concluido", createdAt: "2026-03-21",
     phone: "(11) 91111-0000", email: "fernando.alves@email.com", address: "Rua da Mooca, 670 - São Paulo/SP",
     benefitType: "Aposentadoria Especial",
-    files: [...baseFiles(10, "2026-03-22"), { id: "f10h", name: "PPP.pdf", type: "pdf", size: "420 KB", date: "2026-03-25", description: "Perfil Profissiográfico Previdenciário" }],
+    files: [...baseFiles(10, "2026-03-22"), { id: "f10h", name: "CNIS.pdf", type: "pdf", size: "345 KB", date: "2026-03-22", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-23", channel: "WhatsApp", clientMood: "decidido", summary: "Fernando trabalha há 22 anos como eletricista em empresa de energia. Um colega que se aposentou com a gente indicou nosso escritório. Sabe que tem direito à aposentadoria especial por exposição a periculosidade.", notes: ["Exposição contínua a alta tensão", "PPP da empresa confirma periculosidade", "Quer se aposentar para abrir negócio próprio", "Colega aposentado: Sr. João Mendes (cliente antigo)"], nextSteps: "Analisar PPP e LTCAT da empresa, verificar enquadramento por periculosidade" },
     ],
