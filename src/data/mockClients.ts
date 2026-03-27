@@ -69,13 +69,19 @@ export const mockClients: ClientFolder[] = [
     ],
   },
   {
-    id: "2", clientName: "José Carlos Oliveira", cpf: "987.654.321-00",
-    contractType: "Aposentadoria por Tempo de Contribuição", status: "concluido", createdAt: "2026-03-06",
-    phone: "(11) 91234-5678", email: "jose.oliveira@email.com", address: "Av. Paulista, 456 - São Paulo/SP",
-    benefitType: "Aposentadoria por Tempo de Contribuição",
-    files: [...baseFiles(2, "2026-03-07"), { id: "f2h", name: "Sentença Favorável.pdf", type: "pdf", size: "1.2 MB", date: "2026-03-12", description: "Sentença do processo - deferido" }],
+    id: "2", clientName: "Dijanira da Silva Martins", cpf: "086.444.838-46",
+    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-12",
+    phone: "(83) 99871-4523 / (83) 99645-3187", email: "dijanira.martins@email.com", address: "Campina Grande - PB",
+    benefitType: "Aposentadoria por Idade",
+    files: [
+      { id: "f2a", name: "Contrato de Honorários.pdf", type: "contract", size: "410 KB", date: "2026-03-12", description: "Contrato de honorários advocatícios", fileSrc: "/clients/dijanira/contrato_honorarios.pdf" },
+      { id: "f2b", name: "Procuração.pdf", type: "contract", size: "380 KB", date: "2026-03-12", description: "Procuração ad judicia", fileSrc: "/clients/dijanira/procuracao.pdf" },
+      { id: "f2c", name: "Documento.png", type: "photo", size: "1.8 MB", date: "2026-03-13", description: "Documento de identidade - frente e verso", fileSrc: "/clients/dijanira/documento.png" },
+      { id: "f2d", name: "Fachada Residência.png", type: "photo", size: "950 KB", date: "2026-03-13", description: "Foto da fachada da residência", fileSrc: "/clients/dijanira/fachada.png" },
+      { id: "f2e", name: "Comprovante de Endereço.pdf", type: "pdf", size: "290 KB", date: "2026-03-14", description: "Comprovante de endereço" },
+    ],
     sdrNotes: [
-      { sdrName: "Amanda Souza", date: "2026-03-09", channel: "Telefone", clientMood: "decidido", summary: "Seu José ligou já decidido a contratar. Disse que pesquisou bastante na internet e escolheu nosso escritório pelas avaliações no Google. Tem 35 anos de contribuição e quer saber qual a melhor regra de transição.", notes: ["Cliente muito bem informado sobre as regras de transição", "Trabalhou a vida inteira em metalúrgica", "Tem todos os documentos digitalizados no celular", "Quer resolver o mais rápido possível para poder viajar com a esposa"], nextSteps: "Fazer simulação completa com todas as regras de transição e apresentar a mais vantajosa" },
+      { sdrName: "Amanda Souza", date: "2026-03-12", channel: "WhatsApp", clientMood: "tranquilo", summary: "Dona Dijanira mandou mensagem pelo WhatsApp pedindo informações sobre aposentadoria. Tem 58 anos e trabalhou muitos anos como empregada doméstica. Quer saber se já tem tempo suficiente para se aposentar por idade.", notes: ["Trabalhou como empregada doméstica por mais de 20 anos", "Parte do tempo sem registro em carteira", "Mora em Campina Grande com a filha", "Muito simpática e educada", "Precisa verificar contribuições no CNIS"], nextSteps: "Solicitar CNIS e verificar períodos de contribuição para análise completa" },
     ],
   },
   {
