@@ -91,9 +91,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "4", clientName: "Roberto Mendes Lima", cpf: "321.654.987-00",
-    contractType: "Auxílio-Doença", status: "concluido", createdAt: "2026-03-14",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-14",
     phone: "(11) 93333-7890", email: "roberto.lima@email.com", address: "Rua Augusta, 1010 - São Paulo/SP",
-    benefitType: "Auxílio por Incapacidade Temporária",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(4, "2026-03-16"), { id: "f4h", name: "Atestado Médico.pdf", type: "pdf", size: "450 KB", date: "2026-03-06", description: "Atestado médico com CID" }],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-23", channel: "WhatsApp", clientMood: "urgente", summary: "Roberto mandou mensagem desesperado. Sofreu uma queda no trabalho há 2 semanas e a empresa não emitiu a CAT. Está sem receber e com contas acumulando. Precisa de ajuda urgente.", notes: ["Fratura no punho direito com cirurgia agendada", "Motorista de caminhão, não consegue dirigir", "Empresa se recusou a emitir CAT", "Tem esposa e 2 filhos pequenos dependendo dele"], nextSteps: "Orientar sobre emissão de CAT pelo sindicato e agendar atendimento emergencial" },
@@ -111,9 +111,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "6", clientName: "Carlos Eduardo Pereira", cpf: "111.222.333-44",
-    contractType: "Aposentadoria por Invalidez", status: "concluido", createdAt: "2026-03-25",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-25",
     phone: "(11) 92222-3333", email: "carlos.pereira@email.com", address: "Rua Vergueiro, 320 - São Paulo/SP",
-    benefitType: "Aposentadoria por Incapacidade Permanente",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(6, "2026-03-14"), { id: "f6h", name: "Perícia Médica.pdf", type: "pdf", size: "1.5 MB", date: "2026-03-09", description: "Resultado da perícia médica do INSS" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-03-23", channel: "WhatsApp", clientMood: "ansioso", summary: "Carlos mandou áudio longo no WhatsApp. Está afastado há 1 ano com hérnia de disco severa e o auxílio-doença foi cessado na última perícia. Não consegue voltar a trabalhar e o médico disse que a lesão é permanente.", notes: ["Três cirurgias na coluna nos últimos 2 anos", "Era operador de empilhadeira em fábrica", "INSS cortou o benefício mesmo com laudos contrários", "Está tomando medicação forte para dor crônica", "Esposa passou a trabalhar como diarista para sustentar a casa"], nextSteps: "Solicitar todos os laudos e exames, preparar recurso administrativo ou ação judicial" },
@@ -131,9 +131,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "8", clientName: "Antônio Marcos Souza", cpf: "333.444.555-66",
-    contractType: "Auxílio-Acidente", status: "concluido", createdAt: "2026-03-09",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-09",
     phone: "(11) 96666-7777", email: "antonio.souza@email.com", address: "Av. Brasil, 1500 - Guarulhos/SP",
-    benefitType: "Auxílio-Acidente",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(8, "2026-03-09"), { id: "f8h", name: "Boletim de Ocorrência.pdf", type: "pdf", size: "670 KB", date: "2026-03-21", description: "BO do acidente de trabalho" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-07", channel: "Telefone", clientMood: "urgente", summary: "Antônio ligou do hospital. Sofreu acidente na obra onde trabalha como pedreiro - caiu do andaime e fraturou a perna em dois lugares. Está preocupado porque é autônomo e não tem carteira assinada.", notes: ["Acidente em obra, sem equipamento de segurança", "Contribui como autônomo há 5 anos", "Fratura exposta na tíbia e fíbula", "Vai precisar de fisioterapia por meses", "Não tem reserva financeira nenhuma"], nextSteps: "Verificar qualidade de segurado e agendar visita ao hospital para colher assinatura" },
@@ -171,9 +171,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "12", clientName: "Marcos Vinícius Barbosa", cpf: "777.888.999-00",
-    contractType: "Auxílio-Doença", status: "concluido", createdAt: "2026-03-15",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-15",
     phone: "(11) 95678-1234", email: "marcos.barbosa@email.com", address: "Av. Independência, 88 - Osasco/SP",
-    benefitType: "Auxílio por Incapacidade Temporária",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(12, "2026-03-17"), { id: "f12h", name: "Exames.jpg", type: "photo", size: "2.1 MB", date: "2026-03-04", description: "Resultado de exames laboratoriais" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-03-04", channel: "WhatsApp", clientMood: "ansioso", summary: "Marcos mandou mensagem dizendo que foi diagnosticado com depressão severa e síndrome de burnout. Está afastado do trabalho há 1 mês e a empresa está pressionando para ele voltar. Não se sente em condições.", notes: ["Trabalhava como gerente de loja, jornada de 12h", "Diagnóstico de depressão maior e ansiedade generalizada", "Usando medicação psiquiátrica há 3 semanas", "Empresa ameaçou demitir se não voltar", "Voz trêmula durante a conversa, claramente fragilizado"], nextSteps: "Orientar sobre estabilidade e agendar para trazer laudos do psiquiatra e do clínico geral" },
@@ -211,9 +211,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "16", clientName: "Paulo Henrique Duarte", cpf: "112.233.445-56",
-    contractType: "Aposentadoria por Invalidez", status: "concluido", createdAt: "2026-03-23",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-23",
     phone: "(11) 98765-0000", email: "paulo.duarte@email.com", address: "Av. Santo Amaro, 1200 - São Paulo/SP",
-    benefitType: "Aposentadoria por Incapacidade Permanente",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(16, "2026-03-06"), { id: "f16h", name: "Laudo Neurológico.pdf", type: "pdf", size: "950 KB", date: "2026-03-09", description: "Laudo médico neurológico" }],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-03-03", channel: "WhatsApp", clientMood: "urgente", summary: "A esposa do Paulo mandou mensagem porque ele não consegue mais mexer no celular direito. Ele teve um AVC há 4 meses e ficou com sequelas no lado esquerdo do corpo. Está no auxílio-doença mas a perícia está chegando e eles têm medo de perder.", notes: ["AVC isquêmico com hemiparesia esquerda", "Era segurança patrimonial, função exige esforço físico", "Não tem condições de voltar a trabalhar em nenhuma função", "Esposa largou o emprego para cuidar dele", "Precisam converter auxílio-doença em aposentadoria por invalidez"], nextSteps: "Reunir laudos neurológicos atualizados e preparar pedido de conversão com relatório de impossibilidade de reabilitação" },
@@ -221,9 +221,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "17", clientName: "Rosângela Aparecida Lopes", cpf: "223.344.556-67",
-    contractType: "Auxílio-Acidente", status: "concluido", createdAt: "2026-03-25",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-25",
     phone: "(11) 91234-0000", email: "rosangela.lopes@email.com", address: "Rua Domingos de Morais, 500 - São Paulo/SP",
-    benefitType: "Auxílio-Acidente",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(17, "2026-03-09"), { id: "f17h", name: "CAT.pdf", type: "pdf", size: "300 KB", date: "2026-03-03", description: "Comunicação de Acidente de Trabalho" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-05", channel: "Telefone", clientMood: "ansioso", summary: "Rosângela ligou explicando que voltou a trabalhar após acidente, mas ficou com limitação no ombro. A empresa a colocou em função adaptada mas ela sente dor todo dia. Quer saber se tem direito a alguma indenização ou benefício.", notes: ["Acidente de trabalho há 8 meses - queda de escada", "Lesão no manguito rotador com cirurgia", "Voltou ao trabalho mas com restrição de movimento", "Trabalha como auxiliar de limpeza em hospital", "Tem medo de ser demitida por não render igual antes"], nextSteps: "Avaliar redução da capacidade laborativa e possibilidade de auxílio-acidente" },
