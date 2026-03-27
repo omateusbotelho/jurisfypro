@@ -103,21 +103,21 @@ function FileCard({ file, onDocClick, onDelete, onPreview }: { file: ClientFile;
   const Icon = fileIcons[file.type] || FileText;
   const colorClass = fileColors[file.type] || "bg-muted text-muted-foreground";
   const isDoc = file.type === "doc";
-  const hasPreview = !!file.fileSrc && (file.type === "photo" || file.type === "pdf" || file.type === "contract");
+  const hasFileSrc = !!file.fileSrc;
+  const isClickable = isDoc || hasFileSrc;
 
   const handleClick = () => {
     if (isDoc && onDocClick) onDocClick();
-    else if (hasPreview && onPreview) onPreview();
+    else if (hasFileSrc && onPreview) onPreview();
   };
 
   return (
-    <div className={`group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in ${(isDoc || hasPreview) ? "cursor-pointer" : ""}`} onClick={handleClick}>
+    <div className={`group flex items-center gap-3 p-3 rounded-lg border border-border bg-card hover:shadow-md hover:border-primary/20 transition-all animate-fade-in ${isClickable ? "cursor-pointer" : ""}`} onClick={handleClick}>
       <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass}`}><Icon className="w-5 h-5" /></div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground truncate">
           {file.name}
-          {isDoc && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
-          {hasPreview && !isDoc && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
+          {isClickable && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
         </p>
         <p className="text-xs text-muted-foreground truncate">{file.description}</p>
         <div className="flex items-center gap-3 mt-1">
@@ -127,10 +127,10 @@ function FileCard({ file, onDocClick, onDelete, onPreview }: { file: ClientFile;
         </div>
       </div>
       <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-        {hasPreview && (
+        {hasFileSrc && (
           <button onClick={(e) => { e.stopPropagation(); onPreview?.(); }} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Visualizar"><Eye className="w-4 h-4 text-muted-foreground" /></button>
         )}
-        {file.fileSrc && (
+        {hasFileSrc && (
           <a href={file.fileSrc} download={file.name} onClick={(e) => e.stopPropagation()} className="p-1.5 rounded-md hover:bg-muted transition-colors" title="Download"><Download className="w-4 h-4 text-muted-foreground" /></a>
         )}
         {onDelete && (
