@@ -76,9 +76,11 @@ export const mockClients: ClientFolder[] = [
     files: [
       { id: "f2a", name: "Contrato de Honorários.pdf", type: "contract", size: "410 KB", date: "2026-03-12", description: "Contrato de honorários advocatícios", fileSrc: "/clients/dijanira/contrato_honorarios.pdf" },
       { id: "f2b", name: "Procuração.pdf", type: "contract", size: "380 KB", date: "2026-03-12", description: "Procuração ad judicia", fileSrc: "/clients/dijanira/procuracao.pdf" },
-      { id: "f2c", name: "Documento.png", type: "photo", size: "1.8 MB", date: "2026-03-13", description: "Documento de identidade - frente e verso", fileSrc: "/clients/dijanira/documento.png" },
-      { id: "f2d", name: "Fachada Residência.png", type: "photo", size: "950 KB", date: "2026-03-13", description: "Foto da fachada da residência", fileSrc: "/clients/dijanira/fachada.png" },
-      { id: "f2e", name: "Comprovante de Endereço.pdf", type: "pdf", size: "290 KB", date: "2026-03-14", description: "Comprovante de endereço" },
+      { id: "f2c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.7 MB", date: "2026-03-12", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_2.wav" },
+      { id: "f2d", name: "Documento.png", type: "photo", size: "1.8 MB", date: "2026-03-13", description: "Documento de identidade - frente e verso", fileSrc: "/clients/dijanira/documento.png" },
+      { id: "f2e", name: "Fachada Residência.png", type: "photo", size: "950 KB", date: "2026-03-13", description: "Foto da fachada da residência", fileSrc: "/clients/dijanira/fachada.png" },
+      { id: "f2f", name: "Ficha do Cliente.docx", type: "doc", size: "95 KB", date: "2026-03-12", description: "Informações cadastrais completas" },
+      { id: "f2g", name: "Comprovante de Endereço.pdf", type: "pdf", size: "290 KB", date: "2026-03-14", description: "Comprovante de endereço" },
     ],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-03-12", channel: "WhatsApp", clientMood: "tranquilo", summary: "Dona Dijanira mandou mensagem pelo WhatsApp pedindo informações sobre aposentadoria. Tem 58 anos e trabalhou muitos anos como empregada doméstica. Quer saber se já tem tempo suficiente para se aposentar por idade.", notes: ["Trabalhou como empregada doméstica por mais de 20 anos", "Parte do tempo sem registro em carteira", "Mora em Campina Grande com a filha", "Muito simpática e educada", "Precisa verificar contribuições no CNIS"], nextSteps: "Solicitar CNIS e verificar períodos de contribuição para análise completa" },
