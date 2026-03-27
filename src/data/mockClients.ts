@@ -88,14 +88,20 @@ export const mockClients: ClientFolder[] = [
     ],
   },
   {
-    id: "3", clientName: "Ana Paula Ferreira", cpf: "456.789.123-00",
-    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-03-23",
-    phone: "(11) 95555-1234", email: "ana.ferreira@email.com", address: "Rua dos Bandeirantes, 789 - Campinas/SP",
-    benefitType: "Benefício de Prestação Continuada",
-    files: [...baseFiles(3, "2026-03-18"), { id: "f3h", name: "Laudo Médico.pdf", type: "pdf", size: "890 KB", date: "2026-03-24", description: "Laudo médico pericial" }],
+    id: "3", clientName: "João José dos Santos", cpf: "542.170.249-91",
+    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-08",
+    phone: "(62) 99843-2156 / (62) 99712-8034", email: "", address: "Anápolis - GO",
+    benefitType: "Aposentadoria por Idade",
+    files: [
+      { id: "f3a", name: "Contrato de Honorários.pdf", type: "contract", size: "395 KB", date: "2026-03-08", description: "Contrato de honorários advocatícios", fileSrc: "/clients/joao/contrato_honorarios.pdf" },
+      { id: "f3b", name: "Procuração.pdf", type: "contract", size: "360 KB", date: "2026-03-08", description: "Procuração ad judicia", fileSrc: "/clients/joao/procuracao.pdf" },
+      { id: "f3c", name: "Gravação Atendimento.mp3", type: "audio", size: "5.1 MB", date: "2026-03-09", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_3.wav" },
+      { id: "f3d", name: "Documento.png", type: "photo", size: "1.6 MB", date: "2026-03-08", description: "CNH - Carteira Nacional de Habilitação", fileSrc: "/clients/joao/documento.png" },
+      { id: "f3e", name: "Ficha do Cliente.docx", type: "doc", size: "102 KB", date: "2026-03-08", description: "Informações cadastrais completas" },
+      { id: "f3f", name: "Comprovante de Endereço.pdf", type: "pdf", size: "275 KB", date: "2026-03-09", description: "Comprovante de endereço" },
+    ],
     sdrNotes: [
-      { sdrName: "Beatriz Lima", date: "2026-03-11", channel: "Instagram", clientMood: "inseguro", summary: "Ana Paula mandou mensagem pelo Instagram perguntando se a gente ajuda com BPC. Tem um filho de 8 anos com autismo e não consegue trabalhar para cuidar dele. Está com medo de não conseguir porque o marido trabalha.", notes: ["Filho diagnosticado com TEA nível 2 de suporte", "Marido é pedreiro autônomo, renda variável", "Já tentou dar entrada sozinha no INSS e foi negado", "Muito insegura com o processo, precisa de acolhimento"], nextSteps: "Explicar os critérios de renda per capita e agendar reunião para análise da documentação médica" },
-      { sdrName: "Beatriz Lima", date: "2026-03-16", channel: "Presencial", clientMood: "emotivo", summary: "Ana veio com o filho e o marido. O menino ficou brincando na recepção enquanto conversávamos. Ela trouxe uma pasta com todos os laudos, relatórios de terapia e receitas. Muito organizada apesar da situação difícil.", notes: ["Laudo do neuropediatra bem completo e recente", "Criança faz terapia ABA 3x por semana", "Renda familiar em torno de R$1.800", "Contrato assinado, cliente saiu mais confiante"], nextSteps: "Preparar requerimento administrativo com toda a documentação médica" },
+      { sdrName: "Lucas Martins", date: "2026-03-08", channel: "Telefone", clientMood: "tranquilo", summary: "Seu João ligou pedindo informações sobre aposentadoria por idade. Tem 66 anos e trabalhou a vida toda como motorista de caminhão. Quer saber se já pode se aposentar. Não usa e-mail, prefere contato por telefone.", notes: ["Motorista de caminhão há mais de 30 anos", "Contribuiu pelo INSS como autônomo em parte do período", "Mora em Anápolis com a esposa", "Muito tranquilo e objetivo na conversa", "Sem e-mail, contato apenas por telefone"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição para análise" },
     ],
   },
   {
