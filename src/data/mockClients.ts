@@ -98,6 +98,7 @@ export const mockClients: ClientFolder[] = [
       { id: "f3c", name: "Gravação Atendimento.mp3", type: "audio", size: "5.1 MB", date: "2026-03-09", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_3.wav" },
       { id: "f3d", name: "Documento.png", type: "photo", size: "1.6 MB", date: "2026-03-08", description: "CNH - Carteira Nacional de Habilitação", fileSrc: "/clients/joao/documento.png" },
       { id: "f3g", name: "Selfie com Documento.png", type: "photo", size: "2.1 MB", date: "2026-03-08", description: "Selfie segurando o documento", fileSrc: "/clients/joao/selfie_documento.png" },
+      { id: "f3h", name: "Fachada Residência.png", type: "photo", size: "1.1 MB", date: "2026-03-09", description: "Foto da fachada da residência", fileSrc: "/clients/joao/fachada.png" },
       { id: "f3e", name: "Ficha do Cliente.docx", type: "doc", size: "102 KB", date: "2026-03-08", description: "Informações cadastrais completas" },
       { id: "f3f", name: "Comprovante de Endereço.pdf", type: "pdf", size: "275 KB", date: "2026-03-09", description: "Comprovante de endereço" },
     ],
