@@ -71,7 +71,7 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "2", clientName: "Dijanira da Silva Martins", cpf: "086.444.838-46",
-    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-12",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-12",
     phone: "(83) 99871-4523 / (83) 99645-3187", email: "dijanira.martins@email.com", address: "Campina Grande - PB",
     benefitType: "Aposentadoria por Idade",
     files: [
@@ -89,7 +89,7 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "3", clientName: "João José dos Santos", cpf: "542.170.249-91",
-    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-08",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-08",
     phone: "(62) 99843-2156 / (62) 99712-8034", email: "", address: "Anápolis - GO",
     benefitType: "Aposentadoria por Idade",
     files: [
@@ -108,7 +108,7 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "4", clientName: "Izete Angelica da Cruz", cpf: "950.897.567-91",
-    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-05",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-05",
     phone: "(31) 99756-3214 / (31) 99482-1067", email: "", address: "Betim - MG",
     benefitType: "Aposentadoria por Idade",
     files: [
@@ -127,7 +127,7 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "5", clientName: "Maria do Rosário Pereira de Lima", cpf: "734.521.896-43",
-    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-03",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-03",
     phone: "(35) 99823-4512 / (35) 99671-8903", email: "maria.rosario.lima@email.com", address: "Lavras - MG",
     benefitType: "Aposentadoria por Idade",
     files: [
@@ -147,7 +147,7 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "6", clientName: "José Araújo Silveira", cpf: "035.019.208-14",
-    contractType: "Aposentadoria por Idade", status: "em_andamento", createdAt: "2026-03-12",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-12",
     phone: "(77) 99834-5127", email: "", address: "Vitória da Conquista - BA",
     benefitType: "Aposentadoria por Idade",
     files: [
