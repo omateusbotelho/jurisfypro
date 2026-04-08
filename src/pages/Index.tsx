@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { ClientDetail } from "@/components/ClientDetail";
 import { LoginPage } from "@/components/LoginPage";
@@ -9,17 +9,23 @@ import { FolderOpen, Loader2 } from "lucide-react";
 const Index = () => {
   const { session, loading, signOut } = useAuth();
   const [clients, setClients] = useState<ClientFolder[]>(mockClients);
-  const [selectedClient, setSelectedClient] = useState<ClientFolder | null>(null);
+  const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
+  useEffect(() => {
+    setClients(mockClients);
+    setSelectedClientId((prev) =>
+      prev && mockClients.some((client) => client.id === prev) ? prev : null
+    );
+  }, [mockClients]);
+
+  const selectedClient = clients.find((client) => client.id === selectedClientId) ?? null;
+
   const updateClient = useCallback((updatedClient: ClientFolder) => {
     setClients((prev) =>
-      prev.map((c) => (c.id === updatedClient.id ? updatedClient : c))
-    );
-    setSelectedClient((prev) =>
-      prev?.id === updatedClient.id ? updatedClient : prev
+      prev.map((client) => (client.id === updatedClient.id ? updatedClient : client))
     );
   }, []);
 
@@ -40,7 +46,7 @@ const Index = () => {
       <Sidebar
         clients={clients}
         selectedClient={selectedClient}
-        onSelectClient={setSelectedClient}
+        onSelectClient={(client) => setSelectedClientId(client.id)}
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
         statusFilter={statusFilter}
