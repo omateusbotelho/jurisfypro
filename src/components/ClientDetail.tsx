@@ -10,6 +10,7 @@ import {
   ExternalLink, Filter, X
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { formatPtBrDate } from "@/lib/utils";
 
 const fileIcons: Record<string, typeof FileText> = {
   pdf: FileText, audio: Music, photo: Image, doc: File, contract: FileSignature,
@@ -83,7 +84,7 @@ function AudioPlayer({ file, onDelete }: { file: ClientFile; onDelete?: () => vo
             <p className="text-xs text-muted-foreground truncate">{file.description}</p>
             <div className="flex items-center gap-3 mt-1">
               <span className="text-xs text-muted-foreground">{file.size}</span>
-              <span className="text-xs text-muted-foreground">{new Date(file.date).toLocaleDateString("pt-BR")}</span>
+              <span className="text-xs text-muted-foreground">{formatPtBrDate(file.date)}</span>
               <span className="text-xs px-1.5 py-0.5 rounded bg-info/10 text-info">{fileTypeLabels[file.type]}</span>
             </div>
           </>
@@ -122,7 +123,7 @@ function FileCard({ file, onDocClick, onDelete, onPreview }: { file: ClientFile;
         <p className="text-xs text-muted-foreground truncate">{file.description}</p>
         <div className="flex items-center gap-3 mt-1">
           <span className="text-xs text-muted-foreground">{file.size}</span>
-          <span className="text-xs text-muted-foreground">{new Date(file.date).toLocaleDateString("pt-BR")}</span>
+          <span className="text-xs text-muted-foreground">{formatPtBrDate(file.date)}</span>
           <span className={`text-xs px-1.5 py-0.5 rounded ${colorClass}`}>{fileTypeLabels[file.type]}</span>
         </div>
       </div>
@@ -157,7 +158,7 @@ function UploadedFileCard({ file, onDelete }: { file: UploadedFile; onDelete: ()
         <p className="text-xs text-muted-foreground truncate">{file.description || "Sem descrição"}</p>
         <div className="flex items-center gap-3 mt-1">
           <span className="text-xs text-muted-foreground">{formatFileSize(file.file_size)}</span>
-          <span className="text-xs text-muted-foreground">{new Date(file.created_at).toLocaleDateString("pt-BR")}</span>
+          <span className="text-xs text-muted-foreground">{formatPtBrDate(file.created_at)}</span>
           <span className={`text-xs px-1.5 py-0.5 rounded ${colorClass}`}>{fileTypeLabels[file.file_type] || file.file_type}</span>
         </div>
       </div>
@@ -271,7 +272,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
           <InfoItem icon={Mail} label="E-mail" value={client.email} />
           <InfoItem icon={MapPin} label="Endereço" value={client.address} />
           
-          <InfoItem icon={Calendar} label="Data Contrato" value={new Date(client.createdAt).toLocaleDateString("pt-BR")} />
+          <InfoItem icon={Calendar} label="Data Contrato" value={formatPtBrDate(client.createdAt)} />
         </div>
       </div>
 

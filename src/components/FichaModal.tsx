@@ -1,4 +1,5 @@
 import { type ClientFolder, type SdrNote } from "@/data/mockClients";
+import { formatPtBrDate } from "@/lib/utils";
 import {
   X, User, Calendar, MessageCircle, Phone, Globe, Instagram,
   Users, ClipboardList, ArrowRight, Heart, AlertTriangle, Smile,
@@ -95,7 +96,7 @@ function SdrNoteCard({ note, index, total }: { note: SdrNote; index: number; tot
           </p>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <Calendar className="w-3 h-3" />
-            {new Date(note.date).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+            {formatPtBrDate(note.date, { day: "2-digit", month: "long", year: "numeric" })}
             <span className="flex items-center gap-1">
               <ChannelIcon className="w-3 h-3" />
               {note.channel}
