@@ -51,19 +51,19 @@ const baseFiles = (id: number, date: string): ClientFile[] => [
 export const mockClients: ClientFolder[] = [
   {
     id: "1", clientName: "Rainis Lejins", cpf: "040.529.648-70",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-30",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-01",
     phone: "(81) 99872-3415 / (81) 99634-7821", email: "rainis.lejins@email.com", address: "Limoeiro - PE",
     benefitType: "Aposentadoria por Idade",
     files: [
-      { id: "f1a", name: "Contrato de Honorários.pdf", type: "contract", size: "312 KB", date: "2026-03-31", description: "Contrato de honorários advocatícios", fileSrc: "/clients/rainis/contrato_honorarios.pdf" },
+      { id: "f1a", name: "Contrato de Honorários.pdf", type: "contract", size: "312 KB", date: "2026-04-02", description: "Contrato de honorários advocatícios", fileSrc: "/clients/rainis/contrato_honorarios.pdf" },
       { id: "f1b", name: "Procuração.pdf", type: "contract", size: "245 KB", date: "2026-04-01", description: "Procuração ad judicia", fileSrc: "/clients/rainis/procuracao.pdf" },
       { id: "f1c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.2 MB", date: "2026-04-02", description: "Áudio da reunião inicial" },
       { id: "f1d", name: "Documento - Frente.jpg", type: "photo", size: "1.4 MB", date: "2026-04-03", description: "Documento de identidade - frente", fileSrc: "/clients/rainis/rg_frente.jpg" },
       { id: "f1e", name: "Documento - Verso.jpg", type: "photo", size: "1.1 MB", date: "2026-04-06", description: "Documento de identidade - verso", fileSrc: "/clients/rainis/rg_verso.jpg" },
       { id: "f1f", name: "Fachada Residência.png", type: "photo", size: "980 KB", date: "2026-04-07", description: "Foto da fachada da residência", fileSrc: "/clients/rainis/fachada.png" },
       { id: "f1g", name: "Ficha do Cliente.docx", type: "doc", size: "89 KB", date: "2026-04-08", description: "Informações cadastrais completas" },
-      { id: "f1h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "320 KB", date: "2026-03-30", description: "Comprovante de endereço", fileSrc: "/clients/rainis/comprovante_endereco.pdf" },
-      { id: "f1i", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-03-31", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/rainis/cnis.pdf" },
+      { id: "f1h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "320 KB", date: "2026-04-03", description: "Comprovante de endereço", fileSrc: "/clients/rainis/comprovante_endereco.pdf" },
+      { id: "f1i", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-04-06", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/rainis/cnis.pdf" },
     ],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-04-01", channel: "WhatsApp", clientMood: "ansioso", summary: "Seu Rainis entrou em contato pelo WhatsApp após indicação de um conhecido. Tem 63 anos e está preocupado com o tempo de contribuição. Trabalhou muitos anos na área rural em Pernambuco.", notes: ["Cliente trabalhou na agricultura durante boa parte da vida", "Possui CNH e documentos pessoais em dia", "Reside em Limoeiro - PE", "Parentes forneceram contatos para acompanhamento"], nextSteps: "Agendar reunião presencial para análise dos documentos e CNIS" },
@@ -79,8 +79,8 @@ export const mockClients: ClientFolder[] = [
       { id: "f2a", name: "Contrato de Honorários.pdf", type: "contract", size: "410 KB", date: "2026-04-06", description: "Contrato de honorários advocatícios", fileSrc: "/clients/dijanira/contrato_honorarios.pdf" },
       { id: "f2b", name: "Procuração.pdf", type: "contract", size: "380 KB", date: "2026-04-07", description: "Procuração ad judicia", fileSrc: "/clients/dijanira/procuracao.pdf" },
       { id: "f2c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.7 MB", date: "2026-04-08", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_2.wav" },
-      { id: "f2d", name: "Documento.png", type: "photo", size: "1.8 MB", date: "2026-03-30", description: "Documento de identidade - frente e verso", fileSrc: "/clients/dijanira/documento.png" },
-      { id: "f2e", name: "Fachada Residência.png", type: "photo", size: "950 KB", date: "2026-03-31", description: "Foto da fachada da residência", fileSrc: "/clients/dijanira/fachada.png" },
+      { id: "f2d", name: "Documento.png", type: "photo", size: "1.8 MB", date: "2026-04-07", description: "Documento de identidade - frente e verso", fileSrc: "/clients/dijanira/documento.png" },
+      { id: "f2e", name: "Fachada Residência.png", type: "photo", size: "950 KB", date: "2026-04-08", description: "Foto da fachada da residência", fileSrc: "/clients/dijanira/fachada.png" },
       { id: "f2f", name: "Ficha do Cliente.docx", type: "doc", size: "95 KB", date: "2026-04-01", description: "Informações cadastrais completas" },
       { id: "f2g", name: "Comprovante de Endereço.pdf", type: "pdf", size: "290 KB", date: "2026-04-02", description: "Comprovante de endereço" },
       { id: "f2h", name: "CNIS.pdf", type: "pdf", size: "335 KB", date: "2026-04-03", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/dijanira/cnis.pdf" },
@@ -96,8 +96,8 @@ export const mockClients: ClientFolder[] = [
     benefitType: "Aposentadoria por Idade",
     files: [
       { id: "f3a", name: "Contrato de Honorários.pdf", type: "contract", size: "395 KB", date: "2026-04-08", description: "Contrato de honorários advocatícios", fileSrc: "/clients/joao/contrato_honorarios.pdf" },
-      { id: "f3b", name: "Procuração.pdf", type: "contract", size: "360 KB", date: "2026-03-30", description: "Procuração ad judicia", fileSrc: "/clients/joao/procuracao.pdf" },
-      { id: "f3c", name: "Gravação Atendimento.mp3", type: "audio", size: "5.1 MB", date: "2026-03-31", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_3.wav" },
+      { id: "f3b", name: "Procuração.pdf", type: "contract", size: "360 KB", date: "2026-04-01", description: "Procuração ad judicia", fileSrc: "/clients/joao/procuracao.pdf" },
+      { id: "f3c", name: "Gravação Atendimento.mp3", type: "audio", size: "5.1 MB", date: "2026-04-02", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_3.wav" },
       { id: "f3d", name: "Documento.png", type: "photo", size: "1.6 MB", date: "2026-04-01", description: "CNH - Carteira Nacional de Habilitação", fileSrc: "/clients/joao/documento.png" },
       { id: "f3g", name: "Selfie com Documento.png", type: "photo", size: "2.1 MB", date: "2026-04-02", description: "Selfie segurando o documento", fileSrc: "/clients/joao/selfie_documento.png" },
       { id: "f3h", name: "Fachada Residência.png", type: "photo", size: "1.1 MB", date: "2026-04-03", description: "Foto da fachada da residência", fileSrc: "/clients/joao/fachada.png" },
@@ -106,12 +106,12 @@ export const mockClients: ClientFolder[] = [
       { id: "f3i", name: "CNIS.pdf", type: "pdf", size: "350 KB", date: "2026-04-08", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/joao/cnis.pdf" },
     ],
     sdrNotes: [
-      { sdrName: "Lucas Martins", date: "2026-03-30", channel: "Telefone", clientMood: "tranquilo", summary: "Seu João ligou pedindo informações sobre aposentadoria por idade. Tem 66 anos e trabalhou a vida toda como motorista de caminhão. Quer saber se já pode se aposentar. Não usa e-mail, prefere contato por telefone.", notes: ["Motorista de caminhão há mais de 30 anos", "Contribuiu pelo INSS como autônomo em parte do período", "Mora em Anápolis com a esposa", "Muito tranquilo e objetivo na conversa", "Sem e-mail, contato apenas por telefone"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição para análise" },
+      { sdrName: "Lucas Martins", date: "2026-04-03", channel: "Telefone", clientMood: "tranquilo", summary: "Seu João ligou pedindo informações sobre aposentadoria por idade. Tem 66 anos e trabalhou a vida toda como motorista de caminhão. Quer saber se já pode se aposentar. Não usa e-mail, prefere contato por telefone.", notes: ["Motorista de caminhão há mais de 30 anos", "Contribuiu pelo INSS como autônomo em parte do período", "Mora em Anápolis com a esposa", "Muito tranquilo e objetivo na conversa", "Sem e-mail, contato apenas por telefone"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição para análise" },
     ],
   },
   {
     id: "4", clientName: "Izete Angelica da Cruz", cpf: "950.897.567-91",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-31",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-06",
     phone: "(31) 99756-3214 / (31) 99482-1067", email: "", address: "Betim - MG",
     benefitType: "Aposentadoria por Idade",
     files: [
@@ -121,8 +121,8 @@ export const mockClients: ClientFolder[] = [
       { id: "f4d", name: "Documento.png", type: "photo", size: "1.5 MB", date: "2026-04-06", description: "Documento de identidade - frente", fileSrc: "/clients/izete/documento.png" },
       { id: "f4e", name: "Selfie com Documento.png", type: "photo", size: "1.9 MB", date: "2026-04-07", description: "Selfie segurando o documento", fileSrc: "/clients/izete/selfie_documento.png" },
       { id: "f4f", name: "Fachada Residência.png", type: "photo", size: "1.0 MB", date: "2026-04-08", description: "Foto da fachada da residência", fileSrc: "/clients/izete/fachada.png" },
-      { id: "f4g", name: "Ficha do Cliente.docx", type: "doc", size: "88 KB", date: "2026-03-30", description: "Informações cadastrais completas" },
-      { id: "f4h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "310 KB", date: "2026-03-31", description: "Comprovante de endereço" },
+      { id: "f4g", name: "Ficha do Cliente.docx", type: "doc", size: "88 KB", date: "2026-04-07", description: "Informações cadastrais completas" },
+      { id: "f4h", name: "Comprovante de Endereço.pdf", type: "pdf", size: "310 KB", date: "2026-04-08", description: "Comprovante de endereço" },
       { id: "f4i", name: "CNIS.pdf", type: "pdf", size: "330 KB", date: "2026-04-01", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/izete/cnis.pdf" },
     ],
     sdrNotes: [
@@ -138,8 +138,8 @@ export const mockClients: ClientFolder[] = [
       { id: "f5a", name: "Contrato de Honorários.pdf", type: "contract", size: "405 KB", date: "2026-04-06", description: "Contrato de honorários advocatícios", fileSrc: "/clients/maria/contrato_honorarios.pdf" },
       { id: "f5b", name: "Procuração.pdf", type: "contract", size: "345 KB", date: "2026-04-07", description: "Procuração ad judicia", fileSrc: "/clients/maria/procuracao.pdf" },
       { id: "f5c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.9 MB", date: "2026-04-08", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_5.wav" },
-      { id: "f5d", name: "Documento - Frente.png", type: "photo", size: "1.3 MB", date: "2026-03-30", description: "Documento de identidade - frente", fileSrc: "/clients/maria/documento_frente.png" },
-      { id: "f5e", name: "Documento - Verso.png", type: "photo", size: "1.2 MB", date: "2026-03-31", description: "Documento de identidade - verso", fileSrc: "/clients/maria/documento_verso.png" },
+      { id: "f5d", name: "Documento - Frente.png", type: "photo", size: "1.3 MB", date: "2026-04-01", description: "Documento de identidade - frente", fileSrc: "/clients/maria/documento_frente.png" },
+      { id: "f5e", name: "Documento - Verso.png", type: "photo", size: "1.2 MB", date: "2026-04-02", description: "Documento de identidade - verso", fileSrc: "/clients/maria/documento_verso.png" },
       { id: "f5f", name: "Selfie com Documento.png", type: "photo", size: "1.7 MB", date: "2026-04-01", description: "Selfie segurando o documento", fileSrc: "/clients/maria/selfie_documento.png" },
       { id: "f5g", name: "Fachada Residência.png", type: "photo", size: "1.0 MB", date: "2026-04-02", description: "Foto da fachada da residência", fileSrc: "/clients/maria/fachada.png" },
       { id: "f5h", name: "Ficha do Cliente.docx", type: "doc", size: "76 KB", date: "2026-04-03", description: "Informações cadastrais completas" },
@@ -152,11 +152,11 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "6", clientName: "José Araújo Silveira", cpf: "035.019.208-14",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-30",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
     phone: "(77) 99834-5127", email: "", address: "Vitória da Conquista - BA",
     benefitType: "Aposentadoria por Idade",
     files: [
-      { id: "f6a", name: "Contrato de Honorários.pdf", type: "contract", size: "410 KB", date: "2026-03-31", description: "Contrato de honorários advocatícios", fileSrc: "/clients/jose/contrato_honorarios.pdf" },
+      { id: "f6a", name: "Contrato de Honorários.pdf", type: "contract", size: "410 KB", date: "2026-04-06", description: "Contrato de honorários advocatícios", fileSrc: "/clients/jose/contrato_honorarios.pdf" },
       { id: "f6b", name: "Procuração.pdf", type: "contract", size: "345 KB", date: "2026-04-01", description: "Procuração ad judicia", fileSrc: "/clients/jose/procuracao.pdf" },
       { id: "f6c", name: "Gravação Atendimento.mp3", type: "audio", size: "4.7 MB", date: "2026-04-02", description: "Áudio da reunião inicial", audioSrc: "/audio/silent_6.wav" },
       { id: "f6d", name: "Documento (RG Verso).pdf", type: "pdf", size: "380 KB", date: "2026-04-03", description: "Documento de identidade - verso", fileSrc: "/clients/jose/documento.pdf" },
@@ -165,12 +165,12 @@ export const mockClients: ClientFolder[] = [
       { id: "f6g", name: "CNIS.pdf", type: "pdf", size: "355 KB", date: "2026-04-08", description: "Cadastro Nacional de Informações Sociais", fileSrc: "/clients/jose/cnis.pdf" },
     ],
     sdrNotes: [
-      { sdrName: "Amanda Souza", date: "2026-03-30", channel: "Telefone", clientMood: "tranquilo", summary: "Seu José ligou pedindo informações sobre aposentadoria por idade. Tem 64 anos, trabalhou a vida toda como lavrador no interior da Bahia. Fala devagar e com sotaque forte, muito educado. Não usa e-mail nem WhatsApp, só atende telefone.", notes: ["Lavrador e trabalhador rural há mais de 40 anos", "Trabalhou em fazendas na região de Vitória da Conquista", "Parte do período sem registro formal", "Mora sozinho numa casa simples na zona rural", "Contato apenas por telefone fixo"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição rural para análise" },
+      { sdrName: "Amanda Souza", date: "2026-04-07", channel: "Telefone", clientMood: "tranquilo", summary: "Seu José ligou pedindo informações sobre aposentadoria por idade. Tem 64 anos, trabalhou a vida toda como lavrador no interior da Bahia. Fala devagar e com sotaque forte, muito educado. Não usa e-mail nem WhatsApp, só atende telefone.", notes: ["Lavrador e trabalhador rural há mais de 40 anos", "Trabalhou em fazendas na região de Vitória da Conquista", "Parte do período sem registro formal", "Mora sozinho numa casa simples na zona rural", "Contato apenas por telefone fixo"], nextSteps: "Solicitar CNIS e verificar tempo de contribuição rural para análise" },
     ],
   },
   {
     id: "7", clientName: "Lúcia Helena Rodrigues", cpf: "222.333.444-55",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-31",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-08",
     phone: "(11) 94444-5555", email: "lucia.rodrigues@email.com", address: "Rua Oscar Freire, 890 - São Paulo/SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(7, "2026-04-01"), { id: "f7h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-04-02", description: "Cadastro Nacional de Informações Sociais" }],
@@ -185,12 +185,12 @@ export const mockClients: ClientFolder[] = [
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(8, "2026-04-07"), { id: "f8h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-04-08", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
-      { sdrName: "Amanda Souza", date: "2026-03-30", channel: "Telefone", clientMood: "urgente", summary: "Antônio ligou do hospital. Sofreu acidente na obra onde trabalha como pedreiro - caiu do andaime e fraturou a perna em dois lugares. Está preocupado porque é autônomo e não tem carteira assinada.", notes: ["Acidente em obra, sem equipamento de segurança", "Contribui como autônomo há 5 anos", "Fratura exposta na tíbia e fíbula", "Vai precisar de fisioterapia por meses", "Não tem reserva financeira nenhuma"], nextSteps: "Verificar qualidade de segurado e agendar visita ao hospital para colher assinatura" },
+      { sdrName: "Amanda Souza", date: "2026-04-01", channel: "Telefone", clientMood: "urgente", summary: "Antônio ligou do hospital. Sofreu acidente na obra onde trabalha como pedreiro - caiu do andaime e fraturou a perna em dois lugares. Está preocupado porque é autônomo e não tem carteira assinada.", notes: ["Acidente em obra, sem equipamento de segurança", "Contribui como autônomo há 5 anos", "Fratura exposta na tíbia e fíbula", "Vai precisar de fisioterapia por meses", "Não tem reserva financeira nenhuma"], nextSteps: "Verificar qualidade de segurado e agendar visita ao hospital para colher assinatura" },
     ],
   },
   {
     id: "9", clientName: "Patrícia Gomes Nascimento", cpf: "444.555.666-77",
-    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-03-31",
+    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-04-02",
     phone: "(11) 98888-9999", email: "patricia.gomes@email.com", address: "Rua Ipiranga, 200 - São Paulo/SP",
     benefitType: "Benefício de Prestação Continuada",
     files: [...baseFiles(9, "2026-04-01"), { id: "f9h", name: "CNIS.pdf", type: "pdf", size: "330 KB", date: "2026-04-02", description: "Cadastro Nacional de Informações Sociais" }],
@@ -205,12 +205,12 @@ export const mockClients: ClientFolder[] = [
     benefitType: "Aposentadoria Especial",
     files: [...baseFiles(10, "2026-04-07"), { id: "f10h", name: "CNIS.pdf", type: "pdf", size: "345 KB", date: "2026-04-08", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
-      { sdrName: "Lucas Martins", date: "2026-03-30", channel: "WhatsApp", clientMood: "decidido", summary: "Fernando trabalha há 22 anos como eletricista em empresa de energia. Um colega que se aposentou com a gente indicou nosso escritório. Sabe que tem direito à aposentadoria especial por exposição a periculosidade.", notes: ["Exposição contínua a alta tensão", "PPP da empresa confirma periculosidade", "Quer se aposentar para abrir negócio próprio", "Colega aposentado: Sr. João Mendes (cliente antigo)"], nextSteps: "Analisar PPP e LTCAT da empresa, verificar enquadramento por periculosidade" },
+      { sdrName: "Lucas Martins", date: "2026-04-03", channel: "WhatsApp", clientMood: "decidido", summary: "Fernando trabalha há 22 anos como eletricista em empresa de energia. Um colega que se aposentou com a gente indicou nosso escritório. Sabe que tem direito à aposentadoria especial por exposição a periculosidade.", notes: ["Exposição contínua a alta tensão", "PPP da empresa confirma periculosidade", "Quer se aposentar para abrir negócio próprio", "Colega aposentado: Sr. João Mendes (cliente antigo)"], nextSteps: "Analisar PPP e LTCAT da empresa, verificar enquadramento por periculosidade" },
     ],
   },
   {
     id: "11", clientName: "Sandra Regina Martins", cpf: "666.777.888-99",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-31",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-06",
     phone: "(11) 93456-7890", email: "sandra.martins@email.com", address: "Rua XV de Novembro, 430 - Santos/SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(11, "2026-04-01"), { id: "f11h", name: "Certidão de Casamento.jpg", type: "photo", size: "1.4 MB", date: "2026-04-02", description: "Certidão de casamento" }],
@@ -225,12 +225,12 @@ export const mockClients: ClientFolder[] = [
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(12, "2026-04-07"), { id: "f12h", name: "Exames.jpg", type: "photo", size: "2.1 MB", date: "2026-04-08", description: "Resultado de exames laboratoriais" }],
     sdrNotes: [
-      { sdrName: "Beatriz Lima", date: "2026-03-30", channel: "WhatsApp", clientMood: "ansioso", summary: "Marcos mandou mensagem dizendo que foi diagnosticado com depressão severa e síndrome de burnout. Está afastado do trabalho há 1 mês e a empresa está pressionando para ele voltar. Não se sente em condições.", notes: ["Trabalhava como gerente de loja, jornada de 12h", "Diagnóstico de depressão maior e ansiedade generalizada", "Usando medicação psiquiátrica há 3 semanas", "Empresa ameaçou demitir se não voltar", "Voz trêmula durante a conversa, claramente fragilizado"], nextSteps: "Orientar sobre estabilidade e agendar para trazer laudos do psiquiatra e do clínico geral" },
+      { sdrName: "Beatriz Lima", date: "2026-04-07", channel: "WhatsApp", clientMood: "ansioso", summary: "Marcos mandou mensagem dizendo que foi diagnosticado com depressão severa e síndrome de burnout. Está afastado do trabalho há 1 mês e a empresa está pressionando para ele voltar. Não se sente em condições.", notes: ["Trabalhava como gerente de loja, jornada de 12h", "Diagnóstico de depressão maior e ansiedade generalizada", "Usando medicação psiquiátrica há 3 semanas", "Empresa ameaçou demitir se não voltar", "Voz trêmula durante a conversa, claramente fragilizado"], nextSteps: "Orientar sobre estabilidade e agendar para trazer laudos do psiquiatra e do clínico geral" },
     ],
   },
   {
     id: "13", clientName: "Cláudia Fernanda Pinto", cpf: "888.999.000-11",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-31",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-08",
     phone: "(11) 92345-6789", email: "claudia.pinto@email.com", address: "Rua Haddock Lobo, 150 - São Paulo/SP",
     benefitType: "Aposentadoria por Idade",
     files: baseFiles(13, "2026-04-01"),
@@ -250,10 +250,10 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "15", clientName: "Teresa Cristina Moura", cpf: "000.111.222-33",
-    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-03-30",
+    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-04-01",
     phone: "(11) 94321-8765", email: "teresa.moura@email.com", address: "Rua Maria Antônia, 300 - São Paulo/SP",
     benefitType: "Benefício de Prestação Continuada",
-    files: [...baseFiles(15, "2026-03-31"), { id: "f15h", name: "Decisão INSS.pdf", type: "pdf", size: "780 KB", date: "2026-04-01", description: "Decisão administrativa - Deferido" }],
+    files: [...baseFiles(15, "2026-04-02"), { id: "f15h", name: "Decisão INSS.pdf", type: "pdf", size: "780 KB", date: "2026-04-01", description: "Decisão administrativa - Deferido" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-04-02", channel: "Presencial", clientMood: "emotivo", summary: "Dona Teresa veio ao escritório sem agendar, caminhando com dificuldade por causa da artrose nos joelhos. Tem 67 anos, nunca contribuiu e vive com a aposentadoria mínima do marido que mal dá pra pagar as contas. Ouviu no rádio que idoso de baixa renda tem direito.", notes: ["Artrose severa nos dois joelhos, usa bengala", "Marido recebe um salário mínimo de aposentadoria", "Moram em casa alugada no valor de R$600", "Nunca trabalhou formalmente", "Muito humilde e educada, pediu desculpa por vir sem agendar"], nextSteps: "Caso clássico de BPC idoso, montar processo com urgência dado a situação de vulnerabilidade" },
     ],
@@ -270,10 +270,10 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "17", clientName: "Rosângela Aparecida Lopes", cpf: "223.344.556-67",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-30",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
     phone: "(11) 91234-0000", email: "rosangela.lopes@email.com", address: "Rua Domingos de Morais, 500 - São Paulo/SP",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(17, "2026-03-31"), { id: "f17h", name: "CAT.pdf", type: "pdf", size: "300 KB", date: "2026-04-01", description: "Comunicação de Acidente de Trabalho" }],
+    files: [...baseFiles(17, "2026-04-06"), { id: "f17h", name: "CAT.pdf", type: "pdf", size: "300 KB", date: "2026-04-01", description: "Comunicação de Acidente de Trabalho" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-04-02", channel: "Telefone", clientMood: "ansioso", summary: "Rosângela ligou explicando que voltou a trabalhar após acidente, mas ficou com limitação no ombro. A empresa a colocou em função adaptada mas ela sente dor todo dia. Quer saber se tem direito a alguma indenização ou benefício.", notes: ["Acidente de trabalho há 8 meses - queda de escada", "Lesão no manguito rotador com cirurgia", "Voltou ao trabalho mas com restrição de movimento", "Trabalha como auxiliar de limpeza em hospital", "Tem medo de ser demitida por não render igual antes"], nextSteps: "Avaliar redução da capacidade laborativa e possibilidade de auxílio-acidente" },
     ],
@@ -290,10 +290,10 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "19", clientName: "Ivone Beatriz Cardoso", cpf: "445.566.778-89",
-    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-03-30",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-07",
     phone: "(11) 97890-1234", email: "ivone.cardoso@email.com", address: "Rua Teodoro Sampaio, 245 - São Paulo/SP",
     benefitType: "Aposentadoria por Idade",
-    files: [...baseFiles(19, "2026-03-31"), { id: "f19h", name: "Certidão de Óbito.pdf", type: "pdf", size: "510 KB", date: "2026-04-01", description: "Certidão de óbito do segurado" }],
+    files: [...baseFiles(19, "2026-04-08"), { id: "f19h", name: "Certidão de Óbito.pdf", type: "pdf", size: "510 KB", date: "2026-04-01", description: "Certidão de óbito do segurado" }],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-04-02", channel: "WhatsApp", clientMood: "emotivo", summary: "Ivone mandou mensagem dizendo que o companheiro faleceu de câncer após longa luta. Viviam em união estável há 12 anos mas nunca formalizaram. Ela está com medo de não ter direito à pensão por não ter papel.", notes: ["União estável de 12 anos sem registro em cartório", "Companheiro era funcionário público estadual", "Têm uma filha de 9 anos juntos", "Conta conjunta no banco e comprovantes de endereço conjunto", "Muito preocupada com o futuro da filha"], nextSteps: "Reunir provas de união estável (conta conjunta, fotos, declaração de vizinhos) e verificar regime previdenciário do companheiro" },
     ],
