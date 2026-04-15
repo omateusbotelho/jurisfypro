@@ -171,7 +171,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "7", clientName: "Lúcia Helena Rodrigues", cpf: "222.333.444-55",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-08",
-    phone: "(11) 94444-5555", email: "lucia.rodrigues@email.com", address: "Rua Oscar Freire, 890 - São Paulo/SP",
+    phone: "(11) 94444-5555", email: "lucia.rodrigues@email.com", address: "São Paulo - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(7, "2026-04-01"), { id: "f7h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-04-02", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
@@ -181,7 +181,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "8", clientName: "Antônio Marcos Souza", cpf: "333.444.555-66",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-06",
-    phone: "(11) 96666-7777", email: "antonio.souza@email.com", address: "Av. Brasil, 1500 - Guarulhos/SP",
+    phone: "(11) 96666-7777", email: "antonio.souza@email.com", address: "Guarulhos - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(8, "2026-04-07"), { id: "f8h", name: "CNIS.pdf", type: "pdf", size: "340 KB", date: "2026-04-08", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
@@ -190,9 +190,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "9", clientName: "Patrícia Gomes Nascimento", cpf: "444.555.666-77",
-    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-04-02",
-    phone: "(11) 98888-9999", email: "patricia.gomes@email.com", address: "Rua Ipiranga, 200 - São Paulo/SP",
-    benefitType: "Benefício de Prestação Continuada",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-02",
+    phone: "(11) 98888-9999", email: "patricia.gomes@email.com", address: "São Paulo - SP",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(9, "2026-04-01"), { id: "f9h", name: "CNIS.pdf", type: "pdf", size: "330 KB", date: "2026-04-02", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-04-03", channel: "Instagram", clientMood: "inseguro", summary: "Patrícia viu um vídeo nosso no Instagram sobre BPC para idosos e mandou mensagem. Tem 66 anos, nunca contribuiu e vive com a renda do marido que faz bicos. Perguntou se 'gente como ela' tem direito.", notes: ["Nunca trabalhou com carteira assinada", "Marido faz trabalhos esporádicos como eletricista", "Moram em casa própria simples na periferia", "Filhos moram longe e ajudam pouco", "Se sentiu acolhida quando explicamos que sim, ela tem direito"], nextSteps: "Agendar atendimento presencial para montar o processo com toda documentação de renda" },
@@ -200,9 +200,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "10", clientName: "Fernando Ribeiro Alves", cpf: "555.666.777-88",
-    contractType: "Aposentadoria Especial", status: "concluido", createdAt: "2026-04-06",
-    phone: "(11) 91111-0000", email: "fernando.alves@email.com", address: "Rua da Mooca, 670 - São Paulo/SP",
-    benefitType: "Aposentadoria Especial",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-06",
+    phone: "(11) 91111-0000", email: "fernando.alves@email.com", address: "São Paulo - SP",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(10, "2026-04-07"), { id: "f10h", name: "CNIS.pdf", type: "pdf", size: "345 KB", date: "2026-04-08", description: "Cadastro Nacional de Informações Sociais" }],
     sdrNotes: [
       { sdrName: "Lucas Martins", date: "2026-04-03", channel: "WhatsApp", clientMood: "decidido", summary: "Fernando trabalha há 22 anos como eletricista em empresa de energia. Um colega que se aposentou com a gente indicou nosso escritório. Sabe que tem direito à aposentadoria especial por exposição a periculosidade.", notes: ["Exposição contínua a alta tensão", "PPP da empresa confirma periculosidade", "Quer se aposentar para abrir negócio próprio", "Colega aposentado: Sr. João Mendes (cliente antigo)"], nextSteps: "Analisar PPP e LTCAT da empresa, verificar enquadramento por periculosidade" },
@@ -211,7 +211,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "11", clientName: "Sandra Regina Martins", cpf: "666.777.888-99",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-06",
-    phone: "(11) 93456-7890", email: "sandra.martins@email.com", address: "Rua XV de Novembro, 430 - Santos/SP",
+    phone: "(11) 93456-7890", email: "sandra.martins@email.com", address: "Santos - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(11, "2026-04-01"), { id: "f11h", name: "Certidão de Casamento.jpg", type: "photo", size: "1.4 MB", date: "2026-04-02", description: "Certidão de casamento" }],
     sdrNotes: [
@@ -221,7 +221,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "12", clientName: "Marcos Vinícius Barbosa", cpf: "777.888.999-00",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-06",
-    phone: "(11) 95678-1234", email: "marcos.barbosa@email.com", address: "Av. Independência, 88 - Osasco/SP",
+    phone: "(11) 95678-1234", email: "marcos.barbosa@email.com", address: "Osasco - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(12, "2026-04-07"), { id: "f12h", name: "Exames.jpg", type: "photo", size: "2.1 MB", date: "2026-04-08", description: "Resultado de exames laboratoriais" }],
     sdrNotes: [
@@ -231,7 +231,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "13", clientName: "Cláudia Fernanda Pinto", cpf: "888.999.000-11",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-08",
-    phone: "(11) 92345-6789", email: "claudia.pinto@email.com", address: "Rua Haddock Lobo, 150 - São Paulo/SP",
+    phone: "(11) 92345-6789", email: "claudia.pinto@email.com", address: "São Paulo - SP",
     benefitType: "Aposentadoria por Idade",
     files: baseFiles(13, "2026-04-01"),
     sdrNotes: [
@@ -240,9 +240,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "14", clientName: "Raimundo Nonato Silva", cpf: "999.000.111-22",
-    contractType: "Aposentadoria por Tempo de Contribuição", status: "concluido", createdAt: "2026-04-03",
-    phone: "(11) 96789-0123", email: "raimundo.silva@email.com", address: "Rua Barão de Itapetininga, 77 - São Paulo/SP",
-    benefitType: "Aposentadoria por Tempo de Contribuição",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
+    phone: "(11) 96789-0123", email: "raimundo.silva@email.com", address: "São Paulo - SP",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(14, "2026-04-06"), { id: "f14h", name: "Simulação INSS.pdf", type: "pdf", size: "200 KB", date: "2026-04-07", description: "Simulação de tempo de contribuição" }],
     sdrNotes: [
       { sdrName: "Amanda Souza", date: "2026-04-08", channel: "Telefone", clientMood: "inseguro", summary: "Seu Raimundo ligou meio confuso. Tem 58 anos e acha que tem uns 32 anos de contribuição, mas não tem certeza. Trabalhou em várias empresas e algumas já fecharam. Não sabe se o tempo todo foi contado.", notes: ["Começou a trabalhar aos 16 anos no interior do Piauí", "Veio pra São Paulo em 1990", "Trabalhou em várias fábricas, algumas já fecharam", "Não tem todas as CTPS, perdeu uma em mudança", "Preocupado que o tempo rural não tenha sido registrado"], nextSteps: "Solicitar CNIS e pesquisar vínculos antigos, verificar possibilidade de tempo rural" },
@@ -250,9 +250,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "15", clientName: "Teresa Cristina Moura", cpf: "000.111.222-33",
-    contractType: "BPC/LOAS", status: "concluido", createdAt: "2026-04-01",
-    phone: "(11) 94321-8765", email: "teresa.moura@email.com", address: "Rua Maria Antônia, 300 - São Paulo/SP",
-    benefitType: "Benefício de Prestação Continuada",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-01",
+    phone: "(11) 94321-8765", email: "teresa.moura@email.com", address: "São Paulo - SP",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(15, "2026-04-02"), { id: "f15h", name: "Decisão INSS.pdf", type: "pdf", size: "780 KB", date: "2026-04-01", description: "Decisão administrativa - Deferido" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-04-02", channel: "Presencial", clientMood: "emotivo", summary: "Dona Teresa veio ao escritório sem agendar, caminhando com dificuldade por causa da artrose nos joelhos. Tem 67 anos, nunca contribuiu e vive com a aposentadoria mínima do marido que mal dá pra pagar as contas. Ouviu no rádio que idoso de baixa renda tem direito.", notes: ["Artrose severa nos dois joelhos, usa bengala", "Marido recebe um salário mínimo de aposentadoria", "Moram em casa alugada no valor de R$600", "Nunca trabalhou formalmente", "Muito humilde e educada, pediu desculpa por vir sem agendar"], nextSteps: "Caso clássico de BPC idoso, montar processo com urgência dado a situação de vulnerabilidade" },
@@ -261,7 +261,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "16", clientName: "Paulo Henrique Duarte", cpf: "112.233.445-56",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
-    phone: "(11) 98765-0000", email: "paulo.duarte@email.com", address: "Av. Santo Amaro, 1200 - São Paulo/SP",
+    phone: "(11) 98765-0000", email: "paulo.duarte@email.com", address: "São Paulo - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(16, "2026-04-06"), { id: "f16h", name: "Laudo Neurológico.pdf", type: "pdf", size: "950 KB", date: "2026-04-07", description: "Laudo médico neurológico" }],
     sdrNotes: [
@@ -271,7 +271,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "17", clientName: "Rosângela Aparecida Lopes", cpf: "223.344.556-67",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
-    phone: "(11) 91234-0000", email: "rosangela.lopes@email.com", address: "Rua Domingos de Morais, 500 - São Paulo/SP",
+    phone: "(11) 91234-0000", email: "rosangela.lopes@email.com", address: "São Paulo - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(17, "2026-04-06"), { id: "f17h", name: "CAT.pdf", type: "pdf", size: "300 KB", date: "2026-04-01", description: "Comunicação de Acidente de Trabalho" }],
     sdrNotes: [
@@ -280,9 +280,9 @@ export const mockClients: ClientFolder[] = [
   },
   {
     id: "18", clientName: "Sebastião José Campos", cpf: "334.455.667-78",
-    contractType: "Aposentadoria Especial", status: "concluido", createdAt: "2026-04-03",
-    phone: "(11) 95432-1098", email: "sebastiao.campos@email.com", address: "Rua Brigadeiro, 890 - São Bernardo/SP",
-    benefitType: "Aposentadoria Especial",
+    contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
+    phone: "(11) 95432-1098", email: "sebastiao.campos@email.com", address: "São Bernardo do Campo - SP",
+    benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(18, "2026-04-06"), { id: "f18h", name: "LTCAT.pdf", type: "pdf", size: "560 KB", date: "2026-04-07", description: "Laudo Técnico de Condições Ambientais" }],
     sdrNotes: [
       { sdrName: "Beatriz Lima", date: "2026-04-08", channel: "Indicação", clientMood: "tranquilo", summary: "Seu Sebastião veio indicado pelo sindicato dos metalúrgicos. Trabalha há 25 anos como soldador e está exposto a ruído acima de 85dB e fumos metálicos. Sindicato já orientou que tem direito à especial.", notes: ["25 anos como soldador em indústria automobilística", "PPP e LTCAT da empresa comprovam insalubridade", "Exposição a ruído + agentes químicos", "Sindicato acompanha o caso", "Muito tranquilo e bem orientado pelo sindicato"], nextSteps: "Caso bem documentado, preparar requerimento com PPP, LTCAT e documentação do sindicato" },
@@ -291,7 +291,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "19", clientName: "Ivone Beatriz Cardoso", cpf: "445.566.778-89",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-07",
-    phone: "(11) 97890-1234", email: "ivone.cardoso@email.com", address: "Rua Teodoro Sampaio, 245 - São Paulo/SP",
+    phone: "(11) 97890-1234", email: "ivone.cardoso@email.com", address: "São Paulo - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(19, "2026-04-08"), { id: "f19h", name: "Certidão de Óbito.pdf", type: "pdf", size: "510 KB", date: "2026-04-01", description: "Certidão de óbito do segurado" }],
     sdrNotes: [
@@ -301,7 +301,7 @@ export const mockClients: ClientFolder[] = [
   {
     id: "20", clientName: "Jorge Luís Teixeira", cpf: "556.677.889-90",
     contractType: "Aposentadoria por Idade", status: "concluido", createdAt: "2026-04-03",
-    phone: "(11) 93210-5678", email: "jorge.teixeira@email.com", address: "Av. Rebouças, 1700 - São Paulo/SP",
+    phone: "(11) 93210-5678", email: "jorge.teixeira@email.com", address: "São Paulo - SP",
     benefitType: "Aposentadoria por Idade",
     files: [...baseFiles(20, "2026-04-06"), { id: "f20h", name: "Comprovante Residência.pdf", type: "pdf", size: "290 KB", date: "2026-04-07", description: "Comprovante de endereço atualizado" }],
     sdrNotes: [
