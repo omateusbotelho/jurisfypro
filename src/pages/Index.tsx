@@ -21,7 +21,7 @@ const Index = () => {
     setSelectedClientId((prev) =>
       prev && data.some((client) => client.id === prev) ? prev : null
     );
-  }, [mockClients]);
+  }, [isRestricted]);
 
   const selectedClient = clients.find((client) => client.id === selectedClientId) ?? null;
 
