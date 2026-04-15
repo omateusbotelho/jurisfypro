@@ -128,24 +128,24 @@ export function Sidebar({
       </div>
 
       {/* Footer */}
-      <div className="p-3 border-t border-sidebar-border space-y-2">
+      <div className="p-3 border-t border-sidebar-border space-y-3">
         {userEmail && (
-          <p className="px-3 text-sidebar-fg/40 text-[10px] truncate">{userEmail}</p>
+          <p className="px-3 text-sidebar-fg/50 text-xs truncate">{userEmail}</p>
         )}
-        <div className="flex items-center justify-between px-3">
-          <span className="text-sidebar-fg/50 text-xs flex items-center gap-1.5">
-            <FileText className="w-3.5 h-3.5" />
+        {onSignOut && (
+          <button
+            onClick={onSignOut}
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-sidebar-fg/70 hover:text-destructive hover:bg-destructive/10 transition-all"
+          >
+            <LogOut className="w-4 h-4" />
+            Sair
+          </button>
+        )}
+        <div className="flex items-center justify-center px-3">
+          <span className="text-sidebar-fg/30 text-[10px] flex items-center gap-1.5">
+            <FileText className="w-3 h-3" />
             Sistema v1.0
           </span>
-          {onSignOut && (
-            <button
-              onClick={onSignOut}
-              className="flex items-center gap-1 text-xs text-sidebar-fg/50 hover:text-destructive transition-colors"
-            >
-              <LogOut className="w-3.5 h-3.5" />
-              Sair
-            </button>
-          )}
         </div>
       </div>
     </aside>
