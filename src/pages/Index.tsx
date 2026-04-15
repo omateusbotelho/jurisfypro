@@ -16,9 +16,10 @@ const Index = () => {
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
   useEffect(() => {
-    setClients(mockClients);
+    const data = isRestricted ? [] : mockClients;
+    setClients(data);
     setSelectedClientId((prev) =>
-      prev && mockClients.some((client) => client.id === prev) ? prev : null
+      prev && data.some((client) => client.id === prev) ? prev : null
     );
   }, [mockClients]);
 
