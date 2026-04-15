@@ -8,16 +8,18 @@ import { FolderOpen, Loader2 } from "lucide-react";
 
 const Index = () => {
   const { session, loading, signOut } = useAuth();
-  const [clients, setClients] = useState<ClientFolder[]>(mockClients);
+  const isRestricted = session?.user?.email === "salvadoradvogados@gmail.com";
+  const [clients, setClients] = useState<ClientFolder[]>(isRestricted ? [] : mockClients);
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
   useEffect(() => {
-    setClients(mockClients);
+    const data = isRestricted ? [] : mockClients;
+    setClients(data);
     setSelectedClientId((prev) =>
-      prev && mockClients.some((client) => client.id === prev) ? prev : null
+      prev && data.some((client) => client.id === prev) ? prev : null
     );
   }, [mockClients]);
 
