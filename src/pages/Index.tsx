@@ -8,7 +8,8 @@ import { FolderOpen, Loader2 } from "lucide-react";
 
 const Index = () => {
   const { session, loading, signOut } = useAuth();
-  const isRestricted = session?.user?.email === "salvadoradvogados@gmail.com";
+  const RESTRICTED_EMAILS = ["salvadoradvogados@gmail.com", "contato@paolaoliveiraadvocacia.com"];
+  const isRestricted = RESTRICTED_EMAILS.includes(session?.user?.email ?? "");
   const [clients, setClients] = useState<ClientFolder[]>(isRestricted ? [] : mockClients);
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
