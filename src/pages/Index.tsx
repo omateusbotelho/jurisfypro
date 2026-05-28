@@ -8,9 +8,9 @@ import { FolderOpen, Loader2 } from "lucide-react";
 
 const Index = () => {
   const { session, loading, signOut } = useAuth();
-  const RESTRICTED_EMAILS = ["salvador.advogados@hotmail.com", "contato@paolaoliveiraadvocacia.com", "marina.fabres@yahoo.com.br"];
-  const isRestricted = RESTRICTED_EMAILS.includes(session?.user?.email ?? "");
-  const [clients, setClients] = useState<ClientFolder[]>(isRestricted ? [] : mockClients);
+  const DEMO_EMAILS = ["joaoferretadv@gmail.com"];
+  const hasDemoData = DEMO_EMAILS.includes(session?.user?.email ?? "");
+  const [clients, setClients] = useState<ClientFolder[]>(hasDemoData ? mockClients : []);
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
