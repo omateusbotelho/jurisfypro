@@ -4,6 +4,7 @@ import { ClientDetail } from "@/components/ClientDetail";
 import { LoginPage } from "@/components/LoginPage";
 import { useAuth } from "@/hooks/useAuth";
 import { mockClients, type ClientFolder } from "@/data/mockClients";
+import { fernandesClients } from "@/data/fernandesClients";
 import { FolderOpen, Loader2 } from "lucide-react";
 
 const FERNANDES_EMAIL = "fernandesrodriguesadv@gmail.com";
