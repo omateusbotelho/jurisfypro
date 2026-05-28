@@ -9,9 +9,10 @@ export const fernandesClients: ClientFolder[] = [
     status: "concluido",
     createdAt: "2026-04-02",
     phone: "(21) 98326-6165",
-    email: "",
+    email: "esthefany.ourique@gmail.com",
     address: "Rio de Janeiro - RJ",
     benefitType: "Salário Maternidade",
+    govBrPassword: "936411Es*",
     files: [
       {
         id: "fr1a",
@@ -118,9 +119,10 @@ export const fernandesClients: ClientFolder[] = [
     status: "concluido",
     createdAt: "2026-04-06",
     phone: "(91) 99926-9874",
-    email: "",
+    email: "fabiane.silveira97@gmail.com",
     address: "Marapanim - PA",
     benefitType: "Salário Maternidade",
+    govBrPassword: "Fabi@2412",
     files: [
       {
         id: "fr2a",
@@ -236,9 +238,10 @@ export const fernandesClients: ClientFolder[] = [
     status: "concluido",
     createdAt: "2026-04-08",
     phone: "(35) 98422-5604",
-    email: "",
+    email: "daiane.sacramento03@gmail.com",
     address: "Ubaitaba - BA",
     benefitType: "Salário Maternidade",
+    govBrPassword: "Daia2705*",
     files: [
       {
         id: "fr3a",
@@ -356,9 +359,10 @@ export const fernandesClients: ClientFolder[] = [
     status: "concluido",
     createdAt: "2026-04-08",
     phone: "",
-    email: "",
+    email: "anieli.siqueira@gmail.com",
     address: "Itapeva - MG",
     benefitType: "Salário Maternidade",
+    govBrPassword: "17062000An*",
     files: [
       {
         id: "fr4a",
@@ -484,9 +488,10 @@ export const fernandesClients: ClientFolder[] = [
     status: "concluido",
     createdAt: "2026-04-08",
     phone: "(16) 99391-6284",
-    email: "",
+    email: "patricia.rossi95@gmail.com",
     address: "Franca - SP",
     benefitType: "Salário Maternidade",
+    govBrPassword: "Patty2502*",
     files: [
       {
         id: "fr5a",

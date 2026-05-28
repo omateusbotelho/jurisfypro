@@ -7,7 +7,7 @@ import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
   Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle, Upload, Trash2,
-  ExternalLink, Filter, X
+  ExternalLink, Filter, X, KeyRound
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { formatPtBrDate } from "@/lib/utils";
@@ -271,8 +271,10 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
           <InfoItem icon={Phone} label="Telefone" value={client.phone} />
           <InfoItem icon={Mail} label="E-mail" value={client.email} />
           <InfoItem icon={MapPin} label="Endereço" value={client.address} />
-          
           <InfoItem icon={Calendar} label="Data Contrato" value={formatPtBrDate(client.createdAt)} />
+          {client.govBrPassword && (
+            <InfoItem icon={KeyRound} label="Senha Gov.br" value={client.govBrPassword} />
+          )}
         </div>
       </div>
 

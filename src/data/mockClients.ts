@@ -30,6 +30,7 @@ export interface ClientFolder {
   email: string;
   address: string;
   benefitType: string;
+  govBrPassword?: string;
   files: ClientFile[];
   sdrNotes: SdrNote[];
 }
