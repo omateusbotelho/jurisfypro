@@ -4,25 +4,35 @@ import { ClientDetail } from "@/components/ClientDetail";
 import { LoginPage } from "@/components/LoginPage";
 import { useAuth } from "@/hooks/useAuth";
 import { mockClients, type ClientFolder } from "@/data/mockClients";
+import { fernandesClients } from "@/data/fernandesClients";
 import { FolderOpen, Loader2 } from "lucide-react";
+
+const FERNANDES_EMAIL = "fernandesrodriguesadv@gmail.com";
+const DEMO_EMAILS = ["joaoferretadv@gmail.com"];
+
+const getInitialClients = (email: string | undefined): ClientFolder[] => {
+  if (!email) return [];
+  if (DEMO_EMAILS.includes(email)) return mockClients;
+  if (email === FERNANDES_EMAIL) return fernandesClients;
+  return [];
+};
 
 const Index = () => {
   const { session, loading, signOut } = useAuth();
-  const DEMO_EMAILS = ["joaoferretadv@gmail.com"];
-  const hasDemoData = DEMO_EMAILS.includes(session?.user?.email ?? "");
-  const [clients, setClients] = useState<ClientFolder[]>(hasDemoData ? mockClients : []);
+  const userEmail = session?.user?.email;
+  const [clients, setClients] = useState<ClientFolder[]>(getInitialClients(userEmail));
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
   useEffect(() => {
-    const data = hasDemoData ? mockClients : [];
+    const data = getInitialClients(userEmail);
     setClients(data);
     setSelectedClientId((prev) =>
       prev && data.some((client) => client.id === prev) ? prev : null
     );
-  }, [hasDemoData]);
+  }, [userEmail]);
 
   const selectedClient = clients.find((client) => client.id === selectedClientId) ?? null;
 
