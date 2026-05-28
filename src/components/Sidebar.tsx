@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-joao-ferret.png";
+import { Scale } from "lucide-react";
 import { type ClientFolder } from "@/data/mockClients";
 import { Folder, Users, FileText, Search, ChevronRight, LogOut, Filter } from "lucide-react";
 
@@ -50,7 +50,12 @@ export function Sidebar({
     <aside className="w-72 min-h-screen flex flex-col bg-sidebar-bg border-r border-sidebar-border">
       {/* Logo */}
       <div className="p-5 border-b border-sidebar-border">
-        <img src={logo} alt="João Ferret" className="h-8 object-contain" />
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-sidebar-primary/20 flex items-center justify-center">
+            <Scale className="w-4 h-4 text-sidebar-primary" />
+          </div>
+          <span className="font-display font-bold text-lg text-sidebar-fg tracking-tight">Jurisfy</span>
+        </div>
       </div>
 
       {/* Search */}
