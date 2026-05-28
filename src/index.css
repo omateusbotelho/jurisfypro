@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 240 10% 6%;
-    --foreground: 0 0% 92%;
+    --background: 225 55% 10%;
+    --foreground: 213 27% 93%;
 
-    --card: 240 10% 10%;
-    --card-foreground: 0 0% 92%;
+    --card: 215 50% 16%;
+    --card-foreground: 213 27% 93%;
 
-    --popover: 240 10% 10%;
-    --popover-foreground: 0 0% 92%;
+    --popover: 215 50% 16%;
+    --popover-foreground: 213 27% 93%;
 
-    --primary: 270 70% 72%;
-    --primary-foreground: 240 10% 6%;
+    --primary: 210 60% 55%;
+    --primary-foreground: 225 55% 10%;
 
-    --secondary: 270 15% 18%;
-    --secondary-foreground: 270 30% 82%;
+    --secondary: 213 40% 22%;
+    --secondary-foreground: 213 30% 90%;
 
-    --muted: 240 8% 16%;
-    --muted-foreground: 240 5% 55%;
+    --muted: 215 35% 18%;
+    --muted-foreground: 213 18% 65%;
 
-    --accent: 270 40% 25%;
-    --accent-foreground: 270 60% 85%;
+    --accent: 210 50% 30%;
+    --accent-foreground: 213 30% 92%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 75% 58%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 18%;
-    --input: 240 8% 18%;
-    --ring: 270 70% 72%;
+    --border: 215 35% 22%;
+    --input: 215 35% 22%;
+    --ring: 210 60% 55%;
 
     --radius: 0.75rem;
 
-    --sidebar-bg: 240 10% 4%;
-    --sidebar-fg: 270 10% 85%;
-    --sidebar-primary: 270 70% 72%;
-    --sidebar-muted: 240 10% 14%;
-    --sidebar-border: 240 10% 12%;
+    --sidebar-bg: 225 60% 7%;
+    --sidebar-fg: 213 25% 88%;
+    --sidebar-primary: 210 60% 60%;
+    --sidebar-muted: 215 45% 14%;
+    --sidebar-border: 215 40% 14%;
 
-    --success: 152 60% 45%;
+    --success: 152 55% 48%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
+    --warning: 38 92% 55%;
     --warning-foreground: 0 0% 100%;
-    --info: 210 80% 55%;
+    --info: 210 80% 60%;
     --info-foreground: 0 0% 100%;
 
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Sora', sans-serif;
+    --font-body: 'Manrope', sans-serif;
   }
 }
 
