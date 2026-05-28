@@ -105,7 +105,7 @@ export function LoginPage() {
         </div>
 
         <p className="text-center text-xs text-sidebar-fg/30 mt-6">
-          Sistema Interno — João Ferret Advocacia
+          Sistema Interno — Jurisfy
         </p>
       </div>
     </div>
