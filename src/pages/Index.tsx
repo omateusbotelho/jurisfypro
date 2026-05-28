@@ -17,12 +17,12 @@ const Index = () => {
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
   useEffect(() => {
-    const data = isRestricted ? [] : mockClients;
+    const data = hasDemoData ? mockClients : [];
     setClients(data);
     setSelectedClientId((prev) =>
       prev && data.some((client) => client.id === prev) ? prev : null
     );
-  }, [isRestricted]);
+  }, [hasDemoData]);
 
   const selectedClient = clients.find((client) => client.id === selectedClientId) ?? null;
 
