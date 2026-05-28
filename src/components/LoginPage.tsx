@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Scale } from "lucide-react";
+import logoJurisfy from "@/assets/logo-jurisfy.png";
 import { Lock, Mail, Eye, EyeOff, Loader2 } from "lucide-react";
 
 export function LoginPage() {
@@ -28,10 +28,8 @@ export function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-sidebar-bg p-4">
       <div className="w-full max-w-sm animate-fade-in">
         {/* Logo */}
-        <div className="flex justify-center items-center gap-2 mb-10">
-          <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-            <Scale className="w-5 h-5 text-primary" />
-          </div>
+        <div className="flex justify-center items-center gap-3 mb-10">
+          <img src={logoJurisfy} alt="Jurisfy" className="w-12 h-12 object-contain" width={96} height={96} />
           <span className="font-display font-bold text-2xl text-foreground tracking-tight">Jurisfy</span>
         </div>
 

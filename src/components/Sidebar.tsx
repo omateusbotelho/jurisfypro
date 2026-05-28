@@ -1,4 +1,4 @@
-import { Scale } from "lucide-react";
+import logoJurisfy from "@/assets/logo-jurisfy.png";
 import { type ClientFolder } from "@/data/mockClients";
 import { Folder, Users, FileText, Search, ChevronRight, LogOut, Filter } from "lucide-react";
 
@@ -51,9 +51,7 @@ export function Sidebar({
       {/* Logo */}
       <div className="p-5 border-b border-sidebar-border">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-sidebar-primary/20 flex items-center justify-center">
-            <Scale className="w-4 h-4 text-sidebar-primary" />
-          </div>
+          <img src={logoJurisfy} alt="Jurisfy" className="w-8 h-8 object-contain" width={64} height={64} />
           <span className="font-display font-bold text-lg text-sidebar-fg tracking-tight">Jurisfy</span>
         </div>
       </div>
