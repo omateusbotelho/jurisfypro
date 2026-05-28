@@ -7,7 +7,7 @@ import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
   Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle, Upload, Trash2,
-  ExternalLink, Filter, X
+  ExternalLink, Filter, X, KeyRound
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { formatPtBrDate } from "@/lib/utils";
