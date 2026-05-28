@@ -271,8 +271,10 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
           <InfoItem icon={Phone} label="Telefone" value={client.phone} />
           <InfoItem icon={Mail} label="E-mail" value={client.email} />
           <InfoItem icon={MapPin} label="Endereço" value={client.address} />
-          
           <InfoItem icon={Calendar} label="Data Contrato" value={formatPtBrDate(client.createdAt)} />
+          {client.govBrPassword && (
+            <InfoItem icon={KeyRound} label="Senha Gov.br" value={client.govBrPassword} />
+          )}
         </div>
       </div>
 
