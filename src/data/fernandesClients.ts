@@ -1,0 +1,113 @@
+import type { ClientFolder } from "./mockClients";
+
+export const fernandesClients: ClientFolder[] = [
+  {
+    id: "fr1",
+    clientName: "Esthefany Schuengue Ourique",
+    cpf: "059.124.987-19",
+    contractType: "Salário Maternidade",
+    status: "concluido",
+    createdAt: "2026-04-02",
+    phone: "(21) 98326-6165",
+    email: "",
+    address: "Rio de Janeiro - RJ",
+    benefitType: "Salário Maternidade",
+    files: [
+      {
+        id: "fr1a",
+        name: "Contrato Assinado.pdf",
+        type: "contract",
+        size: "877 KB",
+        date: "2026-04-02",
+        description: "Contrato de honorários assinado digitalmente",
+        fileSrc: "/clients/esthefany/contrato_assinado.pdf",
+      },
+      {
+        id: "fr1b",
+        name: "CTPS Digital - Contratos.pdf",
+        type: "pdf",
+        size: "199 KB",
+        date: "2026-04-03",
+        description: "Carteira de Trabalho Digital com histórico de contratos (Dataprev)",
+        fileSrc: "/clients/esthefany/ctps_digital.pdf",
+      },
+      {
+        id: "fr1c",
+        name: "Identidade - Frente.jpg",
+        type: "photo",
+        size: "41 KB",
+        date: "2026-04-01",
+        description: "Carteira de Identidade - frente (foto e polegar direito)",
+        fileSrc: "/clients/esthefany/identidade_frente.jpg",
+      },
+      {
+        id: "fr1d",
+        name: "Identidade - Verso.jpg",
+        type: "photo",
+        size: "30 KB",
+        date: "2026-04-01",
+        description: "Carteira de Identidade - verso (dados e filiação)",
+        fileSrc: "/clients/esthefany/identidade_verso.jpg",
+      },
+      {
+        id: "fr1e",
+        name: "Gravação Atendimento.mp3",
+        type: "audio",
+        size: "4.2 MB",
+        date: "2026-04-02",
+        description: "Áudio da reunião inicial via WhatsApp",
+        audioSrc: "/audio/silent_1.wav",
+      },
+      {
+        id: "fr1f",
+        name: "Ficha do Cliente.docx",
+        type: "doc",
+        size: "92 KB",
+        date: "2026-04-03",
+        description: "Informações cadastrais completas",
+      },
+      {
+        id: "fr1g",
+        name: "Procuração.pdf",
+        type: "contract",
+        size: "245 KB",
+        date: "2026-04-02",
+        description: "Procuração ad judicia",
+      },
+    ],
+    sdrNotes: [
+      {
+        sdrName: "Amanda Souza",
+        date: "2026-04-01",
+        channel: "WhatsApp",
+        clientMood: "ansioso",
+        summary:
+          "Esthefany entrou em contato pelo WhatsApp informando que está grávida e foi dispensada recentemente do último emprego. Tem 31 anos, trabalhou nos últimos anos como auxiliar de limpeza e copeira em salões de beleza na Barra da Tijuca. Está preocupada em conseguir o salário maternidade considerando os contratos por prazo determinado.",
+        notes: [
+          "Cliente residente no Rio de Janeiro - RJ",
+          "Último vínculo registrado: Natural Hair Rio (auxiliar de limpeza) até 28/01/2026",
+          "Histórico recente de vínculos curtos em salões da Barra da Tijuca",
+          "Possui CTPS Digital atualizada e documentos pessoais em mãos",
+          "Acesso ao Gov.br confirmado para consulta de CNIS",
+        ],
+        nextSteps:
+          "Conferir período de graça e qualidade de segurada, solicitar CNIS atualizado e dar entrada no requerimento de salário maternidade",
+      },
+      {
+        sdrName: "Amanda Souza",
+        date: "2026-04-02",
+        channel: "WhatsApp",
+        clientMood: "decidido",
+        summary:
+          "Esthefany enviou todos os documentos solicitados pelo WhatsApp: identidade frente e verso, CTPS digital e contrato assinado. Confirmou os dados de contato e aceitou prosseguir com a representação.",
+        notes: [
+          "Contrato de honorários assinado digitalmente",
+          "RG e CTPS recebidos e validados",
+          "Telefone único de contato: (21) 98326-6165",
+          "Cliente colaborativa e atenta às orientações",
+        ],
+        nextSteps: "Protocolar requerimento administrativo do salário maternidade junto ao INSS",
+      },
+    ],
+  },
+];
