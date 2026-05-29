@@ -1,6 +1,6 @@
 import logoJurisfy from "@/assets/logo-jurisfy.png";
 import { type ClientFolder } from "@/data/mockClients";
-import { Folder, Users, FileText, Search, ChevronRight, LogOut, Filter } from "lucide-react";
+import { Folder, Users, FileText, Search, ChevronRight, ChevronLeft, LogOut, Filter } from "lucide-react";
 
 interface SidebarProps {
   clients: ClientFolder[];
@@ -12,6 +12,8 @@ interface SidebarProps {
   onStatusFilterChange: (status: string) => void;
   onSignOut?: () => void;
   userEmail?: string;
+  collapsed: boolean;
+  onToggleCollapse: () => void;
 }
 
 const statusLabels: Record<string, string> = {
@@ -28,15 +30,11 @@ const statusDot: Record<string, string> = {
 };
 
 export function Sidebar({
-  clients,
-  selectedClient,
-  onSelectClient,
-  searchTerm,
-  onSearchChange,
-  statusFilter,
-  onStatusFilterChange,
-  onSignOut,
-  userEmail,
+  clients, selectedClient, onSelectClient,
+  searchTerm, onSearchChange,
+  statusFilter, onStatusFilterChange,
+  onSignOut, userEmail,
+  collapsed, onToggleCollapse,
 }: SidebarProps) {
   const filteredClients = clients.filter((c) => {
     const matchesSearch =
@@ -46,13 +44,76 @@ export function Sidebar({
     return matchesSearch && matchesStatus;
   });
 
+  const statusCounts: Record<string, number> = {
+    all: clients.length,
+    em_andamento: clients.filter(c => c.status === "em_andamento").length,
+    concluido: clients.filter(c => c.status === "concluido").length,
+    aguardando: clients.filter(c => c.status === "aguardando").length,
+  };
+
+  if (collapsed) {
+    return (
+      <aside className="w-16 min-h-screen flex flex-col bg-sidebar-bg border-r border-sidebar-border flex-shrink-0">
+        <div className="p-3 border-b border-sidebar-border flex flex-col items-center gap-2 pt-4">
+          <img src={logoJurisfy} alt="Jurisfy" className="w-8 h-8 object-contain" width={64} height={64} />
+          <button
+            onClick={onToggleCollapse}
+            className="p-1 rounded-lg hover:bg-sidebar-muted transition-colors"
+            title="Expandir barra lateral"
+          >
+            <ChevronRight className="w-4 h-4 text-sidebar-fg/50" />
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto py-2 flex flex-col items-center gap-1">
+          {filteredClients.map((client) => (
+            <button
+              key={client.id}
+              onClick={() => onSelectClient(client)}
+              className={`w-10 h-10 rounded-lg flex items-center justify-center relative transition-all ${
+                selectedClient?.id === client.id
+                  ? "bg-sidebar-primary/15"
+                  : "hover:bg-sidebar-muted"
+              }`}
+              title={client.clientName}
+            >
+              <Folder className={`w-5 h-5 ${selectedClient?.id === client.id ? "text-sidebar-primary" : "text-sidebar-fg/50"}`} />
+              <div className={`absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full ${statusDot[client.status] || "bg-muted"}`} />
+            </button>
+          ))}
+        </div>
+
+        <div className="p-3 border-t border-sidebar-border flex flex-col items-center gap-2">
+          {onSignOut && (
+            <button
+              onClick={onSignOut}
+              className="w-10 h-10 rounded-lg flex items-center justify-center text-sidebar-fg/70 hover:text-destructive hover:bg-destructive/10 transition-all"
+              title="Sair"
+            >
+              <LogOut className="w-5 h-5" />
+            </button>
+          )}
+        </div>
+      </aside>
+    );
+  }
+
   return (
-    <aside className="w-72 min-h-screen flex flex-col bg-sidebar-bg border-r border-sidebar-border">
+    <aside className="w-72 min-h-screen flex flex-col bg-sidebar-bg border-r border-sidebar-border flex-shrink-0">
       {/* Logo */}
       <div className="p-5 border-b border-sidebar-border">
-        <div className="flex items-center gap-2">
-          <img src={logoJurisfy} alt="Jurisfy" className="w-8 h-8 object-contain" width={64} height={64} />
-          <span className="font-display font-bold text-lg text-sidebar-fg tracking-tight">Jurisfy</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <img src={logoJurisfy} alt="Jurisfy" className="w-8 h-8 object-contain" width={64} height={64} />
+            <span className="font-display font-bold text-lg text-sidebar-fg tracking-tight">Jurisfy</span>
+          </div>
+          <button
+            onClick={onToggleCollapse}
+            className="p-1 rounded-lg hover:bg-sidebar-muted transition-colors"
+            title="Recolher barra lateral"
+          >
+            <ChevronLeft className="w-4 h-4 text-sidebar-fg/50" />
+          </button>
         </div>
       </div>
 
@@ -69,9 +130,9 @@ export function Sidebar({
           />
         </div>
 
-        {/* Status Filter */}
-        <div className="flex items-center gap-1">
-          <Filter className="w-3 h-3 text-sidebar-fg/40 mr-1" />
+        {/* Status Filter with counts */}
+        <div className="flex items-center gap-1 flex-wrap">
+          <Filter className="w-3 h-3 text-sidebar-fg/40 mr-1 flex-shrink-0" />
           {Object.entries(statusLabels).map(([value, label]) => (
             <button
               key={value}
@@ -83,6 +144,9 @@ export function Sidebar({
               }`}
             >
               {label}
+              {statusCounts[value] > 0 && (
+                <span className="ml-1 opacity-70">({statusCounts[value]})</span>
+              )}
             </button>
           ))}
         </div>
@@ -125,8 +189,13 @@ export function Sidebar({
             </div>
           </button>
         ))}
+
         {filteredClients.length === 0 && (
-          <p className="text-center text-sidebar-fg/40 text-xs py-8">Nenhum cliente encontrado</p>
+          <p className="text-center text-sidebar-fg/40 text-xs py-8 px-2 leading-relaxed">
+            {clients.length === 0
+              ? "Nenhum caso atribuído a este perfil ainda."
+              : "Nenhum cliente encontrado."}
+          </p>
         )}
       </div>
 

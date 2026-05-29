@@ -54,7 +54,7 @@ export function useClientFiles(clientId: string) {
     file: File,
     fileType: string,
     description: string
-  ) => {
+  ): Promise<boolean> => {
     setUploading(true);
     try {
       const { data: userData } = await supabase.auth.getUser();
@@ -87,6 +87,7 @@ export function useClientFiles(clientId: string) {
       });
 
       await fetchFiles();
+      return true;
     } catch (err: any) {
       console.error("Upload error:", err);
       toast({
@@ -94,6 +95,7 @@ export function useClientFiles(clientId: string) {
         description: err.message || "Não foi possível enviar o arquivo.",
         variant: "destructive",
       });
+      return false;
     } finally {
       setUploading(false);
     }

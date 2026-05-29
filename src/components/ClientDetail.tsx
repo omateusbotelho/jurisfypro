@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
 import { FichaModal } from "./FichaModal";
 import { UploadModal } from "./UploadModal";
@@ -7,7 +7,7 @@ import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
   Phone, Mail, MapPin, Hash, Clock, CheckCircle2, AlertCircle, Upload, Trash2,
-  ExternalLink, Filter, X, KeyRound
+  ExternalLink, Filter, X, KeyRound, Loader2
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { formatPtBrDate } from "@/lib/utils";
@@ -131,8 +131,8 @@ function FileCard({ file, onDocClick, onDelete, onPreview }: { file: ClientFile;
   const isClickable = isDoc || hasFileSrc;
 
   const handleClick = () => {
-    if (isDoc && onDocClick) onDocClick();
-    else if (hasFileSrc && onPreview) onPreview();
+    if (hasFileSrc && onPreview) onPreview();
+    else if (isDoc && onDocClick) onDocClick();
   };
 
   return (
@@ -141,7 +141,11 @@ function FileCard({ file, onDocClick, onDelete, onPreview }: { file: ClientFile;
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground truncate">
           {file.name}
-          {isClickable && <span className="ml-2 text-xs text-primary font-medium">Clique para visualizar</span>}
+          {isClickable && (
+            <span className="ml-2 text-xs text-primary font-medium">
+              {isDoc && !hasFileSrc ? "Ver Ficha" : "Clique para visualizar"}
+            </span>
+          )}
         </p>
         <p className="text-xs text-muted-foreground truncate">{file.description}</p>
         <div className="flex items-center gap-3 mt-1">
@@ -210,7 +214,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
   const [showFicha, setShowFicha] = useState(false);
   const [showUpload, setShowUpload] = useState(false);
   const [previewFile, setPreviewFile] = useState<ClientFile | null>(null);
-  const { files: uploadedFiles, uploading, uploadFile, deleteFile } = useClientFiles(client.id);
+  const { files: uploadedFiles, uploading, uploadFile, deleteFile, loading: loadingFiles } = useClientFiles(client.id);
   const status = statusConfig[client.status];
   const StatusIcon = status.icon;
 
@@ -244,6 +248,16 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
 
   // Apply type filter
   const visibleTypes = typeFilter === "all" ? Object.keys(groupedFiles) : [typeFilter];
+
+  // Fix 1: previewable files for navigation
+  const previewableFiles = useMemo(() =>
+    (typeFilter === "all" ? client.files : client.files.filter(f => f.type === typeFilter))
+      .filter(f => f.fileSrc),
+    [client.files, typeFilter]
+  );
+  const previewIndex = previewFile ? previewableFiles.findIndex(f => f.id === previewFile.id) : -1;
+  const handlePrev = previewIndex > 0 ? () => setPreviewFile(previewableFiles[previewIndex - 1]) : undefined;
+  const handleNext = previewIndex !== -1 && previewIndex < previewableFiles.length - 1 ? () => setPreviewFile(previewableFiles[previewIndex + 1]) : undefined;
 
   return (
     <div className="animate-fade-in">
@@ -337,7 +351,12 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
       )}
 
       {/* Uploaded Files Section */}
-      {totalUploaded > 0 && (typeFilter === "all" || groupedUploaded[typeFilter]?.length) && (
+      {loadingFiles ? (
+        <div className="mb-6 flex items-center gap-2 py-3 px-1">
+          <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+          <span className="text-sm text-muted-foreground">Carregando arquivos enviados...</span>
+        </div>
+      ) : totalUploaded > 0 && (typeFilter === "all" || groupedUploaded[typeFilter]?.length) ? (
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-3">
             <Upload className="w-4 h-4 text-primary" />
@@ -351,7 +370,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
             ))}
           </div>
         </div>
-      )}
+      ) : null}
 
       {/* Mock Files */}
       {visibleTypes.map((type) => {
@@ -384,7 +403,14 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
       {/* Modals */}
       {showFicha && <FichaModal client={client} onClose={() => setShowFicha(false)} />}
       {showUpload && <UploadModal onUpload={uploadFile} onClose={() => setShowUpload(false)} uploading={uploading} />}
-      {previewFile && <FilePreviewModal file={previewFile} onClose={() => setPreviewFile(null)} />}
+      {previewFile && (
+        <FilePreviewModal
+          file={previewFile}
+          onClose={() => setPreviewFile(null)}
+          onPrev={handlePrev}
+          onNext={handleNext}
+        />
+      )}
     </div>
   );
 }

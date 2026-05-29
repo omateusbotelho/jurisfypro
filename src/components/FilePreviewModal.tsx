@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { X, Download, ChevronLeft, ChevronRight } from "lucide-react";
 import { type ClientFile } from "@/data/mockClients";
 
@@ -9,6 +10,16 @@ interface FilePreviewModalProps {
 }
 
 export function FilePreviewModal({ file, onClose, onPrev, onNext }: FilePreviewModalProps) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onPrev?.();
+      if (e.key === "ArrowRight") onNext?.();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose, onPrev, onNext]);
+
   const isImage = file.type === "photo";
   const isPdf = file.type === "pdf" || file.type === "contract";
 

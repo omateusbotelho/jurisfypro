@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Upload, X, FileText, Music, Image, File, FileSignature } from "lucide-react";
 
 const typeOptions = [
@@ -10,7 +10,7 @@ const typeOptions = [
 ];
 
 interface UploadModalProps {
-  onUpload: (file: File, fileType: string, description: string) => Promise<void>;
+  onUpload: (file: File, fileType: string, description: string) => Promise<boolean>;
   onClose: () => void;
   uploading: boolean;
 }
@@ -22,6 +22,12 @@ export function UploadModal({ onUpload, onClose, uploading }: UploadModalProps) 
   const [dragOver, setDragOver] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setDragOver(false);
@@ -31,8 +37,8 @@ export function UploadModal({ onUpload, onClose, uploading }: UploadModalProps) 
 
   const handleSubmit = async () => {
     if (!selectedFile) return;
-    await onUpload(selectedFile, fileType, description);
-    onClose();
+    const success = await onUpload(selectedFile, fileType, description);
+    if (success) onClose();
   };
 
   const formatSize = (bytes: number) => {

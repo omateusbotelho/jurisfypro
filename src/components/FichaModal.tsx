@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { type ClientFolder, type SdrNote } from "@/data/mockClients";
 import { formatPtBrDate } from "@/lib/utils";
 import {
@@ -29,6 +30,12 @@ interface FichaModalProps {
 }
 
 export function FichaModal({ client, onClose }: FichaModalProps) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       {/* Backdrop */}

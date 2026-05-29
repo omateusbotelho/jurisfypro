@@ -29,6 +29,7 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     const data = getInitialClients(userEmail);
@@ -70,6 +71,8 @@ const Index = () => {
         onStatusFilterChange={setStatusFilter}
         onSignOut={signOut}
         userEmail={session.user.email}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
       />
 
       <main className="flex-1 p-8 overflow-y-auto">
@@ -80,6 +83,18 @@ const Index = () => {
             typeFilter={typeFilter}
             onTypeFilterChange={setTypeFilter}
           />
+        ) : clients.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-full text-center animate-fade-in">
+            <div className="w-20 h-20 rounded-2xl bg-muted flex items-center justify-center mb-6">
+              <FolderOpen className="w-10 h-10 text-muted-foreground" />
+            </div>
+            <h2 className="text-2xl font-display font-bold text-foreground mb-2">
+              Nenhum caso atribuído
+            </h2>
+            <p className="text-muted-foreground max-w-md">
+              Ainda não há pastas vinculadas a este perfil. Entre em contato com a equipe João Ferret para receber seus primeiros casos.
+            </p>
+          </div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full text-center animate-fade-in">
             <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
