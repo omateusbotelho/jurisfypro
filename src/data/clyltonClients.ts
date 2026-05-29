@@ -1,0 +1,117 @@
+import type { ClientFolder } from "./mockClients";
+
+export const clyltonClients: ClientFolder[] = [
+  {
+    id: "cl1",
+    clientName: "Patricia Ramos Rossi",
+    cpf: "440.048.218-94",
+    contractType: "Salário Maternidade",
+    status: "concluido",
+    createdAt: "2026-05-29",
+    phone: "(16) 99391-6284",
+    email: "patricia.rossi95@gmail.com",
+    address: "Franca - SP",
+    benefitType: "Salário Maternidade",
+    govBrPassword: "Patty2502*",
+    files: [
+      {
+        id: "cl1a",
+        name: "Contrato e Procuração - Patricia Ramos Rossi.pdf",
+        type: "contract",
+        size: "312 KB",
+        date: "2026-05-29",
+        description: "Contrato de honorários e procuração ad judicia combinados (modelo do escritório Clylton Santos)",
+        fileSrc: "/clients/patricia/contrato_assinado.pdf",
+      },
+      {
+        id: "cl1b",
+        name: "Identidade - Frente.jpg",
+        type: "photo",
+        size: "118 KB",
+        date: "2026-05-28",
+        description: "Carteira de Identidade (SSP/SP) - frente com foto e filiação",
+        fileSrc: "/clients/patricia/identidade_frente.jpg",
+      },
+      {
+        id: "cl1c",
+        name: "Identidade - Verso.jpg",
+        type: "photo",
+        size: "126 KB",
+        date: "2026-05-28",
+        description: "Carteira de Identidade - verso (CPF, RG, CTPS e polegar)",
+        fileSrc: "/clients/patricia/identidade_verso.jpg",
+      },
+      {
+        id: "cl1d",
+        name: "Comprovante de Residência - Sabesp.jpg",
+        type: "photo",
+        size: "164 KB",
+        date: "2026-05-28",
+        description: "Conta de água Sabesp em nome do companheiro Thiago Silva Moreira - mesmo endereço (Av. Theodomiro Ramos, 741)",
+        fileSrc: "/clients/patricia/comprovante_residencia.jpg",
+      },
+      {
+        id: "cl1e",
+        name: "Certidão de Nascimento - Filha.jpg",
+        type: "photo",
+        size: "212 KB",
+        date: "2026-05-28",
+        description: "Certidão de nascimento de Maria Liz Rossi Moreira (nascida em 04/03/2026, Hospital Hapvida - Franca/SP)",
+        fileSrc: "/clients/patricia/certidao_nascimento_filha.jpg",
+      },
+      {
+        id: "cl1f",
+        name: "Comprovante CPF - Filha.jpg",
+        type: "photo",
+        size: "72 KB",
+        date: "2026-05-28",
+        description: "Comprovante de inscrição CPF da filha Maria Liz Rossi Moreira",
+        fileSrc: "/clients/patricia/cpf_filha.jpg",
+      },
+      {
+        id: "cl1g",
+        name: "Ficha do Caso.md",
+        type: "doc",
+        size: "2 KB",
+        date: "2026-05-29",
+        description: "Ficha consolidada do caso (contratante, menor representada e observações)",
+      },
+    ],
+    sdrNotes: [
+      {
+        sdrName: "Atendimento Clylton Santos",
+        date: "2026-05-28",
+        channel: "WhatsApp",
+        clientMood: "ansioso",
+        summary:
+          "Patricia procurou o escritório pelo WhatsApp para dar entrada no salário maternidade após o nascimento da filha Maria Liz, em 04/03/2026, no Hospital Hapvida de Franca/SP. Tem 31 anos, natural e residente em Franca - SP, no bairro City Petrópolis B, e mora com o companheiro Thiago Silva Moreira, que é o titular das contas da residência.",
+        notes: [
+          "Cliente residente em Franca - SP (Av. Theodomiro Ramos, 741 - City Petrópolis B)",
+          "Filha: Maria Liz Rossi Moreira (CPF 163.046.888-65, nascida em 04/03/2026)",
+          "Companheiro: Thiago Silva Moreira (titular do comprovante de residência - Sabesp)",
+          "RG 45.440.120-6 SSP-SP (2ª via expedida em 18/12/2020) e CPF 440.048.218-94 validados",
+          "Filiação: José Aparecido Rossi e Solange Ramos",
+          "Pendências cadastrais: estado civil e profissão",
+        ],
+        nextSteps:
+          "Solicitar CNIS atualizado, confirmar estado civil/profissão e dar entrada no requerimento administrativo do salário maternidade",
+      },
+      {
+        sdrName: "Atendimento Clylton Santos",
+        date: "2026-05-29",
+        channel: "WhatsApp",
+        clientMood: "decidido",
+        summary:
+          "Patricia enviou todos os documentos pelo WhatsApp e assinou o contrato e procuração combinados no modelo do escritório Clylton Santos. Confirmou os dados cadastrais e autorizou o início do processo.",
+        notes: [
+          "Documento único de contrato + procuração assinado (modelo Clylton Santos)",
+          "Comprovante de residência em nome do companheiro - anexar declaração de união estável/residência",
+          "Documentos da filha (certidão de nascimento e CPF) recebidos e validados",
+          "Telefone único de contato: (16) 99391-6284",
+        ],
+        nextSteps:
+          "Anexar declaração de residência/união estável e protocolar requerimento administrativo do salário maternidade junto ao INSS",
+      },
+    ],
+  },
+];
