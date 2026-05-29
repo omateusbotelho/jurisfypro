@@ -14,9 +14,10 @@ const DEMO_EMAILS = ["joaoferretadv@gmail.com"];
 
 const getInitialClients = (email: string | undefined): ClientFolder[] => {
   if (!email) return [];
-  if (DEMO_EMAILS.includes(email)) return mockClients;
-  if (email === FERNANDES_EMAIL) return fernandesClients;
-  if (email === CLYLTON_EMAIL) return clyltonClients;
+  const e = email.toLowerCase();
+  if (DEMO_EMAILS.includes(e)) return mockClients;
+  if (e === FERNANDES_EMAIL) return fernandesClients;
+  if (e === CLYLTON_EMAIL) return clyltonClients;
   return [];
 };
 
