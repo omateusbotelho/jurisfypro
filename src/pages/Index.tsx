@@ -5,15 +5,18 @@ import { LoginPage } from "@/components/LoginPage";
 import { useAuth } from "@/hooks/useAuth";
 import { mockClients, type ClientFolder } from "@/data/mockClients";
 import { fernandesClients } from "@/data/fernandesClients";
+import { clyltonClients } from "@/data/clyltonClients";
 import { FolderOpen, Loader2 } from "lucide-react";
 
 const FERNANDES_EMAIL = "fernandesrodriguesadv@gmail.com";
+const CLYLTON_EMAIL = "clyltonsantos.adv@gmail.com";
 const DEMO_EMAILS = ["joaoferretadv@gmail.com"];
 
 const getInitialClients = (email: string | undefined): ClientFolder[] => {
   if (!email) return [];
   if (DEMO_EMAILS.includes(email)) return mockClients;
   if (email === FERNANDES_EMAIL) return fernandesClients;
+  if (email === CLYLTON_EMAIL) return clyltonClients;
   return [];
 };
 
