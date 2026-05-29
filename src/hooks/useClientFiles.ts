@@ -28,6 +28,7 @@ export function useClientFiles(clientId: string) {
 
     if (error) {
       console.error("Error fetching files:", error);
+      setLoading(false);
       return;
     }
 
@@ -60,7 +61,6 @@ export function useClientFiles(clientId: string) {
       if (!userData.user) throw new Error("Não autenticado");
 
       const userId = userData.user.id;
-      const ext = file.name.split(".").pop();
       const filePath = `${userId}/${clientId}/${Date.now()}_${file.name}`;
 
       const { error: uploadError } = await supabase.storage

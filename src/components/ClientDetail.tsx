@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { type ClientFolder, type ClientFile } from "@/data/mockClients";
 import { FichaModal } from "./FichaModal";
 import { UploadModal } from "./UploadModal";
@@ -6,7 +6,7 @@ import { FilePreviewModal } from "./FilePreviewModal";
 import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
   FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
-  Phone, Mail, MapPin, Hash, Scale, Clock, CheckCircle2, AlertCircle, Upload, Trash2,
+  Phone, Mail, MapPin, Hash, Clock, CheckCircle2, AlertCircle, Upload, Trash2,
   ExternalLink, Filter, X, KeyRound
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -47,15 +47,38 @@ function AudioPlayer({ file, onDelete }: { file: ClientFile; onDelete?: () => vo
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const src = file.audioSrc || "/audio/silent.wav";
-  const [audioRef] = useState(() => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
     const audio = new Audio(src);
-    audio.addEventListener("ended", () => { setIsPlaying(false); setProgress(0); setCurrentTime(0); });
-    audio.addEventListener("timeupdate", () => { if (audio.duration) { setProgress((audio.currentTime / audio.duration) * 100); setCurrentTime(audio.currentTime); } });
-    audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
-    return audio;
-  });
-  const togglePlay = () => { if (isPlaying) { audioRef.pause(); setIsPlaying(false); } else { audioRef.play(); setIsPlaying(true); } };
-  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => { const rect = e.currentTarget.getBoundingClientRect(); const pct = (e.clientX - rect.left) / rect.width; if (audioRef.duration) audioRef.currentTime = pct * audioRef.duration; };
+    const onEnded = () => { setIsPlaying(false); setProgress(0); setCurrentTime(0); };
+    const onTimeUpdate = () => { if (audio.duration) { setProgress((audio.currentTime / audio.duration) * 100); setCurrentTime(audio.currentTime); } };
+    const onLoadedMetadata = () => setDuration(audio.duration);
+    audio.addEventListener("ended", onEnded);
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    audio.addEventListener("loadedmetadata", onLoadedMetadata);
+    audioRef.current = audio;
+    return () => {
+      audio.pause();
+      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+      audio.removeEventListener("loadedmetadata", onLoadedMetadata);
+      audio.src = "";
+    };
+  }, [src]);
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) { audio.pause(); setIsPlaying(false); } else { audio.play(); setIsPlaying(true); }
+  };
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    if (audio.duration) audio.currentTime = pct * audio.duration;
+  };
 
   return (
     <div className={`group flex items-center gap-3 p-3 rounded-lg border bg-card transition-all animate-fade-in ${isPlaying ? "border-info/40 shadow-md shadow-info/10" : "border-border hover:shadow-md hover:border-primary/20"}`}>
@@ -202,9 +225,6 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
     onUpdateClient(updated);
     toast({ title: "Status atualizado", description: `Cliente marcado como "${statusConfig[newStatus].label}".` });
   };
-
-  const allTypes = ["all", "contract", "pdf", "doc", "photo", "audio"];
-  const typeLabelsWithAll: Record<string, string> = { all: "Todos", ...fileTypeLabels };
 
   const groupedFiles: Record<string, ClientFile[]> = {
     contract: client.files.filter((f) => f.type === "contract"),

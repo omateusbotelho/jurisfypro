@@ -76,7 +76,7 @@ export function FichaModal({ client, onClose }: FichaModalProps) {
 }
 
 function SdrNoteCard({ note, index, total }: { note: SdrNote; index: number; total: number }) {
-  const mood = moodConfig[note.clientMood];
+  const mood = moodConfig[note.clientMood] ?? moodConfig.tranquilo;
   const MoodIcon = mood.icon;
   const ChannelIcon = channelIcons[note.channel] || Globe;
 
