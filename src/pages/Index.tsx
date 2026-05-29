@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { mockClients, type ClientFolder } from "@/data/mockClients";
 import { fernandesClients } from "@/data/fernandesClients";
 import { clyltonClients } from "@/data/clyltonClients";
-import { FolderOpen, Loader2 } from "lucide-react";
+import { FolderOpen, Loader2, Menu } from "lucide-react";
 
 const FERNANDES_EMAIL = "fernandesrodriguesadv@gmail.com";
 const CLYLTON_EMAIL = "clyltonsantos.adv@gmail.com";
@@ -30,6 +30,7 @@ const Index = () => {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [typeFilter, setTypeFilter] = useState<string>("all");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const data = getInitialClients(userEmail);
@@ -40,6 +41,11 @@ const Index = () => {
   }, [userEmail]);
 
   const selectedClient = clients.find((client) => client.id === selectedClientId) ?? null;
+
+  // Fix 7: update page title on client change
+  useEffect(() => {
+    document.title = selectedClient ? `${selectedClient.clientName} — Jurisfy` : "Jurisfy";
+  }, [selectedClient]);
 
   const updateClient = useCallback((updatedClient: ClientFolder) => {
     setClients((prev) =>
@@ -61,23 +67,56 @@ const Index = () => {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar
-        clients={clients}
-        selectedClient={selectedClient}
-        onSelectClient={(client) => setSelectedClientId(client.id)}
-        searchTerm={searchTerm}
-        onSearchChange={setSearchTerm}
-        statusFilter={statusFilter}
-        onStatusFilterChange={setStatusFilter}
-        onSignOut={signOut}
-        userEmail={session.user.email}
-        collapsed={sidebarCollapsed}
-        onToggleCollapse={() => setSidebarCollapsed((v) => !v)}
-      />
+      {/* Fix 10: Mobile backdrop */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
 
-      <main className="flex-1 p-8 overflow-y-auto">
+      {/* Fix 10: Sidebar — overlay on mobile, static on desktop */}
+      <div className={mobileMenuOpen ? "fixed inset-y-0 left-0 z-50" : "hidden lg:block"}>
+        <Sidebar
+          clients={clients}
+          selectedClient={selectedClient}
+          onSelectClient={(client) => {
+            setSelectedClientId(client.id);
+            setMobileMenuOpen(false);
+          }}
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          statusFilter={statusFilter}
+          onStatusFilterChange={setStatusFilter}
+          onSignOut={signOut}
+          userEmail={session.user.email}
+          collapsed={sidebarCollapsed}
+          onToggleCollapse={() => {
+            setSidebarCollapsed((v) => !v);
+            setMobileMenuOpen(false);
+          }}
+        />
+      </div>
+
+      <main className="flex-1 min-w-0 overflow-y-auto p-4 lg:p-8">
+        {/* Fix 10: Mobile header with hamburger */}
+        <div className="lg:hidden flex items-center gap-3 mb-4 pb-3 border-b border-border">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 rounded-lg hover:bg-muted transition-colors flex-shrink-0"
+            title="Abrir menu"
+          >
+            <Menu className="w-5 h-5 text-foreground" />
+          </button>
+          <span className="text-sm font-medium text-muted-foreground truncate">
+            {selectedClient ? selectedClient.clientName : "Jurisfy"}
+          </span>
+        </div>
+
         {selectedClient ? (
+          /* Fix 9: key forces remount + fade-in on client change */
           <ClientDetail
+            key={selectedClient.id}
             client={selectedClient}
             onUpdateClient={updateClient}
             typeFilter={typeFilter}

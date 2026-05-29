@@ -73,9 +73,16 @@ export function FichaModal({ client, onClose }: FichaModalProps) {
 
         {/* Content */}
         <div className="overflow-y-auto max-h-[calc(85vh-140px)] p-6 space-y-6">
-          {(client.sdrNotes || []).map((note, idx) => (
-            <SdrNoteCard key={idx} note={note} index={idx} total={(client.sdrNotes || []).length} />
-          ))}
+          {(client.sdrNotes || []).length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-10 text-center">
+              <MessageCircle className="w-10 h-10 text-muted-foreground/20 mb-3" />
+              <p className="text-sm text-muted-foreground">Nenhuma nota de atendimento registrada.</p>
+            </div>
+          ) : (
+            (client.sdrNotes || []).map((note, idx) => (
+              <SdrNoteCard key={idx} note={note} index={idx} total={(client.sdrNotes || []).length} />
+            ))
+          )}
         </div>
       </div>
     </div>

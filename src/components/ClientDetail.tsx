@@ -5,9 +5,9 @@ import { UploadModal } from "./UploadModal";
 import { FilePreviewModal } from "./FilePreviewModal";
 import { useClientFiles, type UploadedFile } from "@/hooks/useClientFiles";
 import {
-  FileText, Music, Image, File, FileSignature, Download, Eye, Calendar, Play, Pause,
+  FileText, Music, Image, File, FileSignature, Download, Eye, EyeOff, Calendar, Play, Pause,
   Phone, Mail, MapPin, Hash, Clock, CheckCircle2, AlertCircle, Upload, Trash2,
-  ExternalLink, Filter, X, KeyRound, Loader2
+  ExternalLink, Filter, X, KeyRound, Loader2, ChevronDown
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { formatPtBrDate } from "@/lib/utils";
@@ -22,6 +22,9 @@ const fileColors: Record<string, string> = {
 };
 const fileTypeLabels: Record<string, string> = {
   pdf: "PDF", audio: "Áudio", photo: "Foto", doc: "Documento", contract: "Contrato Assinado",
+};
+const fileTypeLabelPlural: Record<string, string> = {
+  pdf: "PDFs", audio: "Áudios", photo: "Fotos", doc: "Documentos", contract: "Contratos Assinados",
 };
 const statusConfig: Record<string, { label: string; className: string; icon: typeof CheckCircle2 }> = {
   em_andamento: { label: "Em Andamento", className: "bg-info/10 text-info", icon: Clock },
@@ -41,6 +44,8 @@ function formatFileSize(bytes: number) {
   return (bytes / (1024 * 1024)).toFixed(1) + " MB";
 }
 
+let globalCurrentAudio: HTMLAudioElement | null = null;
+
 function AudioPlayer({ file, onDelete }: { file: ClientFile; onDelete?: () => void }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -54,15 +59,19 @@ function AudioPlayer({ file, onDelete }: { file: ClientFile; onDelete?: () => vo
     const onEnded = () => { setIsPlaying(false); setProgress(0); setCurrentTime(0); };
     const onTimeUpdate = () => { if (audio.duration) { setProgress((audio.currentTime / audio.duration) * 100); setCurrentTime(audio.currentTime); } };
     const onLoadedMetadata = () => setDuration(audio.duration);
+    const onPause = () => setIsPlaying(false);
     audio.addEventListener("ended", onEnded);
     audio.addEventListener("timeupdate", onTimeUpdate);
     audio.addEventListener("loadedmetadata", onLoadedMetadata);
+    audio.addEventListener("pause", onPause);
     audioRef.current = audio;
     return () => {
       audio.pause();
+      if (globalCurrentAudio === audio) globalCurrentAudio = null;
       audio.removeEventListener("ended", onEnded);
       audio.removeEventListener("timeupdate", onTimeUpdate);
       audio.removeEventListener("loadedmetadata", onLoadedMetadata);
+      audio.removeEventListener("pause", onPause);
       audio.src = "";
     };
   }, [src]);
@@ -70,7 +79,16 @@ function AudioPlayer({ file, onDelete }: { file: ClientFile; onDelete?: () => vo
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (isPlaying) { audio.pause(); setIsPlaying(false); } else { audio.play(); setIsPlaying(true); }
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+      if (globalCurrentAudio === audio) globalCurrentAudio = null;
+    } else {
+      if (globalCurrentAudio && globalCurrentAudio !== audio) globalCurrentAudio.pause();
+      audio.play();
+      setIsPlaying(true);
+      globalCurrentAudio = audio;
+    }
   };
   const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
     const audio = audioRef.current;
@@ -277,6 +295,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
               <button className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium cursor-pointer transition-colors ${status.className}`}>
                 <StatusIcon className="w-4 h-4" />
                 {status.label}
+                <ChevronDown className="w-3 h-3 opacity-60 ml-0.5" />
               </button>
               <div className="absolute right-0 top-full mt-1 bg-card border border-border rounded-lg shadow-xl opacity-0 invisible group-hover/status:opacity-100 group-hover/status:visible transition-all z-10 min-w-[180px]">
                 {Object.entries(statusConfig).map(([key, cfg]) => {
@@ -307,7 +326,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
           <InfoItem icon={MapPin} label="Endereço" value={client.address} />
           <InfoItem icon={Calendar} label="Data Contrato" value={formatPtBrDate(client.createdAt)} />
           {client.govBrPassword && (
-            <InfoItem icon={KeyRound} label="Senha Gov.br" value={client.govBrPassword} />
+            <SensitiveInfoItem icon={KeyRound} label="Senha Gov.br" value={client.govBrPassword} />
           )}
         </div>
       </div>
@@ -382,7 +401,7 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
             <div className="flex items-center gap-2 mb-3">
               <Icon className="w-4 h-4 text-muted-foreground" />
               <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">
-                {fileTypeLabels[type]}s ({files.length})
+                {fileTypeLabelPlural[type]} ({files.length})
               </h3>
             </div>
             <div className="space-y-2">
@@ -409,6 +428,8 @@ export function ClientDetail({ client, onUpdateClient, typeFilter, onTypeFilterC
           onClose={() => setPreviewFile(null)}
           onPrev={handlePrev}
           onNext={handleNext}
+          currentIndex={previewIndex + 1}
+          total={previewableFiles.length}
         />
       )}
     </div>
@@ -422,6 +443,32 @@ function InfoItem({ icon: Icon, label, value }: { icon: typeof Hash; label: stri
       <div className="min-w-0">
         <p className="text-xs text-muted-foreground">{label}</p>
         <p className="text-sm font-medium text-foreground truncate">{value}</p>
+      </div>
+    </div>
+  );
+}
+
+function SensitiveInfoItem({ icon: Icon, label, value }: { icon: typeof Hash; label: string; value: string }) {
+  const [revealed, setRevealed] = useState(false);
+  return (
+    <div className="flex items-center gap-2">
+      <Icon className="w-4 h-4 text-primary/60 flex-shrink-0" />
+      <div className="min-w-0 flex-1">
+        <p className="text-xs text-muted-foreground">{label}</p>
+        <div className="flex items-center gap-1.5">
+          <p className={`text-sm font-medium text-foreground ${!revealed ? "tracking-widest" : ""}`}>
+            {revealed ? value : "•".repeat(Math.min(value.length, 10))}
+          </p>
+          <button
+            onClick={() => setRevealed(v => !v)}
+            className="p-0.5 hover:text-primary transition-colors flex-shrink-0"
+            title={revealed ? "Ocultar" : "Revelar"}
+          >
+            {revealed
+              ? <EyeOff className="w-3.5 h-3.5 text-muted-foreground" />
+              : <Eye className="w-3.5 h-3.5 text-muted-foreground" />}
+          </button>
+        </div>
       </div>
     </div>
   );

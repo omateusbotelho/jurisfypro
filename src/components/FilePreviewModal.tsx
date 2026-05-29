@@ -7,9 +7,11 @@ interface FilePreviewModalProps {
   onClose: () => void;
   onPrev?: () => void;
   onNext?: () => void;
+  currentIndex?: number;
+  total?: number;
 }
 
-export function FilePreviewModal({ file, onClose, onPrev, onNext }: FilePreviewModalProps) {
+export function FilePreviewModal({ file, onClose, onPrev, onNext, currentIndex, total }: FilePreviewModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -34,7 +36,14 @@ export function FilePreviewModal({ file, onClose, onPrev, onNext }: FilePreviewM
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3 border-b border-border">
           <div className="min-w-0">
-            <h3 className="text-sm font-semibold text-foreground truncate">{file.name}</h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-sm font-semibold text-foreground truncate">{file.name}</h3>
+              {total !== undefined && total > 1 && currentIndex !== undefined && (
+                <span className="text-xs text-muted-foreground flex-shrink-0 bg-muted px-1.5 py-0.5 rounded">
+                  {currentIndex} / {total}
+                </span>
+              )}
+            </div>
             <p className="text-xs text-muted-foreground">{file.description}</p>
           </div>
           <div className="flex items-center gap-1 flex-shrink-0">
